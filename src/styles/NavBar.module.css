@@ -1,1 +1,12 @@
-rafce
+.NavBar {
+    border-bottom: 2px solid rgb(210, 185, 155);
+}
+
+i {
+    color: rgb(210, 182, 148);
+}
+
+a:hover {
+    color: black;
+    cursor: pointer;
+}

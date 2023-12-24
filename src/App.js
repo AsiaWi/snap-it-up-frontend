@@ -1,9 +1,11 @@
-import './App.css';
+// css imports
+import styles from './App.module.css';
+// components imports
 import NavBar from './components/NavBar';
 
 function App() {
   return (
-    <div className="App">
+    <div className= {styles.App}>
       <NavBar/>
     </div>
   );
