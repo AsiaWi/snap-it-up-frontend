@@ -6,6 +6,7 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
+import {NavLink} from 'react-router-dom'
 // react imports
 
 
@@ -13,21 +14,29 @@ const NavBar = () => {
   return (
     <Navbar className={styles.NavBar} expand="md" fixed="top">
       <Container>
+
+        <NavLink exact to='/'>
         <Navbar.Brand>
-          <img src={logo} alt="page logo" height="65"></img>
+          <img src={logo} alt="page logo" height="85"></img>
         </Navbar.Brand>
+        </NavLink>
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-right">
-            <Nav.Link>
+
+          <NavLink exact className={styles.NavLinks} activeClassName={styles.Active} to='/'>
               <i class="fa-solid fa-house"></i>Home
-            </Nav.Link>
-            <Nav.Link>
+            </NavLink>
+
+            <NavLink className={styles.NavLinks} activeClassName={styles.Active} to='/sign-in'>
               <i class="fa-solid fa-right-to-bracket"></i>Sign-in
-            </Nav.Link>
-            <Nav.Link>
+            </NavLink>
+
+            <NavLink className={styles.NavLinks} activeClassName={styles.Active} to='/register'>
               <i class="fa-solid fa-user-plus"></i>Register
-            </Nav.Link>
+            </NavLink>
+
           </Nav>
         </Navbar.Collapse>
       </Container>
