@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// Router import
 import {BrowserRouter as Router} from 'react-router-dom';
+import { LoggedInUserProvider } from './contexts/LoggedInUserContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
+    <LoggedInUserProvider>
     <App />
+    </LoggedInUserProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

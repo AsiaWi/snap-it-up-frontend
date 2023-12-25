@@ -2,14 +2,37 @@
 import styles from "../styles/NavBar.module.css";
 import logo from "../assets/logo.png";
 // bootstrap imports
-import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-import { NavLink } from "react-router-dom";
 // react imports
+import { NavLink } from "react-router-dom";
+import React from "react";
+import { useLoggedInUser } from "../contexts/LoggedInUserContext";
 
 const NavBar = () => {
+  const userLoggedIn = useLoggedInUser();
+
+  const loggedInIcons = <>{userLoggedIn?.username}</>;
+  const loggedOutIcons = (
+    <>
+    <NavLink
+    className={styles.NavLinks}
+    activeClassName={styles.Active}
+    to="/sign-in"
+  >
+    <i class="fa-solid fa-right-to-bracket"></i>Sign-in
+  </NavLink>
+
+  <NavLink
+    className={styles.NavLinks}
+    activeClassName={styles.Active}
+    to="/register"
+  >
+    <i class="fa-solid fa-user-plus"></i>Register
+  </NavLink>
+  </>
+  );
   return (
     <Navbar className={styles.NavBar} expand="md" fixed="top">
       <Container>
@@ -31,21 +54,7 @@ const NavBar = () => {
               <i class="fa-solid fa-house"></i>Home
             </NavLink>
 
-            <NavLink
-              className={styles.NavLinks}
-              activeClassName={styles.Active}
-              to="/sign-in"
-            >
-              <i class="fa-solid fa-right-to-bracket"></i>Sign-in
-            </NavLink>
-
-            <NavLink
-              className={styles.NavLinks}
-              activeClassName={styles.Active}
-              to="/register"
-            >
-              <i class="fa-solid fa-user-plus"></i>Register
-            </NavLink>
+            {userLoggedIn? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -10,7 +10,11 @@ import NavBar from './components/NavBar';
 import RegisterForm from './pages/auth/RegisterForm';
 import SigninForm from './pages/auth/SigninForm';
 
+
+
 function App() {
+ 
+
   return (
     <div className= {styles.App}>
       <NavBar/>

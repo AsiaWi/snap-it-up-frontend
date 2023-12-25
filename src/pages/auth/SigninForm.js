@@ -15,8 +15,11 @@ import {
   Image,
   Alert,
 } from "react-bootstrap";
+import { useSetLoggedInUser } from "../../contexts/LoggedInUserContext";
 
 const SigninForm = () => {
+  const setLoggedInUser = useSetLoggedInUser();
+
   const [signInData, setSignInData] = useState({
     username: "",
     password: "",
@@ -36,7 +39,8 @@ const SigninForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("/dj-rest-auth/login/", signInData);
+      const { data } =await axios.post("/dj-rest-auth/login/", signInData);
+      setLoggedInUser(data.user);
       history.push("/");
     } catch (err) {
       setErrors(err.response?.data);
