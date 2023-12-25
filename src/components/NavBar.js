@@ -17,7 +17,7 @@ const NavBar = () => {
 
         <NavLink exact to='/'>
         <Navbar.Brand>
-          <img src={logo} alt="page logo" height="85"></img>
+          <img src={logo} alt="page logo" height="65"></img>
         </Navbar.Brand>
         </NavLink>
 
