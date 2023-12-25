@@ -1,6 +1,33 @@
-.Image {
-    max-height: 200px;
-    min-width: 80%;
-    border-radius: 50%;
+.Form {
+    background-color: rgba(231, 211, 211, 0.2) ;    
+}
 
+.header {
+    color: brown;
+    text-align: center;
+    font-size: x-large;
+}
+
+.FormInput {
+    text-align: center;
+}
+
+.Image {
+   border-radius: 50%;
+   object-fit: cover;
+   max-width: 100%;
+}
+
+.ImageCol {
+  padding: 7%;
+}
+
+.Link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Link span {
+    color: brown;
 }
