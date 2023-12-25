@@ -14,9 +14,13 @@
 }
 
 .Button:hover {
-    background-color: rosybrown;
+    background-color:rgb(128, 88, 88);
     border: 4px inset white;
     font-size: 20px;
+}
+
+.Button:focus {
+    background-color: rgb(255, 10, 10);
 }
   
   

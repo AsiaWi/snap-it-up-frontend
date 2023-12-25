@@ -1,5 +1,6 @@
 .Form {
-    background-color: rgba(231, 211, 211, 0.2) ;    
+    background-color: rgba(231, 211, 211, 0.2) ;
+    border: 14px inset rgba(231, 211, 211, 0.2);    
 }
 
 .header {
