@@ -8,18 +8,63 @@ import Nav from "react-bootstrap/Nav";
 // react imports
 import { NavLink } from "react-router-dom";
 import React from "react";
-import { useLoggedInUser } from "../contexts/LoggedInUserContext";
+import { useLoggedInUser, useSetLoggedInUser } from "../contexts/LoggedInUserContext";
+import axios from "axios";
+
 
 const NavBar = () => {
   const userLoggedIn = useLoggedInUser();
+  const setLoggedInUser = useSetLoggedInUser();
 
-  const loggedInIcons = <>{userLoggedIn?.username}</>;
+  const handleSignOut = async () => {
+    try {
+      await axios.post('dj-rest-auth/logout/');
+      setLoggedInUser(null);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const loggedInIcons = (
+    <>
+    <NavLink
+    className={styles.NavLinks}
+    activeClassName={styles.Active}
+    to="/saved"
+  >
+    <i class="fa-solid fa-bookmark"></i>Saved
+  </NavLink>
+    <NavLink
+    className={styles.NavLinks}
+    activeClassName={styles.Active}
+    to="/adverts/create"
+  >
+    <i class="fa-solid fa-plus"></i>Sell !t
+  </NavLink>
+  <NavLink
+    className={styles.NavLinks}
+    activeClassName={styles.Active}
+    to={`/profiles/${userLoggedIn?.profile_id}`}
+  >
+    <i class="fa-solid fa-user"></i>{userLoggedIn?.username}
+  </NavLink>
+  <NavLink
+    className={styles.NavLinks}
+    to="/"
+    onClick={handleSignOut}
+  >
+    <i class="fa-solid fa-right-from-bracket"></i>Sign-out
+  </NavLink>
+  
+  </>
+  )
+
   const loggedOutIcons = (
     <>
     <NavLink
     className={styles.NavLinks}
     activeClassName={styles.Active}
-    to="/sign-in"
+    to='/sign-in'
   >
     <i class="fa-solid fa-right-to-bracket"></i>Sign-in
   </NavLink>
