@@ -3,8 +3,8 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 // css imports
-import formStyling from "../styles/SignInAndRegisterForms.module.css";
-import btnStyling from "../styles/Button.module.css";
+import formStyling from '../../styles/SignInAndRegisterForms.module.css'
+import btnStyling from '../../styles/Button.module.css';
 // bootstrap imports
 import {
   Container,
