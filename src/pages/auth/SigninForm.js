@@ -145,7 +145,7 @@ const SigninForm = () => {
         xl={6}
         className={`mb-4 mb-md-0 ${formStyling.Link} ${formStyling.Form}`}
       >
-        <Link xs={12} md={6} lg={6} xl={6} to="/sign-in">
+        <Link xs={12} md={6} lg={6} xl={6} to="/register">
           <p>
             Don't have an account yet? <span>Register now!</span>
           </p>
