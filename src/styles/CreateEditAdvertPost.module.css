@@ -1,0 +1,32 @@
+.Body {
+    background-color: rgb(250, 235, 215, 0.2);
+}
+
+.Image:hover {
+    cursor: pointer;
+}
+.Input {
+    border: 2px inset white;
+    cursor: pointer;
+}
+
+.Input:hover {
+    border-radius: 3%;
+    border: 5px outset white;
+}
+
+.Input:focus {
+    background-color: antiquewhite;
+}
+
+.Disabled {
+    background-color: rgb(239, 232, 222);
+    border: 2px inset white;
+}
+
+.ImageUpload {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+}
+

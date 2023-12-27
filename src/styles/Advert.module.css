@@ -1,0 +1,38 @@
+.Advert {
+    background-color: #ffffff;
+    border: 1px solid #dadadf;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  .Advert figure,
+  h5 {
+    margin: 0 0;
+  }
+  
+.Advert p {
+  font-size: small;
+  text-align: left;
+}
+
+.Icons {
+  font-size: 130%;
+  padding: 5%;
+}
+.Icons:hover {
+  cursor: pointer;
+  font-size: 150%;
+}
+
+.Profile:hover {
+  text-decoration: none;
+  color: black;
+  font-size: 110%;
+}
+
+.Content {
+  background-color: rgba(228, 220, 220, 0.2);
+  
+  
+}
