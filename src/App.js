@@ -1,34 +1,50 @@
 // css imports
-import styles from './App.module.css';
+import styles from "./App.module.css";
 // bootstrap imports
 import Container from "react-bootstrap/Container";
 // react imports
-import {Route, Switch} from "react-router-dom";
-import './api/axiosDefaults';
+import { Route, Switch } from "react-router-dom";
+import "./api/axiosDefaults";
 // components imports
-import NavBar from './components/NavBar';
-import RegisterForm from './pages/auth/RegisterForm';
-import SigninForm from './pages/auth/SigninForm';
-import CreateAdvertForm from './pages/adverts/CreateAdvertForm';
-import AdvertDetailPage from './pages/adverts/AdvertDetailPage';
-
-
+import NavBar from "./components/NavBar";
+import RegisterForm from "./pages/auth/RegisterForm";
+import SigninForm from "./pages/auth/SigninForm";
+import CreateAdvertForm from "./pages/adverts/CreateAdvertForm";
+import AdvertDetailPage from "./pages/adverts/AdvertDetailPage";
+import AdvertsListViewPage from "./pages/adverts/AdvertsListViewPage";
+import { useLoggedInUser } from "./contexts/LoggedInUserContext";
 
 function App() {
- 
+  const userLoggedIn = useLoggedInUser();
+  const profile_id = userLoggedIn?.profile_id || "";
 
   return (
-    <div className= {styles.App}>
-      <NavBar/>
-      <Container >
+    <div className={styles.App}>
+      <NavBar />
+      <Container>
         <Switch>
-          <Route exact path='/' render={() => <p>Hi this is home</p>}/>
-          <Route path='/sign-in' render={() => <SigninForm/>}/>
-          <Route path='/register' render={() =><RegisterForm/>}/>
-          <Route path='/adverts/create' render={() => <CreateAdvertForm/>}/>
-          <Route path='/adverts/:id' render={() => <AdvertDetailPage/>}/>
-          <Route render={() => <p>page not found</p>}/>
-          
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <AdvertsListViewPage message="No results found.Adjust your search requirements" />
+            )}
+          />
+          <Route
+            exact
+            path="/saved"
+            render={() => (
+              <AdvertsListViewPage
+                message="No results found. Save adverts you are interested in to view them here"
+                filter={`save__owner__profile=${profile_id}&ordering=save__-advert__updated_at&`}
+              />
+            )}
+          />
+          <Route path="/sign-in" render={() => <SigninForm />} />
+          <Route path="/register" render={() => <RegisterForm />} />
+          <Route path="/adverts/create" render={() => <CreateAdvertForm />} />
+          <Route path="/adverts/:id" render={() => <AdvertDetailPage />} />
+          <Route render={() => <p>page not found</p>} />
         </Switch>
       </Container>
     </div>

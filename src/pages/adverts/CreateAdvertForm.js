@@ -21,6 +21,7 @@ function CreateAdvertForm() {
     item_description: "",
     payment_options: "",
     shippment_options: "",
+    categories: "",
   });
   const {
     advert_title,
@@ -31,6 +32,7 @@ function CreateAdvertForm() {
     item_description,
     payment_options,
     shippment_options,
+    categories,
   } = advertData;
 
   const imageInput = useRef(null);
@@ -48,6 +50,7 @@ function CreateAdvertForm() {
     formData.append("item_description", item_description);
     formData.append("payment_options", payment_options);
     formData.append("shippment_options", shippment_options);
+    formData.append("categories", categories);
 
     try {
       const { data } = await axiosReq.post("/adverts/", formData);
@@ -172,9 +175,10 @@ function CreateAdvertForm() {
           value={payment_options}
           onChange={handleChange}
         >
-          <option value="CASH">Cash only</option>
-          <option value="PAYPAL">PayPal only</option>
-          <option >Cash or Paypal</option>
+          <option value='Cash or Paypal'>Cash or Paypal</option>
+          <option value="Cash only">Cash only</option>
+          <option value="PayPal only">PayPal only</option>
+          
         </Form.Control>
       </Form.Group>
 
@@ -186,12 +190,44 @@ function CreateAdvertForm() {
           name="shippment_options"
           value={shippment_options}
           onChange={handleChange}
-        >
-          <option value="COLLECTION">Collection only</option>
-          <option value="POSTAGE">Royal Mail Only</option>
-          <option value="EITHER">Collection or Royal Mail delivery</option>
+        > 
+          <option value="Collection or Royal Mail delivery">Collection or delivery</option>
+          <option value="Collection only">Collection only</option>
+          <option value="Delivery Only">Delivery Only</option>
+          
         </Form.Control>
       </Form.Group>
+
+      <Form.Group>
+        <Form.Label>Categories</Form.Label>
+        <Form.Control
+          className={formStyling.Input}
+          as="select"
+          name="categories"
+          value={categories}
+          onChange={handleChange}
+        > 
+          <option value="Clothing">Clothing</option>
+          <option value="Electronics">Electronics</option>
+          <option value="HomeDeco/Furniture">HomeDeco/Furniture</option>
+          <option value="Games">Games</option>
+          <option value="Books">Books</option>
+          <option value="Beauty/Personal Care">Beauty/Personal Care</option>
+          <option value="Home appliances">Home appliances</option>
+          <option value="Vintage">Vintage</option>
+          <option value="Baby">Baby</option>
+          <option value="Pets">Pets</option>
+          <option value="Sports">Sports</option>
+          <option value="Other">Other</option>
+        </Form.Control>
+      </Form.Group>
+      {errors?.categories?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+      
+
 
       <Button className={btnStyles.Button} onClick={() => history.goBack()}>
         cancel

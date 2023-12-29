@@ -1,0 +1,26 @@
+.SearchBar input,
+.SearchBar select {
+  border-radius: 20px;
+  color: #7b5a3a;
+  padding-left: 40px;
+  margin-bottom: 16px;
+}
+ 
+.SearchBar input:hover,
+.SearchBar select:hover {
+  border: 4px inset rgb(208, 187, 187);
+  background-color: rgb(208, 187, 187, 0.1);
+
+}
+
+.SearchIcon {
+  position: absolute;
+  font-size: 1.2rem;
+  padding: 9px;
+  padding-left: 15px;
+}
+
+.SearchIcon:hover {
+  cursor: pointer;
+  color: brown;
+}

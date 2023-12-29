@@ -18,11 +18,11 @@ const Advert = (props) => {
     page_views,
     save_id,
     save_count,
-    active,
+    // active,
     advert_title,
     image,
     price,
-    created_at,
+    // created_at,
     updated_at,
     item_description,
     payment_options,
@@ -30,6 +30,8 @@ const Advert = (props) => {
     advertPage,
     setAdverts
   } = props;
+
+  console.log(props)
 
   const userLoggedin = useLoggedInUser();
 
@@ -125,18 +127,21 @@ const Advert = (props) => {
         </p>
         </Col>
       </Row>
-      
+      <Row>
+        <Col>
+        <i class="fa-solid fa-tag"></i>{tags}
+        </Col>
+      </Row>
       <Card.Body>
         
         
         <div >
           {is_owner ? (
             <OverlayTrigger
-            className={styles.Icons}
               placement="top"
               overlay={<Tooltip>No need to save your own posts, they're saved on your profile!</Tooltip>}
             >
-              <i class="fa-regular fa-bookmark"></i>
+              <i className={`${styles.Icons} fa-regular fa-bookmark`}></i>
             </OverlayTrigger>
        
           ) 
@@ -159,15 +164,14 @@ const Advert = (props) => {
               <i class="fa-regular fa-bookmark"></i>
             </OverlayTrigger>
           )}
-          {/* Save to favourites   */}
+          
           <Link className={styles.Icons} to={`/adverts/${id}`}>
           <i class="fa-solid fa-question"></i>
           </Link>
-          {/* Ask a question */}
-          <Link className={styles.Icons} to={`/adverts/${id}`}>
+          
+          <Link alt='buy' className={styles.Icons} to={`/adverts/${id}`}>
           <i class="fa-solid fa-coins"></i>
           </Link>
-          {/* make an offer  */}
           
         </div>
       </Card.Body>
