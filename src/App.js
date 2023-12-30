@@ -13,6 +13,7 @@ import CreateAdvertForm from "./pages/adverts/CreateAdvertForm";
 import AdvertDetailPage from "./pages/adverts/AdvertDetailPage";
 import AdvertsListViewPage from "./pages/adverts/AdvertsListViewPage";
 import { useLoggedInUser } from "./contexts/LoggedInUserContext";
+import EditAdvertForm from "./pages/adverts/EditAdvertForm";
 
 function App() {
   const userLoggedIn = useLoggedInUser();
@@ -44,6 +45,7 @@ function App() {
           <Route path="/register" render={() => <RegisterForm />} />
           <Route path="/adverts/create" render={() => <CreateAdvertForm />} />
           <Route path="/adverts/:id" render={() => <AdvertDetailPage />} />
+          <Route exact path="/adverts/:id/edit" render={() => <EditAdvertForm/>} />
           <Route render={() => <p>page not found</p>} />
         </Switch>
       </Container>
