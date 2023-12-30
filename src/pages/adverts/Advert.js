@@ -114,13 +114,15 @@ const Advert = (props) => {
           {item_description && <Card.Text>{item_description}</Card.Text>}
 
       </Card.Body>
+      <Link className={styles.DetailViewLink} to={`/adverts/${id}`}>
       <Row>
+      
         <Col md={6}>
 
 
-        <Link to={`/adverts/${id}`}>
+        
         <Card.Img src={image} alt={advert_title || tags} />
-      </Link>
+      
 
         </Col>
 
@@ -144,12 +146,15 @@ const Advert = (props) => {
         <i class="fa-solid fa-bookmark"></i>Saved: {save_count}
         </p>
         </Col>
+        
       </Row>
+      </Link>
       <Row>
         <Col>
         <i class="fa-solid fa-tag"></i>{tags}
         </Col>
       </Row>
+      
       <Card.Body>
         
         
