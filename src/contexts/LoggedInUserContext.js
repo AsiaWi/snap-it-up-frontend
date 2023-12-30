@@ -31,8 +31,8 @@ export const LoggedInUserProvider = ({ children }) => {
         try {
           await axios.post("/dj-rest-auth/token/refresh/");
         } catch (err) {
-          setLoggedInUser((prevCurrentUser) => {
-            if (prevCurrentUser) {
+          setLoggedInUser((prevUserLoggedIn) => {
+            if (prevUserLoggedIn) {
               history.push("/sign-in");
             }
             return null;
@@ -53,8 +53,8 @@ export const LoggedInUserProvider = ({ children }) => {
           try {
             await axios.post("/dj-rest-auth/token/refresh/");
           } catch (err) {
-            setLoggedInUser((prevCurrentUser) => {
-              if (prevCurrentUser) {
+            setLoggedInUser((prevUserLoggedIn) => {
+              if (prevUserLoggedIn) {
                 history.push("/sign-in");
               }
               return null;

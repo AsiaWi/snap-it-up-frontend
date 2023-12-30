@@ -3,19 +3,6 @@
     background-color: white;
 }
 
-i {
-    color: rgb(210, 182, 148);
-}
-
-a {
-    color: black;
-}
-a:hover {
-    color:  rgb(210, 182, 148);
-    cursor: pointer;
-    font-size: 130%;
-}
-
 .Active {
     color:  rgb(210, 182, 148);
     font-size: 130%;

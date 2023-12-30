@@ -15,6 +15,7 @@ import {
 import axios from "axios";
 import useCollapseNavBar from "../hooks/useCollapseNavBar";
 
+
 const NavBar = () => {
   const userLoggedIn = useLoggedInUser();
   const setLoggedInUser = useSetLoggedInUser();

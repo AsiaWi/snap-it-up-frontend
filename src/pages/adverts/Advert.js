@@ -1,11 +1,13 @@
 import React from "react";
 import styles from "../../styles/Advert.module.css";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
+import {EditDeleteAdvertDropdown} from '../../components/EditDeleteAdvertDropdown';
 
-import { Card, Media, OverlayTrigger, Tooltip, Container, Row, Col } from "react-bootstrap";
+
+import { Card, Media, OverlayTrigger, Tooltip, Container, Row, Col} from "react-bootstrap";
 
 const Advert = (props) => {
   const {
@@ -31,12 +33,24 @@ const Advert = (props) => {
     setAdverts
   } = props;
 
-  console.log(props)
 
   const userLoggedin = useLoggedInUser();
-
   const is_owner = userLoggedin?.username === owner;
+  const history = useHistory();
+  
+  const handleEdit = () => {
+    history.push(`/adverts/${id}/edit`);
+  };
 
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/adverts/${id}/`);
+      history.goBack();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+ 
   const handleSaveItem = async () => {
     try {
       const { data } = await axiosRes.post("/saved/", { advert: id });
@@ -83,7 +97,11 @@ const Advert = (props) => {
           
           <div className="d-flex align-items-center">
             <span><i class="fa-solid fa-location-dot"></i>{profile_location}</span>
-            {is_owner && advertPage && "..."}
+            {is_owner && advertPage && (
+              <EditDeleteAdvertDropdown
+              handleEdit={handleEdit}
+              handleDelete={handleDelete}/>
+            )}
           </div>
 
         </Media>
@@ -161,7 +179,7 @@ const Advert = (props) => {
                         placement="top"
               overlay={<Tooltip>Log in to save posts!</Tooltip>}
             >
-              <i class="fa-regular fa-bookmark"></i>
+              <i className={`fa-regular fa-bookmark ${styles.Icons}`}></i>
             </OverlayTrigger>
           )}
           

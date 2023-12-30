@@ -1,0 +1,22 @@
+.DropdownItem {
+    display: inline-block;
+    max-width: 80%;
+    padding: 0px;
+    margin: 5% 0 5% 0;
+  }
+
+.Toggle {
+  color: gray;
+  padding-left: 10px;
+  font-size: xx-large;
+}
+
+.Toggle:hover {
+  color: black;
+}
+  
+  .Absolute {
+    position: absolute;
+    right: 0;
+    z-index: 99;
+  }

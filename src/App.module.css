@@ -3,3 +3,16 @@
     background-color: rgb(241, 227, 227, 0.1);
     margin-top: 100px;
 }
+
+i {
+    color: rgb(210, 182, 148);
+}
+
+a {
+    color: black;
+}
+a:hover {
+    color:  rgb(210, 182, 148);
+    cursor: pointer;
+    font-size: 130%;
+}
