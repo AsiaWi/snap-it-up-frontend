@@ -1,11 +1,8 @@
-import React, { useState, useRef } from "react";
-import uploadImage from "../../assets/upload.png";
+import React, { useState, useRef, useEffect } from "react";
 import { Form, Image, Button, Col, Row, Container } from "react-bootstrap";
 import btnStyles from "../../styles/Button.module.css";
 import formStyling from "../../styles/CreateEditAdvertPost.module.css";
-
-import Assets from "../../components/Assets";
-import { useHistory } from "react-router";
+import { useHistory , useParams} from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Alert from "react-bootstrap/Alert";
 
@@ -37,6 +34,43 @@ function EditAdvertForm() {
 
   const imageInput = useRef(null);
   const history = useHistory();
+  const { id } = useParams();
+  
+  useEffect(() => {
+    const handleMount = async () => {
+      try {
+        const { data} = await axiosReq.get(`/adverts/${id}/`);
+        const {
+          is_owner,
+          advert_title,
+          tags,
+          image,
+          default_currency,
+          price,
+          item_description,
+          payment_options,
+          shippment_options,
+          categories,
+        } = data;
+
+        is_owner ? setAdvertData({
+          advert_title,
+          tags,
+          image,
+          default_currency,
+          price,
+          item_description,
+          payment_options,
+          shippment_options,
+          categories,
+        }) : history.push("/");
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    handleMount();
+  }, [history, id]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -44,17 +78,20 @@ function EditAdvertForm() {
 
     formData.append("advert_title", advert_title);
     formData.append("tags", tags);
-    formData.append("image", imageInput.current.files[0]);
     formData.append("default_currency", default_currency);
     formData.append("price", price);
     formData.append("item_description", item_description);
     formData.append("payment_options", payment_options);
     formData.append("shippment_options", shippment_options);
     formData.append("categories", categories);
+    
+    if (imageInput?.current?.files[0]) {
+      formData.append("image", imageInput.current.files[0]);
+    }
 
     try {
-      const { data } = await axiosReq.post("/adverts/", formData);
-      history.push(`/adverts/${data.id}`);
+       await axiosReq.put(`/adverts/${id}/`, formData);
+      history.push(`/adverts/${id}`);
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
@@ -233,7 +270,7 @@ function EditAdvertForm() {
         cancel
       </Button>
       <Button className={btnStyles.Button} type="submit">
-        create
+        confirm
       </Button>
     </Container>
   );
@@ -243,8 +280,7 @@ function EditAdvertForm() {
       <Form onSubmit={handleSubmit} className="mt-4">
         <Col lg={10} md={12} sm={12} className="mx-auto">
           <Form.Group className="text-center">
-            {image ? (
-              <>
+           
                 <figure>
                   <Image src={image} rounded-pill />
                 </figure>
@@ -256,15 +292,7 @@ function EditAdvertForm() {
                     Change the image
                   </Form.Label>
                 </div>
-              </>
-            ) : (
-              <Form.Label className={formStyling.Image} htmlFor="image-upload">
-                <Assets
-                  src={uploadImage}
-                  message="Click or tap to upload an image"
-                />
-              </Form.Label>
-            )}
+             
             <div className={`${btnStyles.Button}`}>
               <Form.File
                 className={formStyling.Upload}
