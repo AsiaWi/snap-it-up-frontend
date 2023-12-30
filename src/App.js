@@ -41,10 +41,10 @@ function App() {
               />
             )}
           />
-          <Route path="/sign-in" render={() => <SigninForm />} />
-          <Route path="/register" render={() => <RegisterForm />} />
-          <Route path="/adverts/create" render={() => <CreateAdvertForm />} />
-          <Route path="/adverts/:id" render={() => <AdvertDetailPage />} />
+          <Route exact path="/sign-in" render={() => <SigninForm />} />
+          <Route exact path="/register" render={() => <RegisterForm />} />
+          <Route exact path="/adverts/create" render={() => <CreateAdvertForm />} />
+          <Route exact path="/adverts/:id" render={() => <AdvertDetailPage />} />
           <Route exact path="/adverts/:id/edit" render={() => <EditAdvertForm/>} />
           <Route render={() => <p>page not found</p>} />
         </Switch>
