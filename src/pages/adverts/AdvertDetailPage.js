@@ -6,7 +6,7 @@ import Advert from './Advert';
 import appStyles from "../../App.module.css";
 import CreateQuestionForm from "../questions/CreateQuestionForm";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
-// import Question from "../questions/Question";
+import Question from "../questions/Question";
 
 // import OfferCreateForm from '../offers/OfferCreateForm';
 // import Offer from "../offers/Offer";
@@ -88,8 +88,8 @@ function AdvertDetailPage() {
   
   {questions.results.length ? (
             questions.results.map((question) => (
-              // <Question key={question.id} {...question}  />
-              <p key={question.id}>{question.owner} : {question.question_content} {question.advert}</p>
+              <Question key={question.id} {...question} setAdvert={setAdvert} setQuestions={setQuestions}  />
+            
             ))
           ) : userLoggedIn ? (
             <span>No question was asked yet. Not sure on the product? Ask away</span>

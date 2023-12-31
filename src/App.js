@@ -38,7 +38,7 @@ function App() {
             render={() => (
               <AdvertsListViewPage
                 message="No results found. Save adverts you are interested in to view them here"
-                filter={`save__owner__profile=${profile_id}&`}
+                filter={`save__owner__profile=${profile_id}&ordering=save__-advert__updated_at&`}
                 // filter={`owner__profile=${profile_id}&`}
               />
             )}
