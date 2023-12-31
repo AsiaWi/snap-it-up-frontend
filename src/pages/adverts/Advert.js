@@ -7,6 +7,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 import {EditDeleteAdvertDropdown} from '../../components/EditDeleteAdvertDropdown';
 
 
+
 import { Card, Media, OverlayTrigger, Tooltip, Container, Row, Col} from "react-bootstrap";
 
 const Advert = (props) => {

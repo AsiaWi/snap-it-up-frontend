@@ -8,7 +8,7 @@ import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 
 function CreateQuestionForm(props) {
-  const { advert, setQuestions, profile_image, profile_id } = props;
+  const { advert, setAdvert, setQuestions, profile_image, asked_by_profile_user } = props;
   const [question_content, setContent] = useState("");
 
   const handleChange = (event) => {
@@ -27,6 +27,16 @@ function CreateQuestionForm(props) {
         results: [data, ...prevQuestions.results],
       
       }));
+
+      setAdvert((prevAdvert) => ({
+        results: [
+          {
+            ...prevAdvert.results[0],
+            // questions_count: prevAdvert.results[0].questions_count + 1,
+          },
+        ],
+      }));
+
       setContent("");
     } catch (err) {
       console.log(err);
@@ -37,7 +47,7 @@ function CreateQuestionForm(props) {
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
         <InputGroup>
-          <Link to={`/profiles/${profile_id}`}>
+          <Link to={`/profiles/${asked_by_profile_user}`}>
             <Avatar src={profile_image} />
           </Link>
           <Form.Control
