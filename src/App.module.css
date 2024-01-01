@@ -2,6 +2,7 @@
     font-family: 'Montserrat', sans-serif;
     background-color: rgb(241, 227, 227, 0.1);
     margin-top: 100px;
+    min-height: 100vh;
 }
 
 i {
