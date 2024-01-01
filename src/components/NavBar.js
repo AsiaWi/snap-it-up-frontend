@@ -14,6 +14,7 @@ import {
 } from "../contexts/LoggedInUserContext";
 import axios from "axios";
 import useCollapseNavBar from "../hooks/useCollapseNavBar";
+import { removeTokenTimestamp } from "../utils/utils";
 
 
 const NavBar = () => {
@@ -25,6 +26,7 @@ const NavBar = () => {
     try {
       await axios.post("dj-rest-auth/logout/");
       setLoggedInUser(null);
+      removeTokenTimestamp();
     } catch (err) {
       console.log(err);
     }

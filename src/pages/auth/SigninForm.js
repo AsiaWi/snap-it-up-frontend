@@ -2,6 +2,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+
 // css imports
 import formStyling from '../../styles/SignInAndRegisterForms.module.css'
 import btnStyling from "../../styles/Button.module.css";
@@ -17,6 +18,7 @@ import {
 } from "react-bootstrap";
 import { useSetLoggedInUser } from "../../contexts/LoggedInUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
+import { setTokenTimestamp } from "../../utils/utils";
 
 const SigninForm = () => {
   const setLoggedInUser = useSetLoggedInUser();
@@ -42,6 +44,7 @@ const SigninForm = () => {
     try {
       const { data } =await axios.post("/dj-rest-auth/login/", signInData);
       setLoggedInUser(data.user);
+      setTokenTimestamp(data);
       history.goBack();
     } catch (err) {
       setErrors(err.response?.data);
