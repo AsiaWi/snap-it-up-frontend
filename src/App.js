@@ -14,7 +14,11 @@ import AdvertDetailPage from "./pages/adverts/AdvertDetailPage";
 import AdvertsListViewPage from "./pages/adverts/AdvertsListViewPage";
 import { useLoggedInUser } from "./contexts/LoggedInUserContext";
 import EditAdvertForm from "./pages/adverts/EditAdvertForm";
-import EditOffersForm from "./pages/offers/EditOffersForm"
+import ProfilePage from "./pages/profiles/ProfilePage"
+import EditUsernameForm from "./pages/profiles/EditUsernameForm";
+import EditPasswordForm from "./pages/profiles/EditPasswordForm";
+import EditProfileForm from "./pages/profiles/EditProfileForm";
+// import EditOffersForm from "./pages/offers/EditOffersForm"
 
 function App() {
   const userLoggedIn = useLoggedInUser();
@@ -48,8 +52,23 @@ function App() {
           <Route exact path="/adverts/create" render={() => <CreateAdvertForm />} />
           <Route exact path="/adverts/:id" render={() => <AdvertDetailPage />} />
           <Route exact path="/adverts/:id/edit" render={() => <EditAdvertForm/>} />
-          <Route exact path="/offers/:id/edit" render={() => <EditOffersForm/>} />
-
+          {/* <Route exact path="/offers/:id/edit" render={() => <EditOffersForm/>} /> */}
+          <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+          <Route
+  exact
+  path="/profiles/:id/edit/username"
+  render={() => <EditUsernameForm />}
+/>
+<Route
+  exact
+  path="/profiles/:id/edit/password"
+  render={() => <EditPasswordForm />}
+/>
+<Route
+  exact
+  path="/profiles/:id/edit"
+  render={() => <EditProfileForm />}
+/>
           <Route render={() => <p>page not found</p>} />
         </Switch>
       </Container>
