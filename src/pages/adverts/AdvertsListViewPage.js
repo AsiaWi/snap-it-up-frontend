@@ -9,6 +9,7 @@ import styles from "../../styles/AdvertsListViewPage.module.css";
 import advertStyles from '../../styles/Advert.module.css'
 import NoResults from "../../assets/icons8-unknown-results-96.png";
 import { Form, Container, Row, Col } from "react-bootstrap";
+import PopularAdverts from "./PopularAdverts";
 // import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 
 
@@ -60,7 +61,7 @@ function AdvertsListViewPage({ message, filter = '' }) {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <p>Popular profiles mobile</p>
+      <PopularAdverts mobile/>
         
         <Form
           className={styles.SearchBar}
@@ -128,7 +129,7 @@ function AdvertsListViewPage({ message, filter = '' }) {
         )}
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-        <p>Popular profiles for desktop</p>
+        <PopularAdverts/>
       </Col>
     </Row>
   );
