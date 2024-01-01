@@ -16,10 +16,11 @@ import {
   Alert,
 } from "react-bootstrap";
 import { useSetLoggedInUser } from "../../contexts/LoggedInUserContext";
+import { useRedirect } from "../../hooks/useRedirect";
 
 const SigninForm = () => {
   const setLoggedInUser = useSetLoggedInUser();
-
+  useRedirect("loggedIn")
   const [signInData, setSignInData] = useState({
     username: "",
     password: "",
@@ -41,7 +42,7 @@ const SigninForm = () => {
     try {
       const { data } =await axios.post("/dj-rest-auth/login/", signInData);
       setLoggedInUser(data.user);
-      history.push("/");
+      history.goBack();
     } catch (err) {
       setErrors(err.response?.data);
     }

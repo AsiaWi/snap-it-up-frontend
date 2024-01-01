@@ -15,6 +15,7 @@ import {
   Image,
   Alert,
 } from "react-bootstrap";
+import { useRedirect } from "../../hooks/useRedirect";
 
 const RegisterForm = () => {
   const [signUpData, setSignUpData] = useState({
@@ -22,7 +23,7 @@ const RegisterForm = () => {
     password1: "",
     password2: "",
   });
-
+  useRedirect("loggedIn")
   const { username, password1, password2 } = signUpData;
   const [errors, setErrors] = useState({});
   const history = useHistory();

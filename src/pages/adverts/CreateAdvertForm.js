@@ -8,10 +8,11 @@ import Assets from "../../components/Assets";
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Alert from "react-bootstrap/Alert";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function CreateAdvertForm() {
   const [errors, setErrors] = useState({});
-
+  useRedirect("loggedOut");
   const [advertData, setAdvertData] = useState({
     advert_title: "",
     tags: "",
