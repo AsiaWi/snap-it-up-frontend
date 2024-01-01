@@ -19,11 +19,12 @@ import {
   useProfileData,
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
-import { Button, Image } from "react-bootstrap";
+import { Image } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Advert from "../adverts/Advert";
 import { fetchMoreData } from "../../utils/utils";
 import nothingThere from "../../assets/icons8-unknown-results-96.png";
+
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -72,7 +73,7 @@ function ProfilePage() {
         </Col>
         <Col lg={6}>
           <h3 className="m-2">{profile?.owner}</h3>
-          <span>{profile?.location}</span>
+          <span><i className="fa-solid fa-location-dot"></i>{profile?.location}</span>
           <Row className="justify-content-center no-gutters">
             <Col xs={3} className="my-2">
               <div>{profile?.advert_count}</div>
@@ -157,7 +158,7 @@ function ProfilePage() {
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        {/* <PopularProfiles /> */}
+       {/* <HighestRatedProfiles/> */}
       </Col>
     </Row>
   );

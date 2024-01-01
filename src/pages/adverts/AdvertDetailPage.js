@@ -7,6 +7,7 @@ import appStyles from "../../App.module.css";
 import CreateQuestionForm from "../questions/CreateQuestionForm";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import Question from "../questions/Question";
+import PopularAdverts from '../adverts/PopularAdverts'
 
 // import OfferCreateForm from '../offers/OfferCreateForm';
 // import Offer from "../offers/Offer";
@@ -101,7 +102,7 @@ function AdvertDetailPage() {
       </Container>
     </Col>
     <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-      Popular adverts for desktop
+      <PopularAdverts/>
     </Col>
   </Row>
 );

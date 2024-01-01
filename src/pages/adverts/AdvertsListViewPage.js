@@ -10,7 +10,7 @@ import advertStyles from '../../styles/Advert.module.css'
 import NoResults from "../../assets/icons8-unknown-results-96.png";
 import { Form, Container, Row, Col } from "react-bootstrap";
 import PopularAdverts from "./PopularAdverts";
-// import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
+import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 
 
 function AdvertsListViewPage({ message, filter = '' }) {
@@ -19,7 +19,7 @@ function AdvertsListViewPage({ message, filter = '' }) {
   const { pathname } = useLocation();
   const [query, setQuery] = useState('');
   const [categories, setCategories] = useState('');
-  // const userLoggedIn = useLoggedInUser();
+  const userLoggedIn = useLoggedInUser();
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -32,7 +32,7 @@ function AdvertsListViewPage({ message, filter = '' }) {
       }
     };
     fetchCategories();
-  }, [filter, categories, pathname]);
+  }, [filter, categories, pathname, userLoggedIn]);
 
 
   useEffect(() => {
