@@ -17,3 +17,12 @@ a:hover {
     cursor: pointer;
     font-size: 130%;
 }
+
+.ImageAndSaleDetaiContainer {
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.tags {
+    padding-top: 20px;;
+}

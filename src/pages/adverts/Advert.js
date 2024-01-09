@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../../styles/Advert.module.css";
+import appStyles from '../../App.module.css'
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
@@ -120,7 +121,7 @@ const Advert = (props) => {
         {item_description && <Card.Text>{item_description}</Card.Text>}
       </Card.Body>
       <Link className={styles.DetailViewLink} to={`/adverts/${id}`}>
-        <Row>
+        <Row className={appStyles.ImageAndSaleDetaiContainer}>
           <Col md={6}>
             <Card.Img src={image} alt={advert_title || tags} />
           </Col>
@@ -149,12 +150,12 @@ const Advert = (props) => {
           </Col>
         </Row>
       </Link>
-      <Row>
-        <Col>
+       
+        <Col className={appStyles.tags}>
           <i class="fa-solid fa-tag"></i>
           {tags}
         </Col>
-      </Row>
+      
 
       <Card.Body>
         <div>
@@ -224,7 +225,7 @@ const Advert = (props) => {
               </Tooltip>
             }
           >
-            <Link className={styles.Icons} to={`/adverts/${id}`}>
+            <Link className={styles.Icons} to={`/adverts/${id}?scrollTo=questionContainer`}>
               <i class="fa-solid fa-question"></i>
             </Link>
           </OverlayTrigger>

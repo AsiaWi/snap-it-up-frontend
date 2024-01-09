@@ -1,15 +1,15 @@
 .Advert {
-    background-color: #ffffff;
-    border: 1px solid #dadadf;
-    border-radius: 2px;
-    margin-bottom: 16px;
     text-align: center;
-  }
+    background-color: white;
+    border: 1px solid rgb(218, 201, 201, 0.7);
+    border-radius: 15px;
+    margin-bottom: 16px;
+}
   
-  .Advert figure,
-  h5 {
+.Advert figure,
+            h5 {
     margin: 0 0;
-  }
+}
   
 .Advert p {
   font-size: small;
@@ -29,10 +29,6 @@
   text-decoration: none;
   color: black;
   font-size: 110%;
-}
-
-.Content {
-  background-color: rgba(228, 220, 220, 0.2);
 }
 
 .DetailViewLink:hover {
