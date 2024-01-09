@@ -9,6 +9,7 @@ import Tabs from 'react-bootstrap/Tabs';
 import Asset from "../../components/Assets";
 
 import styles from "../../styles/ProfilePage.module.css";
+import tabStyles from '../../styles/Tabs.module.css'
 import { ProfileEditDropdown } from "../../components/EditDeleteAdvertDropdown";
 
 
@@ -90,7 +91,7 @@ function ProfilePage() {
             
           </Row>
           <Col>
-          <span>Became Snap.it.up Member: {profile?.created_at}</span>
+          <span className={styles.membership}>Became a member: {profile?.created_at}</span>
           </Col>
          
         </Col>
@@ -124,18 +125,28 @@ function ProfilePage() {
     </>
   );
 
+
+  const profileFeedback = (
+      <>
+      <hr />
+      <p className="text-center">Feedback {profile?.owner} received</p>
+      <hr />
+      </>
+      );
+
+
   const MainProfileTabs = (
     <>
     <Tabs
       defaultActiveKey="profile"
       id="profile_tabs"
-      className="mb-3"
+      className={`${tabStyles.Tabs} "mb-3"`}
     >
       <Tab eventKey="profile_adverts" title={`${profile?.owner}'s ads`}>
       {mainProfileAdverts}
       </Tab>
       <Tab eventKey="feedback" title={`${profile?.owner}'s feedback`}>
-        Tab content for feedback
+        {profileFeedback}
       </Tab>
       
     </Tabs>
