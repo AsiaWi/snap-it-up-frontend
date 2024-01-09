@@ -68,7 +68,7 @@ function AdvertsListViewPage({ message, filter = '' }) {
           onSubmit={(event) => event.preventDefault()}
         > 
         <Row>
-        <Col xs={12} md={4} >
+        <Col xs={12} md={4} className={styles.SearchContainerSelect}>
         <i className={`fa-solid fa-caret-down ${styles.SearchIcon}`} />
           <Form.Control 
             as="select"
@@ -91,14 +91,14 @@ function AdvertsListViewPage({ message, filter = '' }) {
           <option value="Other">Other</option>
           </Form.Control>
           </Col>
-          <Col xs={12} md={8} >
+          <Col xs={12} md={8} className={styles.SearchContainerInput}>
           <i className={`fa-solid fa-magnifying-glass ${styles.SearchIcon}`} />
           <Form.Control 
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             type="text"
             className="mr-sm-2"
-            placeholder="Search adverts by tag or title keywords"
+            placeholder="Search adverts by tag, title or content keywords"
           />
           </Col>
           </Row>

@@ -3,11 +3,14 @@ import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import {Col, Row, Container} from "react-bootstrap";
 import Advert from './Advert';
-import appStyles from "../../App.module.css";
+
 import CreateQuestionForm from "../questions/CreateQuestionForm";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import Question from "../questions/Question";
 import PopularAdverts from '../adverts/PopularAdverts'
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
+import styles from '../../styles/Tabs.module.css';
 
 // import OfferCreateForm from '../offers/OfferCreateForm';
 // import Offer from "../offers/Offer";
@@ -41,16 +44,58 @@ function AdvertDetailPage() {
     handleMount();
   }, [id]);
 
+  // question tab
+  const questionsTab = (
+    <>
+    <Container>
+      {userLoggedIn ? (
+  <CreateQuestionForm
+  profile_id={userLoggedIn.profile_id}
+  profileImage={profile_image}
+  advert={id}
+  setAdvert={setAdvert}
+  setQuestions={setQuestions}
+/>
+) : questions.results.length ? (
+  <>
+  <hr />
+      <p className="text-center">Previously asked questions</p>
+      <hr />
+      </>
   
-  return (
-    <Row className="h-100">
-    <Col className="py-2 p-0 p-lg-2" lg={8}>
-      <p>Popular adverts for mobiles</p>
-      <Advert {...advert.results[0]} setAdverts={setAdvert} advertPage />
-
-      <Container className={appStyles.Content}>
+) : null}
+  
+  {questions.results.length ? (
+            questions.results.map((question) => (
+              <Question key={question.id} {...question} setAdvert={setAdvert} setQuestions={setQuestions}  />
+            
+            ))
+          ) : userLoggedIn ? (
+            <>
+              <hr />
+      <p className="text-center">No question was asked yet. Not sure on the product? Ask away</p>
+      <hr />
+      </>
+          ) : (
+            <>
+            <hr />
+    <p className="text-center">No question was asked yet.</p>
+    <hr />
+    </>
+          )}
+          </Container>
       
-      {/* {userLoggedIn ? (
+</>
+  );
+
+  //offers tab 
+  const offersTab = (
+    <>
+    <hr />
+      <p className="text-center">Offers made</p>
+      <hr />
+     
+     {/* {userLoggedIn ? (
   <OfferCreateForm
   profile_id={userLoggedIn.profile_id}
   profile_image={profile_image}
@@ -72,34 +117,47 @@ function AdvertDetailPage() {
                       ) : (
                         <span>No offers yet</span>
           )} */}
+           </>
+  );
 
+  const MainAdvertTabs = (
+    <>
+    <Tabs
+      defaultActiveKey="advert"
+      id="advert_tabs"
+      //className="mb-3"
+      className={`${styles.Tabs} "mb-3"`}
+    >
+      <Tab eventKey="advert_questions" title='Questions' id='questionSection' >
+      {questionsTab}
+      </Tab>
+      <Tab eventKey="offers" title='Offers'>
+        {offersTab}
+      </Tab>
+      
+    </Tabs>
+    </>
+  )
+    
 
+  //scroll to question section
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const sectionToScrollTo = urlParams.get('scrollTo');
 
-      {userLoggedIn ? (
-  <CreateQuestionForm
-  profile_id={userLoggedIn.profile_id}
-  profileImage={profile_image}
-  advert={id}
-  setAdvert={setAdvert}
-  setQuestions={setQuestions}
-/>
-) : questions.results.length ? (
-  "Questions"
-) : null}
+    if (sectionToScrollTo === 'questionContainer') {
+      const section = document.getElementById('questionContainer');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, []);
   
-  {questions.results.length ? (
-            questions.results.map((question) => (
-              <Question key={question.id} {...question} setAdvert={setAdvert} setQuestions={setQuestions}  />
-            
-            ))
-          ) : userLoggedIn ? (
-            <span>No question was asked yet. Not sure on the product? Ask away</span>
-          ) : (
-            <span>No questions was asked yet</span>
-          )}
-
-
-      </Container>
+  return (
+    <Row className="h-100">
+    <Col className="py-2 p-0 p-lg-2" lg={8}>
+      <Advert {...advert.results[0]} setAdverts={setAdvert} advertPage />
+          {MainAdvertTabs}
     </Col>
     <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
       <PopularAdverts/>

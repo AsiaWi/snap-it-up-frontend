@@ -1,11 +1,25 @@
 .SearchBar input,
 .SearchBar select {
-  border-radius: 20px;
   color: #7b5a3a;
   padding-left: 40px;
   margin-bottom: 16px;
 }
+
+.SearchBar input{
+  border-radius: 0 20px 20px 0;
+}
+.SearchBar select {
+  padding-left: 25px;
+  border-radius:20px 0% 0% 20px;
+}
  
+.SearchContainerSelect {
+  padding-right: 0%;
+}
+
+.SearchContainerInput {
+  padding-left: 0%;
+}
 .SearchBar input:hover,
 .SearchBar select:hover {
   border: 4px inset rgb(208, 187, 187);
