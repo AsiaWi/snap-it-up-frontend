@@ -11,14 +11,14 @@ function OfferCreateForm(props) {
   const { advert, setOffers, profile_image, created_by_profile_user } = props;
   const [status, setStatus] = useState("PENDING");
   const [amount, setAmount] = useState("");
-//   const [message, setMessage] = useState("");
+  // const [message, setMessage] = useState("");
 
 const handleChange = (event) => {
     setAmount(event.target.value);
   };
-//   const handleStatusChange = (event) => {
-//     setStatus(event.target.value);
-//   };
+  const handleStatusChange = (event) => {
+    setStatus(event.target.value);
+  };
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -55,7 +55,7 @@ const handleChange = (event) => {
             onChange={handleChange}
           
           />
-          {/* <Form.Group>
+          <Form.Group>
         <Form.Control
           as="select"
           value={status}
@@ -64,7 +64,7 @@ const handleChange = (event) => {
         <option value="PENDING">Pending</option>  
           <option value="ACCEPTED">Accepted</option>
           <option value="REJECTED">Rejected</option>
-      </Form.Group> */}
+      </Form.Group>
         </InputGroup>
       </Form.Group>
       <button

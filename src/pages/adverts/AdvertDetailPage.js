@@ -12,8 +12,8 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import styles from '../../styles/Tabs.module.css';
 
-// import OfferCreateForm from '../offers/OfferCreateForm';
-// import Offer from "../offers/Offer";
+import OfferCreateForm from '../offers/OfferCreateForm';
+import Offer from "../offers/Offer";
 
 function AdvertDetailPage() {
     const { id } = useParams();
@@ -22,19 +22,19 @@ function AdvertDetailPage() {
   const profile_image = userLoggedIn?.profile_image;
   const [questions, setQuestions] = useState({results : []});
   
-  // const [offers, setOffers] = useState({results : []});
+  const [offers, setOffers] = useState({results : []});
 
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: advert }, { data: questions },] = await Promise.all([    //{data: offers}
+        const [{ data: advert }, { data: questions }, {data: offers}] = await Promise.all([
           axiosReq.get(`/adverts/${id}`),
           axiosReq.get(`/questions/?advert=${id}`),
-          // axiosReq.get(`/offers/?advert=${id}`)
+          axiosReq.get(`/offers/?advert=${id}`)
         ]);
         setAdvert({ results: [advert] });
         setQuestions(questions);
-        // setOffers(offers);
+        setOffers(offers);
         console.log(advert);
       } catch (err) {
         console.log(err);
@@ -50,8 +50,8 @@ function AdvertDetailPage() {
     <Container>
       {userLoggedIn ? (
   <CreateQuestionForm
-  profile_id={userLoggedIn.profile_id}
-  profileImage={profile_image}
+  asked_by_profile_user={userLoggedIn.asked_by_profile_user}
+  profile_image={profile_image}
   advert={id}
   setAdvert={setAdvert}
   setQuestions={setQuestions}
@@ -95,7 +95,7 @@ function AdvertDetailPage() {
       <p className="text-center">Offers made</p>
       <hr />
      
-     {/* {userLoggedIn ? (
+     {userLoggedIn ? (
   <OfferCreateForm
   profile_id={userLoggedIn.profile_id}
   profile_image={profile_image}
@@ -116,11 +116,11 @@ function AdvertDetailPage() {
                         <span>No offers made yet. Make an offer to purchase a product.</span>
                       ) : (
                         <span>No offers yet</span>
-          )} */}
+          )}
            </>
   );
 
-  const MainAdvertTabs = (
+  const mainAdvertTabs = (
     <>
     <Tabs
       defaultActiveKey="advert"
@@ -157,7 +157,7 @@ function AdvertDetailPage() {
     <Row className="h-100">
     <Col className="py-2 p-0 p-lg-2" lg={8}>
       <Advert {...advert.results[0]} setAdverts={setAdvert} advertPage />
-          {MainAdvertTabs}
+          {mainAdvertTabs}
     </Col>
     <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
       <PopularAdverts/>

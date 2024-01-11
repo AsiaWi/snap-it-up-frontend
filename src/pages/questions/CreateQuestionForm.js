@@ -47,9 +47,10 @@ function CreateQuestionForm(props) {
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
         <InputGroup>
-          <Link to={`/profiles/${asked_by_profile_user}`}>
-            <Avatar src={profile_image} />
-          </Link>
+        <Link to={`/profiles/${asked_by_profile_user}`}>
+          <Avatar src={profile_image} />
+        </Link>
+       
           <Form.Control
             className={styles.Form}
             placeholder="ask a question..."

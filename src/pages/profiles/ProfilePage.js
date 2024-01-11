@@ -13,7 +13,11 @@ import tabStyles from '../../styles/Tabs.module.css'
 import { ProfileEditDropdown } from "../../components/EditDeleteAdvertDropdown";
 
 
-// import { useLoggedInUser} from "../../contexts/LoggedInUserContext";
+import { useLoggedInUser} from "../../contexts/LoggedInUserContext";
+import CreateRatingForm from "../rating/CreateRatingForm";
+// import Rating from "../rating/Rating";
+
+
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import {
@@ -28,17 +32,21 @@ import nothingThere from "../../assets/icons8-unknown-results-96.png";
 
 
 function ProfilePage() {
+  const userLoggedIn = useLoggedInUser();
+  const profile_image = userLoggedIn?.profile_image;
+  const [ratings, setRatings] = useState({results : []});
+  // const [rated_user, setRatedUser] = useState({ results: [] });
+
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profileAdverts, setProfileAdverts] = useState({ results: [] });
 
-//   const userLoggedIn = useLoggedInUser();
+  // const userLoggedIn = useLoggedInUser();
   const { id } = useParams();
 
   const setProfileData = useSetProfileData();
   const { pageProfile } = useProfileData();
-
   const [profile] = pageProfile.results;
-//   const is_owner = currentUser?.username === profile?.owner;
+  // const is_owner = currentUser?.username === profile?.owner;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,12 +55,14 @@ function ProfilePage() {
           await Promise.all([
             axiosReq.get(`/profiles/${id}/`),
             axiosReq.get(`/adverts/?owner__profile=${id}`),
+            // axiosReq.get(`/ratings/?rated_user=${id}`),
           ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
         setProfileAdverts(profileAdverts);
+        // setRatings(ratings);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
@@ -61,7 +71,10 @@ function ProfilePage() {
     fetchData();
   }, [id, setProfileData]);
 
-  const mainProfile = (
+
+
+
+  const profileContent = (
     <>
     {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
       <Row noGutters className="px-3 text-center">
@@ -101,7 +114,7 @@ function ProfilePage() {
     </>
   );
 
-  const mainProfileAdverts = (
+  const profileOwnersAdverts = (
     <>
       <hr />
       <p className="text-center">{profile?.owner}'s posts</p>
@@ -126,16 +139,72 @@ function ProfilePage() {
   );
 
 
+
+
+
+
+
+
+
+
+
+
+
+
   const profileFeedback = (
       <>
+       <Container>
+      {userLoggedIn ? (
+  <CreateRatingForm
+  owners_id={userLoggedIn.owners_id}
+  profile_image={profile_image}
+  rated_user={id}
+  // setRatedUser={setRatedUser}
+  setRatings={setRatings}
+/>
+) : ratings.results.length ? (
+  <>
+  <hr />
+      <p className="text-center">Feedback received by ${profile?.owner}</p>
       <hr />
-      <p className="text-center">Feedback {profile?.owner} received</p>
+      </>
+  
+) : null}
+  
+  {ratings.results.length ? (
+            ratings.results.map((rating) => (
+              // <Rating key={rating.id} {...rating} setRatings={setRatings}  />
+            <>hi</>
+            ))
+          ) : userLoggedIn ? (
+            <>
+              <hr />
+      <p className="text-center">NO FEEDBACK RECEIVED YET, TELL ${profile?.owner} what you think</p>
       <hr />
+      </>
+          ) : (
+            <>
+            <hr />
+    <p className="text-center">No feedback yet. Log in to leave first rating</p>
+    <hr />
+    </>
+          )}
+          </Container>
       </>
       );
 
 
-  const MainProfileTabs = (
+
+
+
+
+
+
+
+
+
+
+  const mainProfileTabs = (
     <>
     <Tabs
       defaultActiveKey="profile"
@@ -143,7 +212,7 @@ function ProfilePage() {
       className={`${tabStyles.Tabs} "mb-3"`}
     >
       <Tab eventKey="profile_adverts" title={`${profile?.owner}'s ads`}>
-      {mainProfileAdverts}
+      {profileOwnersAdverts}
       </Tab>
       <Tab eventKey="feedback" title={`${profile?.owner}'s feedback`}>
         {profileFeedback}
@@ -153,6 +222,27 @@ function ProfilePage() {
     </>
   )
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
@@ -160,8 +250,8 @@ function ProfilePage() {
         <Container>
           {hasLoaded ? (
             <>
-              {mainProfile}
-              {MainProfileTabs}
+              {profileContent}
+              {mainProfileTabs}
             </>
           ) : (
             <Asset spinner />
