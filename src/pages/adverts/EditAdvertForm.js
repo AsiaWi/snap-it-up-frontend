@@ -19,6 +19,7 @@ function EditAdvertForm() {
     payment_options: "",
     shippment_options: "",
     categories: "",
+    location: "",
   });
   const {
     advert_title,
@@ -30,6 +31,7 @@ function EditAdvertForm() {
     payment_options,
     shippment_options,
     categories,
+    location,
   } = advertData;
 
   const imageInput = useRef(null);
@@ -51,6 +53,7 @@ function EditAdvertForm() {
           payment_options,
           shippment_options,
           categories,
+          location,
         } = data;
 
         is_owner ? setAdvertData({
@@ -63,6 +66,7 @@ function EditAdvertForm() {
           payment_options,
           shippment_options,
           categories,
+          location,
         }) : history.push("/");
       } catch (err) {
         console.log(err);
@@ -84,6 +88,7 @@ function EditAdvertForm() {
     formData.append("payment_options", payment_options);
     formData.append("shippment_options", shippment_options);
     formData.append("categories", categories);
+    formData.append("location", location);
     
     if (imageInput?.current?.files[0]) {
       formData.append("image", imageInput.current.files[0]);
@@ -198,6 +203,22 @@ function EditAdvertForm() {
         />
       </Form.Group>
       {errors?.item_description?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+<Form.Group>
+        <Form.Label>Item location</Form.Label>
+        <Form.Control
+          className={formStyling.Input}
+          type="text"
+          name="location"
+          value={location}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.location?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>

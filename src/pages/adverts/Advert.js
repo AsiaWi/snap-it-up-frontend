@@ -40,6 +40,7 @@ const Advert = (props) => {
     shippment_options,
     advertPage,
     setAdverts,
+    location,
   } = props;
 
   const userLoggedin = useLoggedInUser();
@@ -129,6 +130,9 @@ const Advert = (props) => {
           <Col className={` d-flex-direction-column-align-items-left m-2 `}>
             <p>
               <i class="fa-solid fa-sterling-sign"></i>Price: {price}
+            </p>
+            <p>
+            <i class="fa-solid fa-location-dot"></i>Item location: {location}
             </p>
             <p>
               <i class="fa-solid fa-pen"></i>Added/updated: {updated_at}

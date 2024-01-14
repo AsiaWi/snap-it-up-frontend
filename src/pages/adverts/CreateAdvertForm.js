@@ -23,6 +23,7 @@ function CreateAdvertForm() {
     payment_options: "",
     shippment_options: "",
     categories: "",
+    location: "",
   });
   const {
     advert_title,
@@ -34,6 +35,7 @@ function CreateAdvertForm() {
     payment_options,
     shippment_options,
     categories,
+    location,
   } = advertData;
 
   const imageInput = useRef(null);
@@ -52,6 +54,7 @@ function CreateAdvertForm() {
     formData.append("payment_options", payment_options);
     formData.append("shippment_options", shippment_options);
     formData.append("categories", categories);
+    formData.append("location", location);
 
     try {
       const { data } = await axiosReq.post("/adverts/", formData);
@@ -162,6 +165,22 @@ function CreateAdvertForm() {
         />
       </Form.Group>
       {errors?.item_description?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+<Form.Group>
+        <Form.Label>Item Location</Form.Label>
+        <Form.Control
+          className={formStyling.Input}
+          type="text"
+          name="location"
+          value={location}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.location?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>

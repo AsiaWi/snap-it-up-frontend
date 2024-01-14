@@ -16,9 +16,7 @@ function OfferCreateForm(props) {
 const handleChange = (event) => {
     setAmount(event.target.value);
   };
-  const handleStatusChange = (event) => {
-    setStatus(event.target.value);
-  };
+ 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -55,21 +53,11 @@ const handleChange = (event) => {
             onChange={handleChange}
           
           />
-          <Form.Group>
-        <Form.Control
-          as="select"
-          value={status}
-          onChange={handleStatusChange}
-        />
-        <option value="PENDING">Pending</option>  
-          <option value="ACCEPTED">Accepted</option>
-          <option value="REJECTED">Rejected</option>
-      </Form.Group>
+        
         </InputGroup>
       </Form.Group>
       <button
         className={`${styles.Button} btn d-block ml-auto`}
-        // disabled={!question_content.trim()}
         type="submit"
       >
         Send

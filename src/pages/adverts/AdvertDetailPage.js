@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { axiosReq } from "../../api/axiosDefaults";
+import { axiosReq,axiosRes} from "../../api/axiosDefaults";
 import {Col, Row, Container} from "react-bootstrap";
 import Advert from './Advert';
 
@@ -23,6 +23,56 @@ function AdvertDetailPage() {
   const [questions, setQuestions] = useState({results : []});
   
   const [offers, setOffers] = useState({results : []});
+
+
+  const handleAcceptOffer = async (offerId) => {
+   
+    try {
+      await axiosRes.patch(`/offers/${offerId}/`, { status: "ACCEPTED" });
+     
+      setOffers((prevOffers) => ({
+        ...prevOffers,
+        results: prevOffers.results.map((offer) =>
+          offer.id === offerId ? { ...offer, status: "ACCEPTED" } : offer
+        ),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleRejectOffer = async (offerId) => {
+   
+    try {
+      await axiosRes.patch(`/offers/${offerId}/`, { status: "REJECTED" });
+     
+      setOffers((prevOffers) => ({
+        ...prevOffers,
+        results: prevOffers.results.map((offer) =>
+          offer.id === offerId ? { ...offer, status: "REJECTED" } : offer
+        ),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleDeActivateOffer = async (offerId) => {
+   
+    try {
+      await axiosRes.patch(`/offers/${offerId}/`, { status: "SOLD" });
+     
+      setOffers((prevOffers) => ({
+        ...prevOffers,
+        results: prevOffers.results.map((offer) =>
+          offer.id === offerId ? { ...offer, status: "SOLD" } : offer
+        ),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
 
   useEffect(() => {
     const handleMount = async () => {
@@ -110,7 +160,7 @@ function AdvertDetailPage() {
               
               {offers.results.length ? (
                         offers.results.map((offer) => (
-                          <Offer key={offer.id} {...offer} />
+                          <Offer key={offer.id} onAcceptOffer={handleAcceptOffer} onRejectOffer ={handleRejectOffer} onDeactivateOffer = {handleDeActivateOffer} {...offer} />
                         ))
                       ) : userLoggedIn ? (
                         <span>No offers made yet. Make an offer to purchase a product.</span>
