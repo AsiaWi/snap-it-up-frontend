@@ -10,10 +10,10 @@ import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 
 const Offer = (props) => {
 
-  const {  id, profile_image, buyer, updated_at, amount, status, seller, onAcceptOffer, onRejectOffer, onDeactivateOffer} = props;
+  const {  id, created_by_profile_user, profile_image, buyer, updated_at, amount, status, seller, onAcceptOffer, onRejectOffer, onDeactivateOffer} = props;
 
   const userLoggedin = useLoggedInUser();
-    const is_owner = userLoggedin?.username === buyer;
+    // const is_owner = userLoggedin?.username === buyer;
     const is_seller = userLoggedin?.username === seller;
     // const history = useHistory();
 
@@ -30,24 +30,20 @@ const Offer = (props) => {
       onDeactivateOffer(id);
     };
 
-    // const handleEdit = () => {
-    //     history.push(`/offers/${id}/edit`);
-    //   };
-
   return (
     <div>
       <hr />
       <Media>
-        <Link to={`/profiles/${buyer}`}>
+        <Link to={`/profiles/${created_by_profile_user}`}>
           <Avatar src={profile_image} />
         </Link>
         <Media.Body className="align-self-center ml-2">
           <span className={styles.Owner}>{buyer}</span>
           <span className={styles.Date}>{updated_at}</span>
           <p>Offer of £{amount} was made by {buyer}</p>
-          {/* <p>{message}</p> */}
           <p>{status}</p>
-          {(is_owner || is_seller) && (
+          
+          {(is_seller) && (
             <>
               <Button onClick={handleAcceptOffer} >Accept</Button>
               
