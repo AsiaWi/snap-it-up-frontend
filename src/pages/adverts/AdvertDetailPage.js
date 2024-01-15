@@ -14,6 +14,9 @@ import styles from '../../styles/Tabs.module.css';
 
 import OfferCreateForm from '../offers/OfferCreateForm';
 import Offer from "../offers/Offer";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
+import Assets from "../../components/Assets";
 
 function AdvertDetailPage() {
     const { id } = useParams();
@@ -21,15 +24,12 @@ function AdvertDetailPage() {
   const userLoggedIn = useLoggedInUser();
   const profile_image = userLoggedIn?.profile_image;
   const [questions, setQuestions] = useState({results : []});
-  
   const [offers, setOffers] = useState({results : []});
 
 
   const handleAcceptOffer = async (offerId) => {
-   
     try {
-      await axiosRes.patch(`/offers/${offerId}/`, { status: "ACCEPTED" });
-     
+      await axiosRes.put(`/offers/${offerId}/`, { status: "ACCEPTED" });
       setOffers((prevOffers) => ({
         ...prevOffers,
         results: prevOffers.results.map((offer) =>
@@ -42,9 +42,8 @@ function AdvertDetailPage() {
   };
 
   const handleRejectOffer = async (offerId) => {
-   
     try {
-      await axiosRes.patch(`/offers/${offerId}/`, { status: "REJECTED" });
+      await axiosRes.put(`/offers/${offerId}/`, { status: "REJECTED" });
      
       setOffers((prevOffers) => ({
         ...prevOffers,
@@ -58,9 +57,9 @@ function AdvertDetailPage() {
   };
 
   const handleDeActivateOffer = async (offerId) => {
-   
+
     try {
-      await axiosRes.patch(`/offers/${offerId}/`, { status: "SOLD" });
+      await axiosRes.put(`/offers/${offerId}/`, { status: "SOLD" });
      
       setOffers((prevOffers) => ({
         ...prevOffers,
@@ -85,7 +84,8 @@ function AdvertDetailPage() {
         setAdvert({ results: [advert] });
         setQuestions(questions);
         setOffers(offers);
-        console.log(advert);
+        // console.log('here:');
+        // console.log(id)
       } catch (err) {
         console.log(err);
       }
@@ -116,10 +116,19 @@ function AdvertDetailPage() {
 ) : null}
   
   {questions.results.length ? (
-            questions.results.map((question) => (
+    <InfiniteScroll
+    children={questions.results.map((question) => (
+            
+              
+              // console.log(question),
               <Question key={question.id} {...question} setAdvert={setAdvert} setQuestions={setQuestions}  />
             
-            ))
+            ))}
+            dataLength={questions.results.length}
+              loader={<Assets spinner />}
+              hasMore={!!questions.next}
+              next={() => fetchMoreData(questions, setQuestions)}
+            />
           ) : userLoggedIn ? (
             <>
               <hr />
@@ -129,7 +138,7 @@ function AdvertDetailPage() {
           ) : (
             <>
             <hr />
-    <p className="text-center">No question was asked yet.</p>
+    <p className="text-center">Log in to ask a question. No questions yet.</p>
     <hr />
     </>
           )}
@@ -141,33 +150,36 @@ function AdvertDetailPage() {
   //offers tab 
   const offersTab = (
     <>
-    <hr />
-      <p className="text-center">Offers made</p>
-      <hr />
-     
+    <Container>
      {userLoggedIn ? (
   <OfferCreateForm
-  profile_id={userLoggedIn.profile_id}
+  created_by_profile_user={userLoggedIn.created_by_profile_user}
   profile_image={profile_image}
   advert={id}
   setAdvert={setAdvert}
-  
   setOffers={setOffers}
 />
 ) : offers.results.length ? (
-              "Offers"
+  <>
+  <hr />
+      <p className="text-center">Offers already made</p>
+      <hr />
+      </>
             ) : null}
               
               {offers.results.length ? (
                         offers.results.map((offer) => (
-                          <Offer key={offer.id} onAcceptOffer={handleAcceptOffer} onRejectOffer ={handleRejectOffer} onDeactivateOffer = {handleDeActivateOffer} {...offer} />
+                          //  console.log(offer),
+                          <Offer key={offer.id} {...offer} setAdvert={setAdvert} setOffers={setOffers} onAcceptOffer={handleAcceptOffer} onRejectOffer ={handleRejectOffer} onDeactivateOffer = {handleDeActivateOffer}  />
                         ))
                       ) : userLoggedIn ? (
                         <span>No offers made yet. Make an offer to purchase a product.</span>
                       ) : (
-                        <span>No offers yet</span>
+                        <span>Log in to make an offer.No offers yet.</span>
           )}
-           </>
+                     </Container>
+      
+      </>
   );
 
   const mainAdvertTabs = (
@@ -178,7 +190,7 @@ function AdvertDetailPage() {
       //className="mb-3"
       className={`${styles.Tabs} "mb-3"`}
     >
-      <Tab eventKey="advert_questions" title='Questions' id='questionSection' >
+      <Tab eventKey="advert_questions" title='Questions'>
       {questionsTab}
       </Tab>
       <Tab eventKey="offers" title='Offers'>
@@ -190,18 +202,6 @@ function AdvertDetailPage() {
   )
     
 
-  //scroll to question section
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const sectionToScrollTo = urlParams.get('scrollTo');
-
-    if (sectionToScrollTo === 'questionContainer') {
-      const section = document.getElementById('questionContainer');
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  }, []);
   
   return (
     <Row className="h-100">

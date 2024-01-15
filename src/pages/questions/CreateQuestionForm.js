@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 
 import styles from "../../styles/CreateEditQuestionForm.module.css";
-import Avatar from "../../components/Avatar";
+// import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 
+
 function CreateQuestionForm(props) {
-  const { advert, setAdvert, setQuestions, profile_image, asked_by_profile_user } = props;
+  const { advert, setAdvert, setQuestions} = props;  //, profile_image, asked_by_profile_user 
   const [question_content, setContent] = useState("");
 
   const handleChange = (event) => {
@@ -47,9 +48,9 @@ function CreateQuestionForm(props) {
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
         <InputGroup>
-        <Link to={`/profiles/${asked_by_profile_user}`}>
+        {/* <Link to={`/profiles/${asked_by_profile_user}`}>
           <Avatar src={profile_image} />
-        </Link>
+        </Link> */}
        
           <Form.Control
             className={styles.Form}
