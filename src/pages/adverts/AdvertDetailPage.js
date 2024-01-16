@@ -173,9 +173,18 @@ function AdvertDetailPage() {
                           <Offer key={offer.id} {...offer} setAdvert={setAdvert} setOffers={setOffers} onAcceptOffer={handleAcceptOffer} onRejectOffer ={handleRejectOffer} onDeactivateOffer = {handleDeActivateOffer}  />
                         ))
                       ) : userLoggedIn ? (
-                        <span>No offers made yet. Make an offer to purchase a product.</span>
-                      ) : (
-                        <span>Log in to make an offer.No offers yet.</span>
+                        <>
+                        <hr />
+                <p className="text-center">No offers made yet. Make an offer to purchase a product.</p>
+                <hr />
+                </>
+                    ) : (
+                      <>
+                      <hr />
+              <p className="text-center">Log in to make an offer.No offers yet..</p>
+              <hr />
+              </>
+                        
           )}
                      </Container>
       

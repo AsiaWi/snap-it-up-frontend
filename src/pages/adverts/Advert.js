@@ -229,7 +229,7 @@ const Advert = (props) => {
               </Tooltip>
             }
           >
-            <Link className={styles.Icons} to={`/adverts/${id}?scrollTo=questionContainer`}>
+            <Link className={styles.Icons} to={`/adverts/${id}`}>
               <i class="fa-solid fa-question"></i>
             </Link>
           </OverlayTrigger>

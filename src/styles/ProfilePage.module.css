@@ -1,3 +1,9 @@
 .membership {
     font-size: small;
 }
+
+.ProfileImage {
+    object-fit: cover;
+    height: 105px;
+    margin-top: 15px;
+}

@@ -15,6 +15,7 @@ import { ProfileEditDropdown } from "../../components/EditDeleteAdvertDropdown";
 
 import { useLoggedInUser} from "../../contexts/LoggedInUserContext";
 import CreateRatingForm from "../rating/CreateRatingForm";
+import HighestRatedProfiles from "../profiles/HighestRatedProfiles";
 // import Rating from "../rating/Rating";
 
 
@@ -259,7 +260,7 @@ function ProfilePage() {
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-       {/* <HighestRatedProfiles/> */}
+       <HighestRatedProfiles/>
       </Col>
     </Row>
   );

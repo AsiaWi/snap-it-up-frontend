@@ -98,7 +98,7 @@ function AdvertsListViewPage({ message, filter = '' }) {
             onChange={(event) => setQuery(event.target.value)}
             type="text"
             className="mr-sm-2"
-            placeholder="Search adverts by tag, title or content keywords"
+            placeholder="Search adverts by location or keywords"
           />
           </Col>
           </Row>

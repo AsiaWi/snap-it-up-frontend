@@ -53,7 +53,6 @@ function App() {
           <Route exact path="/adverts/create" render={() => <CreateAdvertForm />} />
           <Route exact path="/adverts/:id" render={() => <AdvertDetailPage />} />
           <Route exact path="/adverts/:id/edit" render={() => <EditAdvertForm/>} />
-          {/* <Route exact path="/offers/:id/edit" render={() => <EditOffersForm/>} /> */}
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
           <Route
   exact
