@@ -10,27 +10,29 @@ import { useState } from "react";
 import EditReplyForm from '../replies/EditReplyForm';
 
 const Reply = (props) => {
-  const { id, created_by_profile_user, profile_image, owner, updated_at, reply_content, setQuestion, setReplies} = props;
+  const { id, created_by_profile_user, profile_image, owner, updated_at, reply_content, setReplies} = props;
   const [showEditForm, setShowEditForm] = useState(false);
   const userLoggedIn = useLoggedInUser();
   const is_owner = userLoggedIn?.username === owner;
+  // const [question, setQuestion] = useState(props);
   
   const handleDelete = async () => {
     try {
+      console.log("Deleting reply...");
       await axiosRes.delete(`/replies/${id}/`);
-      setQuestion((prevQuestion) => ({
-        results: [
-          {
-            ...prevQuestion.results[0],
-            replies_count: prevQuestion.results[0].replies_count - 1,
-          },
-        ],
-      }));
-
+      console.log("Reply deleted successfully.");
+      
       setReplies((prevReplies) => ({
         ...prevReplies,
         results: prevReplies.results.filter((reply) => reply.id !== id),
       }));
+      
+      // setQuestion((prevQuestion) => ({
+      //   ...prevQuestion,
+      //   replies_count: prevQuestion.replies_count - 1,
+      // }));
+
+console.log('check')
     } catch (err) {}
   };
   
@@ -50,7 +52,7 @@ const Reply = (props) => {
             id={id}
             created_by_profile_user={created_by_profile_user}
       reply_content={reply_content}
-      profile_image={profile_image}
+      profile_image={profile_image} 
       setReplies={setReplies}
       setShowEditForm={setShowEditForm}/>
           ) : (

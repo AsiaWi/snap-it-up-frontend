@@ -103,7 +103,7 @@ const Advert = (props) => {
 
           <div className="d-flex align-items-center">
             <span>
-              <i class="fa-solid fa-location-dot"></i>
+              <i className="fa-solid fa-location-dot"></i>
               {profile_location}
             </span>
             {is_owner && advertPage && (
@@ -129,34 +129,34 @@ const Advert = (props) => {
 
           <Col className={` d-flex-direction-column-align-items-left m-2 `}>
             <p>
-              <i class="fa-solid fa-sterling-sign"></i>Price: {price}
+              <i className="fa-solid fa-sterling-sign"></i>Price: {price}
             </p>
             <p>
-            <i class="fa-solid fa-location-dot"></i>Item location: {location}
+            <i className="fa-solid fa-location-dot"></i>Item location: {location}
             </p>
             <p>
-              <i class="fa-solid fa-pen"></i>Added/updated: {updated_at}
+              <i className="fa-solid fa-pen"></i>Added/updated: {updated_at}
             </p>
             <p>
-              <i class="fa-solid fa-sterling-sign"></i>Payment option:{" "}
+              <i className="fa-solid fa-sterling-sign"></i>Payment option:{" "}
               {payment_options}
             </p>
             <p>
-              <i class="fa-regular fa-hand"></i>Delivery/collection:{" "}
+              <i className="fa-regular fa-hand"></i>Delivery/collection:{" "}
               {shippment_options}
             </p>
             <p>
-              <i class="fa-solid fa-eye"></i>Page views: {page_views}
+              <i className="fa-solid fa-eye"></i>Page views: {page_views}
             </p>
             <p>
-              <i class="fa-solid fa-bookmark"></i>Saved: {save_count}
+              <i className="fa-solid fa-bookmark"></i>Saved: {save_count}
             </p>
           </Col>
         </Row>
       </Link>
        
         <Col className={appStyles.tags}>
-          <i class="fa-solid fa-tag"></i>
+          <i className="fa-solid fa-tag"></i>
           {tags}
         </Col>
       
@@ -189,7 +189,7 @@ const Advert = (props) => {
               className={`${styles.Icons}`}
               onClick={handleRemoveFromSavedList}
             >
-              <i class="fa-solid fa-bookmark"></i>
+              <i className="fa-solid fa-bookmark"></i>
             </span>
           </OverlayTrigger>
 
@@ -203,7 +203,7 @@ const Advert = (props) => {
               overlay={<Tooltip>Click to save item</Tooltip>}
             >
               <span className={`${styles.Icons}`} onClick={handleSaveItem}>
-              <i class="fa-regular fa-bookmark"></i>
+              <i className="fa-regular fa-bookmark"></i>
             </span>
             </OverlayTrigger>
             
@@ -230,7 +230,7 @@ const Advert = (props) => {
             }
           >
             <Link className={styles.Icons} to={`/adverts/${id}`}>
-              <i class="fa-solid fa-question"></i>
+              <i className="fa-solid fa-question"></i>
             </Link>
           </OverlayTrigger>
 
@@ -240,7 +240,7 @@ const Advert = (props) => {
             overlay={<Tooltip>Make an offer to purchase the product</Tooltip>}
           >
             <Link className={styles.Icons} to={`/adverts/${id}`}>
-              <i class="fa-solid fa-coins"></i>
+              <i className="fa-solid fa-coins"></i>
             </Link>
           </OverlayTrigger>
         </div>

@@ -151,6 +151,7 @@ function AdvertDetailPage() {
   const offersTab = (
     <>
     <Container>
+      
      {userLoggedIn ? (
   <OfferCreateForm
   created_by_profile_user={userLoggedIn.created_by_profile_user}
@@ -194,7 +195,7 @@ function AdvertDetailPage() {
   const mainAdvertTabs = (
     <>
     <Tabs
-      defaultActiveKey="advert"
+      defaultActiveKey="advert_questions"
       id="advert_tabs"
       //className="mb-3"
       className={`${styles.Tabs} "mb-3"`}

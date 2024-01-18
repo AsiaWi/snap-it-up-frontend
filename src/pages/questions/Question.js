@@ -21,13 +21,13 @@ import { axiosReq} from "../../api/axiosDefaults";
 
 const Question = (props) => {
 
-  const { id, asked_by_profile_user, profile_image, owner, updated_at, question_content, setAdvert, setQuestions, replies_count } = props;
+  const { id, asked_by_profile_user, profile_image, owner, updated_at, question_content, setAdvert, setQuestions } = props;
   const [showEditForm, setShowEditForm] = useState(false);
   const userLoggedIn = useLoggedInUser();
   const is_owner = userLoggedIn?.username === owner;
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [showRepliesList, setShowRepliesList] = useState(false);
-  const [question, setQuestion] = useState({ results: [] });
+  const [question, setQuestion] = useState(props);
   const [replies, setReplies] = useState({results : []});
   
   const handleDelete = async () => {
@@ -47,6 +47,7 @@ const Question = (props) => {
         ...prevQuestions,
         results: prevQuestions.results.filter((question) => question.id !== id),
       }));
+      
     } catch (err) {}
   };
 
@@ -100,10 +101,9 @@ const Question = (props) => {
         id={id}
         created_by_profile_user={userLoggedIn.created_by_profile_user}
         profile_image={profile_image}
-        question={id}
-        
+        question={question}
         setQuestion= {setQuestion}
-        setQuestions={setQuestions}
+        // setQuestions={setQuestions}
         
         setReplies={setReplies}
         setShowCreateForm={setShowCreateForm}
@@ -115,9 +115,9 @@ const Question = (props) => {
 ) : null}
 
 {!showRepliesList ? (
-<Button className={btnstyles.Button} onClick={() => setShowRepliesList(true)}>{replies_count} Replies: </Button>
+<Button className={btnstyles.Button} onClick={() => setShowRepliesList(true)}>{replies.results.length} Replies: </Button>
 ) : (
-  <Button className={btnstyles.Button} onClick={() => setShowRepliesList(false)}>Hide replies</Button>
+  <Button className={btnstyles.Button} onClick={() => setShowRepliesList(false)}>Hide {replies.results.length} replies</Button>
 )
 }
 

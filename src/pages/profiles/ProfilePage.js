@@ -95,7 +95,7 @@ function ProfilePage() {
               <div>adverts</div>
             </Col>
             <Col xs={3} className="my-2">
-               <div>{profile?.average_rating}</div>
+               <div>{profile?.average_rating} / 5</div>
               <div>average rating</div>
             </Col>
             <Col xs={3} className="my-2">
@@ -208,7 +208,7 @@ function ProfilePage() {
   const mainProfileTabs = (
     <>
     <Tabs
-      defaultActiveKey="profile"
+      defaultActiveKey="profile_adverts"
       id="profile_tabs"
       className={`${tabStyles.Tabs} "mb-3"`}
     >

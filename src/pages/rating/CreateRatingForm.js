@@ -75,7 +75,7 @@ function CreateRatingForm(props) {
         </InputGroup>
       </Form.Group>
       <Form.Group>
-        <Form.Label>How many starts do you want to give?</Form.Label>
+        <Form.Label>How many stars do you want to give?</Form.Label>
         <Form.Control
           className={styles.Input}
           as="select"
@@ -83,8 +83,8 @@ function CreateRatingForm(props) {
           value={rating}
           onChange={handleRatingChange}
         >
-          <option value='1'>1 star</option>
-          <option value="2">2 stars</option>
+          <option value='1'><i className="fa-regular fa-star"></i></option>
+          <option value="2"><i className="fa-regular fa-star"></i><i className="fa-regular fa-star"></i></option>
           <option value="3">3 stars</option>
           <option value="4">4 stars</option>
           <option value="5">5 stars</option>

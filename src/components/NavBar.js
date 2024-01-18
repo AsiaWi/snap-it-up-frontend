@@ -39,25 +39,25 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/saved"
       >
-        <i class="fa-solid fa-bookmark"></i>Saved
+        <i className="fa-solid fa-bookmark"></i>Saved
       </NavLink>
       <NavLink
         className={styles.NavLinks}
         activeClassName={styles.Active}
         to="/adverts/create"
       >
-        <i class="fa-solid fa-plus"></i>Sell !t
+        <i className="fa-solid fa-plus"></i>Sell !t
       </NavLink>
       <NavLink
         className={styles.NavLinks}
         activeClassName={styles.Active}
         to={`/profiles/${userLoggedIn?.profile_id}`}
       >
-        <i class="fa-solid fa-user"></i>
+        <i className="fa-solid fa-user"></i>
         {userLoggedIn?.username}
       </NavLink>
       <NavLink className={styles.NavLinks} to="/" onClick={handleSignOut}>
-        <i class="fa-solid fa-right-from-bracket"></i>Sign-out
+        <i className="fa-solid fa-right-from-bracket"></i>Sign-out
       </NavLink>
     </>
   );
@@ -69,7 +69,7 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/sign-in"
       >
-        <i class="fa-solid fa-right-to-bracket"></i>Sign-in
+        <i className="fa-solid fa-right-to-bracket"></i>Sign-in
       </NavLink>
 
       <NavLink
@@ -77,7 +77,7 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/register"
       >
-        <i class="fa-solid fa-user-plus"></i>Register
+        <i className="fa-solid fa-user-plus"></i>Register
       </NavLink>
     </>
   );
@@ -108,7 +108,7 @@ const NavBar = () => {
               activeClassName={styles.Active}
               to="/"
             >
-              <i class="fa-solid fa-house"></i>Home
+              <i className="fa-solid fa-house"></i>Home
             </NavLink>
 
             {userLoggedIn ? loggedInIcons : loggedOutIcons}

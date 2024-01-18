@@ -6,9 +6,8 @@ import { axiosRes } from "../../api/axiosDefaults";
 
 
 function CreateReplyForm(props) {
-  const { question, setQuestion, setReplies, setShowCreateForm, } = props; 
+  const { question, setQuestion, setReplies, setShowCreateForm } = props;
   const [reply_content, setContent] = useState("");
-
   const handleChange = (event) => {
     setContent(event.target.value);
   };
@@ -18,8 +17,9 @@ function CreateReplyForm(props) {
     try {
       const { data } = await axiosRes.post("/replies/", {
         reply_content,
-        question,
+        question: question.id,
       });
+      
       setReplies((prevReplies) => ({
         ...prevReplies,
         results: [data, ...prevReplies.results],
@@ -27,15 +27,11 @@ function CreateReplyForm(props) {
       }));
 
       setQuestion((prevQuestion) => ({
-        results: [
-          {
-            ...prevQuestion.results[0],
-             replies_count: prevQuestion.results[0].replies_count + 1,
-          },
-        ],
+            ...prevQuestion,
+             replies_count: question.replies_count + 1,
       }));
-
       setContent("");
+      setShowCreateForm(false);
     } catch (err) {
       console.log(err);
     }
