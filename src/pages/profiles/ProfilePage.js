@@ -38,7 +38,7 @@ function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profileAdverts, setProfileAdverts] = useState({ results: [] });
   const { id } = useParams();
-  const setProfileData = useSetProfileData();
+  const {setProfileData} = useSetProfileData();
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
   
@@ -157,10 +157,7 @@ function ProfilePage() {
   owners_id={userLoggedIn.owners_id}
   profile_image={profile_image}
   rated_user={id}
-  setRatedUser={setProfileData}
-  pageProfile={pageProfile}
   setRatings={setRatings}
-  rating_count={profile?.rating_count}
 />
 ) : ratings.results.length ? (
   <>

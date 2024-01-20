@@ -4,17 +4,21 @@ import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import styles from "../../styles/Question.module.css";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
-import { axiosRes } from "../../api/axiosDefaults";
+
 import { useState } from "react";
 import { EditDeleteAdvertDropdown } from "../../components/EditDeleteAdvertDropdown";
-
+import {
+  
+  useSetProfileData,
+} from "../../contexts/ProfileDataContext";
 import EditRatingForm from '../rating/EditRatingForm';
 
 const Rating = (props) => {
-  const { id, owners_id, profile_image, owner, updated_at, feedback, rating, setRatedUser, setRatings, pageProfile } = props;
+  const { id, owners_id, profile_image, owner, updated_at, feedback, rating, setRatings, rated_user} = props;
   const [showEditForm, setShowEditForm] = useState(false);
   const userLoggedIn = useLoggedInUser();
   const is_owner = userLoggedIn?.username === owner;
+  const {handleDeleteRating} = useSetProfileData();
   
 //   const updatedPageProfile = {
 //     results: pageProfile.results.map((profile) => ({
@@ -24,34 +28,18 @@ const Rating = (props) => {
 //     })),
 //   };
 
-  const handleDelete = async () => {
-    try {
-        const { data } = await axiosRes.delete(`/ratings/${id}/`);
-      
-        setRatings((prevRatings) => ({
-            ...prevRatings,
-            results: prevRatings.results.filter((rating) => rating.id != id) ,
-          
-          }));
-          setRatedUser((prevState) => ({
-            ...prevState,
-            // pageProfile: { results: [pageProfile.rating_count] },
-            // rating_count: { results: [rating_count] }
-            rating_count:pageProfile.rating_count -1,
-          }));
-         console.log("rating count after", pageProfile)
-    //   setRatedUser((prevRatedUser) => ({
-    //     results: [
-    //       {
-    //         ...prevRatedUser.results[0],
-    //         rating_count: prevRatedUser.results[0].rating_count - 1,
-    //       },
-    //     ],
-    //   }));
-
-   
-    } catch (err) {}
-  };
+const onDelete = async () => {
+  try {
+    await handleDeleteRating(id, rated_user);
+    setRatings((prevRatings) => ({
+      ...prevRatings,
+      results: prevRatings.results.filter((rating) => rating.id !== id) ,
+    
+    }));
+  } catch (error) {
+    console.error("Error deleting rating:", error);
+  }
+};
 
   return (
     <div>
@@ -71,6 +59,7 @@ const Rating = (props) => {
       rating={rating}
       profile_image={profile_image}
       setRatings={setRatings}
+      rated_user={rated_user}
       setShowEditForm={setShowEditForm}/>
           ) : (
             <p>{feedback}</p>
@@ -79,7 +68,7 @@ const Rating = (props) => {
         {is_owner && !showEditForm && (
           <EditDeleteAdvertDropdown
             handleEdit={() => setShowEditForm(true)}
-            handleDelete={handleDelete}
+            handleDelete={onDelete}
           />
         
         )}

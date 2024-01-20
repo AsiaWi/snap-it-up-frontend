@@ -5,20 +5,15 @@ import InputGroup from "react-bootstrap/InputGroup";
 import styles from "../../styles/CreateEditQuestionForm.module.css";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
-
+import {
+  
+  useSetProfileData,
+} from "../../contexts/ProfileDataContext"; 
 function CreateRatingForm(props) {
-  const { rated_user, setRatedUser, setRatings, profile_image, owners_id, pageProfile, rating_count} = props;
+  const { rated_user, setRatings, profile_image, owners_id} = props;
   const [feedback, setFeedback] = useState("");
   const [rating, setRating] = useState("");
-  
-  const updatedPageProfile = {
-    results: pageProfile.results.map((profile) => ({
-      ...profile,
-      rating_count: profile.rating_count + 1,
-      average_rating: profile?.average_rating,
-    })),
-  };
-
+  const {handleSubmit} = useSetProfileData();
   const handleFeedbackChange = (event) => {
     setFeedback(event.target.value);
   };
@@ -27,7 +22,7 @@ function CreateRatingForm(props) {
     setRating(event.target.value);
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmitRating = async (event) => {
 
     event.preventDefault();
     try {
@@ -42,14 +37,9 @@ function CreateRatingForm(props) {
         results: [data, ...prevRatings.results],
       
       }));
-      console.log("rating count before",pageProfile)
-      setRatedUser((prevState) => ({
-        ...prevState,
-        // pageProfile: { results: [pageProfile.rating_count] },
-        // rating_count: { results: [rating_count] }
-        rating_count:updatedPageProfile,
-      }));
-     console.log("rating count after", pageProfile)
+      await handleSubmit(rated_user);
+     
+     
     
       setFeedback("");
       setRating("");
@@ -59,7 +49,7 @@ function CreateRatingForm(props) {
   };
 
   return (
-    <Form className="mt-2" onSubmit={handleSubmit}>
+    <Form className="mt-2" onSubmit={handleSubmitRating}>
       <Form.Group>
         <InputGroup>
           <Link to={`/profiles/${owners_id}`}>

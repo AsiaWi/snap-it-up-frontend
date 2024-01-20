@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { axiosReq } from "../api/axiosDefaults";
+import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useLoggedInUser } from "../contexts/LoggedInUserContext";
 
 const ProfileDataContext = createContext();
@@ -11,10 +11,54 @@ export const useSetProfileData = () => useContext(SetProfileDataContext);
 export const ProfileDataProvider = ({ children }) => {
   const [profileData, setProfileData] = useState({
     pageProfile: { results: [] },
-    popularProfiles: { results: [] },
   });
 
   const userLoggedIn = useLoggedInUser();
+
+  const handleDeleteRating = async (id, rated_user) => {
+    try {
+      console.log("id and rated_user", id, rated_user)
+      await axiosRes.delete(`/ratings/${id}/`);
+      const { data } = await axiosReq.get(`/profiles/${rated_user}/`);
+      setProfileData((prevState) => ({
+        ...prevState,
+        pageProfile: { results: [data] },
+          }));
+       
+
+    } catch (err) {
+      console.error("Error deleting rating:", err);
+    }
+  };
+
+  const handleSubmit = async (rated_user ) => {
+    try {
+      const { data } = await axiosReq.get(`/profiles/${rated_user}/`);
+      setProfileData((prevState) => ({
+        ...prevState,
+        pageProfile: { results: [data] },
+          }));
+       
+
+    } catch (err) {
+      console.error("Error deleting rating:", err);
+    }
+  };
+
+
+  const handleEditRating = async (rated_user ) => {
+    try {
+      const { data } = await axiosReq.get(`/profiles/${rated_user}/`);
+      setProfileData((prevState) => ({
+        ...prevState,
+        pageProfile: { results: [data] },
+          }));
+       
+
+    } catch (err) {
+      console.error("Error editing rating:", err);
+    }
+  };
 
   useEffect(() => {
     const handleMount = async () => {
@@ -24,7 +68,7 @@ export const ProfileDataProvider = ({ children }) => {
         );
         setProfileData((prevState) => ({
           ...prevState,
-          popularProfiles: data,
+          pageProfile: data,
         }));
       } catch (err) {
         console.log(err);
@@ -34,9 +78,11 @@ export const ProfileDataProvider = ({ children }) => {
     handleMount();
   }, [userLoggedIn]);
 
+
+
   return (
     <ProfileDataContext.Provider value={profileData}>
-      <SetProfileDataContext.Provider value={setProfileData}>
+      <SetProfileDataContext.Provider value={{setProfileData, handleDeleteRating, handleSubmit, handleEditRating}}>
         {children}
       </SetProfileDataContext.Provider>
     </ProfileDataContext.Provider>

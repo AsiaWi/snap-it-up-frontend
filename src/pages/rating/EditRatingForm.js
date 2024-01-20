@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { axiosRes } from "../../api/axiosDefaults";
-
+import {
+  
+  useSetProfileData,
+} from "../../contexts/ProfileDataContext"; 
 import styles from "../../styles/CreateEditQuestionForm.module.css";
 
 function EditRatingForm(props) {
-  const { id, feedback, rating, setShowEditForm, setRatings, owners_id } = props;
+  const { rated_user, id, feedback, rating, setShowEditForm, setRatings, owners_id } = props;
 
   const [feedbackUpdate, setFeedbackUpdate] = useState(feedback);
   const [ratingUpdate, setRatingUpdate] = useState(rating);
-
+  const {handleEditRating} = useSetProfileData();
   const handleFeedbackChange = (event) => {
     setFeedbackUpdate(event.target.value);
   };
@@ -28,20 +31,21 @@ function EditRatingForm(props) {
         rating: ratingUpdate,
       });
       console.log('new feedback',feedbackUpdate );
-      
+      console.log('new feedback',ratingUpdate );
       setRatings((prevRatings) => ({
         ...prevRatings,
         results: prevRatings.results.map((rating) => {
           return rating.id === id
             ? {
                 ...rating,
-                feedback: feedback.trim(),
-                rating: rating,
+                feedback: feedbackUpdate.trim(),
+                rating: ratingUpdate,
                 updated_at: "now",
               }
             : rating;
         }),
       }));
+      await handleEditRating(rated_user);
       setShowEditForm(false);
     } catch (err) {
       console.log(err);
@@ -86,7 +90,7 @@ function EditRatingForm(props) {
         </button>
         <button
           className={styles.Button}
-        //   disabled={!feedback.trim()}
+        // disabled={!feedback.trim()}
           type="submit"
         >
           save
