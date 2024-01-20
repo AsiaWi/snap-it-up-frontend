@@ -7,11 +7,17 @@ import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 
 function CreateRatingForm(props) {
-  const { rated_user, setRatedUser, setRatings, profile_image, owners_id } = props;
-  
+  const { rated_user, setRatedUser, setRatings, profile_image, owners_id, pageProfile, rating_count} = props;
   const [feedback, setFeedback] = useState("");
   const [rating, setRating] = useState("");
   
+  const updatedPageProfile = {
+    results: pageProfile.results.map((profile) => ({
+      ...profile,
+      rating_count: profile.rating_count + 1,
+      average_rating: profile?.average_rating,
+    })),
+  };
 
   const handleFeedbackChange = (event) => {
     setFeedback(event.target.value);
@@ -25,32 +31,28 @@ function CreateRatingForm(props) {
 
     event.preventDefault();
     try {
-       
-        console.log("Submit: rated_user =", owners_id, rated_user,rating,feedback);
       const { data } = await axiosRes.post("/ratings/", {
         feedback,
         rating,
         rated_user,
       });
-       
+       console.log('posted', feedback, rating, rated_user)
       setRatings((prevRatings) => ({
         ...prevRatings,
         results: [data, ...prevRatings.results],
       
       }));
-
-      setRatedUser((prevRatedUser) => ({
-        results: [
-          {
-            ...prevRatedUser.results[0],
-            rating_count: prevRatedUser.results[0].rating_count + 1,
-          },
-        ],
+      console.log("rating count before",pageProfile)
+      setRatedUser((prevState) => ({
+        ...prevState,
+        // pageProfile: { results: [pageProfile.rating_count] },
+        // rating_count: { results: [rating_count] }
+        rating_count:updatedPageProfile,
       }));
-
+     console.log("rating count after", pageProfile)
+    
       setFeedback("");
       setRating("");
-     
     } catch (err) {
       console.log(err);
     }
@@ -83,8 +85,8 @@ function CreateRatingForm(props) {
           value={rating}
           onChange={handleRatingChange}
         >
-          <option value='1'><i className="fa-regular fa-star"></i></option>
-          <option value="2"><i className="fa-regular fa-star"></i><i className="fa-regular fa-star"></i></option>
+          <option value='1'>1 star</option>
+          <option value="2">2 stars</option>
           <option value="3">3 stars</option>
           <option value="4">4 stars</option>
           <option value="5">5 stars</option>
@@ -94,7 +96,7 @@ function CreateRatingForm(props) {
       
       <button
         className={`${styles.Button} btn d-block ml-auto`}
-        // disabled={!feedback.trim()}
+        disabled={!feedback.trim()}
         type="submit"
       >
         post

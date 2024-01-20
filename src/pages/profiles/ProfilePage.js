@@ -16,7 +16,7 @@ import { ProfileEditDropdown } from "../../components/EditDeleteAdvertDropdown";
 import { useLoggedInUser} from "../../contexts/LoggedInUserContext";
 import CreateRatingForm from "../rating/CreateRatingForm";
 import HighestRatedProfiles from "../profiles/HighestRatedProfiles";
-// import Rating from "../rating/Rating";
+import Rating from "../rating/Rating";
 
 
 import { useParams } from "react-router";
@@ -35,35 +35,32 @@ import nothingThere from "../../assets/icons8-unknown-results-96.png";
 function ProfilePage() {
   const userLoggedIn = useLoggedInUser();
   const profile_image = userLoggedIn?.profile_image;
-  const [ratings, setRatings] = useState({results : []});
-  // const [rated_user, setRatedUser] = useState({ results: [] });
-
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profileAdverts, setProfileAdverts] = useState({ results: [] });
-
-  // const userLoggedIn = useLoggedInUser();
   const { id } = useParams();
-
   const setProfileData = useSetProfileData();
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
+  
+  
+  const [ratings, setRatings] = useState({results : []});
   // const is_owner = currentUser?.username === profile?.owner;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [{ data: pageProfile }, { data: profileAdverts }] =
+        const [{ data: pageProfile }, { data: profileAdverts }, {data:ratings}] =
           await Promise.all([
             axiosReq.get(`/profiles/${id}/`),
             axiosReq.get(`/adverts/?owner__profile=${id}`),
-            // axiosReq.get(`/ratings/?rated_user=${id}`),
+            axiosReq.get(`/ratings/?rated_user=${id}`),
           ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
         setProfileAdverts(profileAdverts);
-        // setRatings(ratings);
+        setRatings(ratings);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
@@ -95,7 +92,7 @@ function ProfilePage() {
               <div>adverts</div>
             </Col>
             <Col xs={3} className="my-2">
-               <div>{profile?.average_rating} / 5</div>
+               <div>{profile?.average_rating}</div>
               <div>average rating</div>
             </Col>
             <Col xs={3} className="my-2">
@@ -160,13 +157,15 @@ function ProfilePage() {
   owners_id={userLoggedIn.owners_id}
   profile_image={profile_image}
   rated_user={id}
-  // setRatedUser={setRatedUser}
+  setRatedUser={setProfileData}
+  pageProfile={pageProfile}
   setRatings={setRatings}
+  rating_count={profile?.rating_count}
 />
 ) : ratings.results.length ? (
   <>
   <hr />
-      <p className="text-center">Feedback received by ${profile?.owner}</p>
+      <p className="text-center">Feedback received by {profile?.owner}</p>
       <hr />
       </>
   
@@ -174,13 +173,13 @@ function ProfilePage() {
   
   {ratings.results.length ? (
             ratings.results.map((rating) => (
-              // <Rating key={rating.id} {...rating} setRatings={setRatings}  />
-            <>hi</>
+               <Rating key={rating.id} {...rating} setRatings={setRatings}  />
+           
             ))
           ) : userLoggedIn ? (
             <>
               <hr />
-      <p className="text-center">NO FEEDBACK RECEIVED YET, TELL ${profile?.owner} what you think</p>
+      <p className="text-center">No feedback received yet,, tell {profile?.owner} what you think</p>
       <hr />
       </>
           ) : (
@@ -247,7 +246,7 @@ function ProfilePage() {
   return (
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        {/* <PopularProfiles mobile /> */}
+
         <Container>
           {hasLoaded ? (
             <>
