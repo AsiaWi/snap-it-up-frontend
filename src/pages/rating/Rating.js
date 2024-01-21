@@ -12,7 +12,7 @@ import {
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
 import EditRatingForm from '../rating/EditRatingForm';
-
+import StarDisplay from '../../components/StarDisplay'
 const Rating = (props) => {
   const { id, owners_id, profile_image, owner, updated_at, feedback, rating, setRatings, rated_user} = props;
   const [showEditForm, setShowEditForm] = useState(false);
@@ -20,13 +20,7 @@ const Rating = (props) => {
   const is_owner = userLoggedIn?.username === owner;
   const {handleDeleteRating} = useSetProfileData();
   
-//   const updatedPageProfile = {
-//     results: pageProfile.results.map((profile) => ({
-//       ...profile,
-//       rating_count: profile.rating_count - 1,
-//       average_rating: profile?.average_rating,
-//     })),
-//   };
+  
 
 const onDelete = async () => {
   try {
@@ -62,7 +56,12 @@ const onDelete = async () => {
       rated_user={rated_user}
       setShowEditForm={setShowEditForm}/>
           ) : (
+            <>
             <p>{feedback}</p>
+            
+            <div><StarDisplay
+            rating={rating}/></div>
+            </>
           )}
         </Media.Body>
         {is_owner && !showEditForm && (

@@ -6,19 +6,17 @@ import {
   useSetProfileData,
 } from "../../contexts/ProfileDataContext"; 
 import styles from "../../styles/CreateEditQuestionForm.module.css";
+import StarRating from "./StarRating";
 
 function EditRatingForm(props) {
   const { rated_user, id, feedback, rating, setShowEditForm, setRatings, owners_id } = props;
 
   const [feedbackUpdate, setFeedbackUpdate] = useState(feedback);
   const [ratingUpdate, setRatingUpdate] = useState(rating);
+  const [hover, setHover] = useState(null);
   const {handleEditRating} = useSetProfileData();
   const handleFeedbackChange = (event) => {
     setFeedbackUpdate(event.target.value);
-  };
-
-  const handleRatingChange = (event) => {
-    setRatingUpdate(event.target.value);
   };
  
 
@@ -65,20 +63,13 @@ function EditRatingForm(props) {
       </Form.Group>
       <Form.Group>
         <Form.Label>How many stars do you want to give?</Form.Label>
-        <Form.Control
-          className={styles.Input}
-          as="select"
-          name="rating"
-          value={ratingUpdate}
-          onChange={handleRatingChange}
-        >
-          <option value='1'>1 star</option>
-          <option value="2">2 stars</option>
-          <option value="3">3 stars</option>
-          <option value="4">4 stars</option>
-          <option value="5">5 stars</option>
-          
-        </Form.Control>
+        <StarRating
+          setRating={setRatingUpdate}
+          setHover={setHover}
+          rating={rating}
+          hover={hover}
+          totalStars={5}
+        />
       </Form.Group>
       <div className="text-right">
         <button

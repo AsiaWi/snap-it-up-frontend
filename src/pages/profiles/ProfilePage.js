@@ -59,9 +59,11 @@ function ProfilePage() {
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
+        console.log(pageProfile)
         setProfileAdverts(profileAdverts);
         setRatings(ratings);
         setHasLoaded(true);
+        
       } catch (err) {
         console.log(err);
       }
@@ -74,6 +76,7 @@ function ProfilePage() {
 
   const profileContent = (
     <>
+    
     {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
@@ -152,7 +155,7 @@ function ProfilePage() {
   const profileFeedback = (
       <>
        <Container>
-      {userLoggedIn ? (
+      {!profile?.is_owner && userLoggedIn ? (
   <CreateRatingForm
   owners_id={userLoggedIn.owners_id}
   profile_image={profile_image}
@@ -162,7 +165,7 @@ function ProfilePage() {
 ) : ratings.results.length ? (
   <>
   <hr />
-      <p className="text-center">Feedback received by {profile?.owner}</p>
+      <p className="text-center">Feedback received</p>
       <hr />
       </>
   
@@ -173,19 +176,23 @@ function ProfilePage() {
                <Rating key={rating.id} {...rating} setRatings={setRatings}  />
            
             ))
-          ) : userLoggedIn ? (
+          ) : userLoggedIn && profile?.is_owner ? (
             <>
               <hr />
-      <p className="text-center">No feedback received yet,, tell {profile?.owner} what you think</p>
+      <p className="text-center">You haven't received any feedback yet.</p>
       <hr />
       </>
-          ) : (
+          ) :  userLoggedIn && !profile?.is_owner ? (
             <>
             <hr />
-    <p className="text-center">No feedback yet. Log in to leave first rating</p>
+    <p className="text-center">No feedback yet. Rate your experience with {profile?.owner}</p>
     <hr />
     </>
-          )}
+          ) : !userLoggedIn ?
+        <>
+        <hr />
+      <p className="text-center">{profile?.owner} haven't received any feedback yet. Log in to leave a review</p>
+        </> : null }
           </Container>
       </>
       );

@@ -1,29 +1,25 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-import styles from "../../styles/CreateEditQuestionForm.module.css";
-import Avatar from "../../components/Avatar";
+import styles from "../../styles/CreateEditRatingForm.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
-import {
-  
-  useSetProfileData,
-} from "../../contexts/ProfileDataContext"; 
+import {useSetProfileData} from "../../contexts/ProfileDataContext";
+import StarRating from "./StarRating";
+
+
 function CreateRatingForm(props) {
-  const { rated_user, setRatings, profile_image, owners_id} = props;
+  const { rated_user, setRatings} = props;
   const [feedback, setFeedback] = useState("");
   const [rating, setRating] = useState("");
+  const [hover, setHover] = useState(null);
   const {handleSubmit} = useSetProfileData();
+
   const handleFeedbackChange = (event) => {
     setFeedback(event.target.value);
   };
 
-  const handleRatingChange = (event) => {
-    setRating(event.target.value);
-  };
 
   const handleSubmitRating = async (event) => {
-
     event.preventDefault();
     try {
       const { data } = await axiosRes.post("/ratings/", {
@@ -38,9 +34,6 @@ function CreateRatingForm(props) {
       
       }));
       await handleSubmit(rated_user);
-     
-     
-    
       setFeedback("");
       setRating("");
     } catch (err) {
@@ -52,12 +45,9 @@ function CreateRatingForm(props) {
     <Form className="mt-2" onSubmit={handleSubmitRating}>
       <Form.Group>
         <InputGroup>
-          <Link to={`/profiles/${owners_id}`}>
-          <Avatar src={profile_image} />
-          </Link>
           <Form.Control
             className={styles.Form}
-            placeholder="you can leave a message if you want to"
+            placeholder="leave your feedback here"
             as="textarea"
             name="feedback"
             value={feedback}
@@ -67,21 +57,14 @@ function CreateRatingForm(props) {
         </InputGroup>
       </Form.Group>
       <Form.Group>
-        <Form.Label>How many stars do you want to give?</Form.Label>
-        <Form.Control
-          className={styles.Input}
-          as="select"
-          name="rating"
-          value={rating}
-          onChange={handleRatingChange}
-        >
-          <option value='1'>1 star</option>
-          <option value="2">2 stars</option>
-          <option value="3">3 stars</option>
-          <option value="4">4 stars</option>
-          <option value="5">5 stars</option>
-          
-        </Form.Control>
+        <Form.Label>How would you rate your experience with the user?</Form.Label>
+        <StarRating
+          setRating={setRating}
+          setHover={setHover}
+          rating={rating}
+          hover={hover}
+          totalStars={5}
+        />
       </Form.Group>
       
       <button

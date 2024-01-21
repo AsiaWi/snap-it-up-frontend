@@ -1,6 +1,5 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
-import { useLoggedInUser } from "../contexts/LoggedInUserContext";
 
 const ProfileDataContext = createContext();
 const SetProfileDataContext = createContext();
@@ -12,8 +11,6 @@ export const ProfileDataProvider = ({ children }) => {
   const [profileData, setProfileData] = useState({
     pageProfile: { results: [] },
   });
-
-  const userLoggedIn = useLoggedInUser();
 
   const handleDeleteRating = async (id, rated_user) => {
     try {
@@ -60,23 +57,23 @@ export const ProfileDataProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    const handleMount = async () => {
-      try {
-        const { data } = await axiosReq.get(
-          "/profiles/?ordering=-rating_count"
-        );
-        setProfileData((prevState) => ({
-          ...prevState,
-          pageProfile: data,
-        }));
-      } catch (err) {
-        console.log(err);
-      }
-    };
+  // useEffect(() => {
+  //   const handleMount = async () => {
+  //     try {
+  //       const { data } = await axiosReq.get(
+  //         "/profiles/?ordering=-rating_count"
+  //       );
+  //       setProfileData((prevState) => ({
+  //         ...prevState,
+  //         pageProfile: data,
+  //       }));
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
 
-    handleMount();
-  }, [userLoggedIn]);
+  //   handleMount();
+  // }, [userLoggedIn]);
 
 
 
