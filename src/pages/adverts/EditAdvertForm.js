@@ -155,7 +155,7 @@ function EditAdvertForm() {
             <Form.Label>Currency</Form.Label>
             <Form.Control
               className={formStyling.Disabled}
-              as="text"
+              as="span"
               name="default_currency"
               value={default_currency}
               disabled
@@ -329,7 +329,7 @@ function EditAdvertForm() {
           <Form.Group className="text-center">
            
                 <figure>
-                  <Image src={image} alt="change image" rounded-pill />
+                  <Image src={image} alt="upload new image"/>
                 </figure>
                 <div>
                   <Form.Label

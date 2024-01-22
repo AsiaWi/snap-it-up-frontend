@@ -115,7 +115,7 @@ function CreateAdvertForm() {
             <Form.Label>Currency</Form.Label>
             <Form.Control
               className={formStyling.Disabled}
-              as="text"
+              as="span"
               name="default_currency"
               value={default_currency}
               disabled
@@ -287,7 +287,7 @@ function CreateAdvertForm() {
             {image ? (
               <>
                 <figure>
-                  <Image src={image} alt="upload image" rounded-pill />
+                  <Image src={image} alt="upload image"/>
                 </figure>
                 <div>
                   <Form.Label

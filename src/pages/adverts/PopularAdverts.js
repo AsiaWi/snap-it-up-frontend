@@ -33,7 +33,7 @@ const PopularAdverts = ({ mobile }) => {
     >
       {popularAdverts.results.length ? (
         <>
-          <p>Most popular ads</p>
+          <p>Sneaky peek at most popular ads</p>
           {mobile ? (
             <div className="d-flex justify-content-around">
               {popularAdverts.results.slice(0, 3).map((advert) => (

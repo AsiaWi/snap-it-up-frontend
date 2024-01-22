@@ -1,7 +1,6 @@
 import React from "react";
-import Image from "react-bootstrap/Image";
-import stylesFave from "../../styles/FavouriteAdverts.module.css";
 import { Link } from "react-router-dom";
+import Avatar from "../../components/Avatar";
 
 const HighAverageRateProfile = (props) => {
   const { profile } = props;
@@ -10,12 +9,14 @@ const HighAverageRateProfile = (props) => {
   return (
     <div className="my-3 d-flex align-items-center">
       <div>
-        <Link className="align-self-center" to={`/profiles/${id}`}>
-          <Image className={stylesFave.Image} src={profile_image} rounded />
+        <Link className="pl-4 ml-4 " to={`/profiles/${id}`}>
+          <Avatar
+            src={profile_image}
+            height={85}
+            alt={"highest rated profiles avatar"}
+            text={owner}
+          />
         </Link>
-      </div>
-      <div className={`align-self-center mx-2 ${stylesFave.WordBreak}`}>
-        <strong>{owner}</strong>
       </div>
     </div>
   );
