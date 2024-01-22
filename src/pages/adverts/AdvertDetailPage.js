@@ -19,7 +19,6 @@ import { fetchMoreData } from "../../utils/utils";
 import Assets from "../../components/Assets";
 import { Link } from "react-router-dom";
 import linkStyles from "../../styles/QuestionRatingReplyOffer.module.css";
-import { useLocation } from "react-router-dom";
 
 function AdvertDetailPage() {
   const { id } = useParams();

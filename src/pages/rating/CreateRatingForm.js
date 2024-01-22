@@ -6,8 +6,10 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
 import StarRating from "./StarRating";
 import stylesLabel from '../../App.module.css';
+import Alert from "react-bootstrap/Alert";
 
 function CreateRatingForm(props) {
+  const [errors, setErrors] = useState({});
   const { rated_user, setRatings } = props;
   const [feedback, setFeedback] = useState("");
   const [rating, setRating] = useState("");
@@ -35,6 +37,9 @@ function CreateRatingForm(props) {
       setRating("");
     } catch (err) {
       // console.log(err);
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
     }
   };
 
@@ -42,18 +47,18 @@ function CreateRatingForm(props) {
     <Form className="mt-2" onSubmit={handleSubmitRating}>
       <Form.Group>
         <InputGroup>
-        <label htmlFor="rate user" className={stylesLabel.VisuallyHidden}>
-        rate user
+        <label htmlFor="feedback field" className={stylesLabel.VisuallyHidden}>
+        Optional feedback field
       </label>
           <Form.Control
             className={styles.Form}
-            placeholder="leave your feedback here"
+            placeholder="You can leave feedback here or simply submit star rating on it's own"
             as="textarea"
             name="feedback"
             value={feedback}
             onChange={handleFeedbackChange}
             rows={2}
-            id="rate user"
+            id="feedback field"
           />
         </InputGroup>
       </Form.Group>
@@ -70,10 +75,13 @@ function CreateRatingForm(props) {
         />
         </Form.Label>
       </Form.Group>
-
+      {errors?.rating?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <button
         className={`${styles.Button} btn d-block ml-auto`}
-        disabled={!feedback.trim()}
         type="submit"
       >
         post

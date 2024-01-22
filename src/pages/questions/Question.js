@@ -147,7 +147,7 @@ const Question = (props) => {
                           <p className="text-center">
                             <Link to="/sign-in">
                               <span className={styles.SignIn}>click here </span>
-                            </Link>{" "}
+                            </Link>
                             to sign in, if you want to leave a reply
                           </p>
                           <hr />
@@ -181,7 +181,10 @@ const Question = (props) => {
                     <>
                       <hr />
                       <p className="text-center">
-                        Log in to reply. No replies yet.
+                      <Link to="/sign-in">
+                              <span className={styles.SignIn}>Sign in </span>
+                            </Link>
+                            to reply, no replies yet.
                       </p>
                       <hr />
                     </>

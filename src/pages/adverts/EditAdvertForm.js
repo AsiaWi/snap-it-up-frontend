@@ -145,11 +145,6 @@ function EditAdvertForm() {
         />
         </Form.Label>
       </Form.Group>
-      {errors?.advert_title?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
       <Row>
         <Col xs={6} md={2}>
           <Form.Group>
