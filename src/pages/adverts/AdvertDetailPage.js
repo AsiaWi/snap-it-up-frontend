@@ -190,7 +190,7 @@ function AdvertDetailPage() {
                 <p className="text-center">
                   <Link to="/sign-in">
                     <span className={linkStyles.SignIn}>click here </span>
-                  </Link>{" "}
+                  </Link>
                   to sign in and make an offer!
                 </p>
                 <hr />

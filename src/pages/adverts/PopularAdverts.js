@@ -36,7 +36,7 @@ const PopularAdverts = ({ mobile }) => {
           <p>Most popular ads</p>
           {mobile ? (
             <div className="d-flex justify-content-around">
-              {popularAdverts.results.slice(0, 2).map((advert) => (
+              {popularAdverts.results.slice(0, 3).map((advert) => (
                 <FavouriteAdverts key={advert.id} advert={advert} mobile />
               ))}
             </div>

@@ -329,7 +329,7 @@ function EditAdvertForm() {
           <Form.Group className="text-center">
            
                 <figure>
-                  <Image src={image} rounded-pill />
+                  <Image src={image} alt="change image" rounded-pill />
                 </figure>
                 <div>
                   <Form.Label

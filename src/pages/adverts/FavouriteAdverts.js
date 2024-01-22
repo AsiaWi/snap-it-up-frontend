@@ -1,11 +1,12 @@
 import React from "react";
-import Image from "react-bootstrap/Image";
 import stylesFave from "../../styles/FavouriteAdverts.module.css";
 import { Link } from "react-router-dom";
+import Avatar from "../../components/Avatar";
+import styles from '../../styles/Avatar.module.css'
 
 const FavouriteAdverts = (props) => {
   const { advert, mobile } = props;
-  const { id, image, tags } = advert;
+  const { id, image, price} = advert;
 
   return (
     <div
@@ -13,13 +14,14 @@ const FavouriteAdverts = (props) => {
     >
       <div>
         <Link className="align-self-center" to={`/adverts/${id}`}>
-          <Image src={image} thumbnail />
+          <Avatar src={image} height={75} alt={'favourite advert avatar'} className={styles.Avatar}/>
+       
         </Link>
       </div>
       <div className={`mx-2 ${stylesFave.WordBreak}`}>
         <strong>
-          <i className={`fa-solid fa-tag`}></i>
-          {tags}
+          <i className="fa-solid fa-sterling-sign"> </i>
+           {price} 
         </strong>
       </div>
     </div>

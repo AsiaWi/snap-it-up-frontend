@@ -287,7 +287,7 @@ function CreateAdvertForm() {
             {image ? (
               <>
                 <figure>
-                  <Image src={image} rounded-pill />
+                  <Image src={image} alt="upload image" rounded-pill />
                 </figure>
                 <div>
                   <Form.Label
