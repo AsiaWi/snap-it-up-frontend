@@ -6,20 +6,20 @@ import { fetchMoreData } from "../../utils/utils";
 import Advert from "./Advert";
 import Assets from "../../components/Assets";
 import styles from "../../styles/AdvertsListViewPage.module.css";
-import advertStyles from '../../styles/Advert.module.css'
+import advertStyles from "../../styles/Advert.module.css";
 import NoResults from "../../assets/icons8-unknown-results-96.png";
 import { Form, Container, Row, Col } from "react-bootstrap";
 import PopularAdverts from "./PopularAdverts";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 
-
-function AdvertsListViewPage({ message, filter = '' }) {
+function AdvertsListViewPage({ message, filter = "" }) {
   const [adverts, setAdverts] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
-  const [query, setQuery] = useState('');
-  const [categories, setCategories] = useState('');
+  const [query, setQuery] = useState("");
+  const [categories, setCategories] = useState("");
   const userLoggedIn = useLoggedInUser();
+
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -28,12 +28,11 @@ function AdvertsListViewPage({ message, filter = '' }) {
         );
         setAdverts(data);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
     fetchCategories();
   }, [filter, categories, pathname, userLoggedIn]);
-
 
   useEffect(() => {
     const fetchAdverts = async () => {
@@ -44,7 +43,7 @@ function AdvertsListViewPage({ message, filter = '' }) {
         setAdverts(data);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 
@@ -56,51 +55,55 @@ function AdvertsListViewPage({ message, filter = '' }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname ]);//userLoggedIn
+  }, [filter, query, pathname]);
 
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-      <PopularAdverts mobile/>
-        
+        <PopularAdverts mobile />
+
         <Form
           className={styles.SearchBar}
           onSubmit={(event) => event.preventDefault()}
-        > 
-        <Row>
-        <Col xs={12} md={4} className={styles.SearchContainerSelect}>
-        <i className={`fa-solid fa-caret-down ${styles.SearchIcon}`} />
-          <Form.Control 
-            as="select"
-            value={categories}
-            onChange={(event) => setCategories(event.target.value)}
-            className={`mr-sm-2${styles.SearchBar}`}
-          >
-          <option value="">Select category</option>  
-          <option value="Clothing">Clothing</option>
-          <option value="Electronics">Electronics</option>
-          <option value="HomeDeco/Furniture">HomeDeco/Furniture</option>
-          <option value="Games">Games</option>
-          <option value="Books">Books</option>
-          <option value="Beauty/Personal Care">Beauty/Personal Care</option>
-          <option value="Home appliances">Home appliances</option>
-          <option value="Vintage">Vintage</option>
-          <option value="Baby">Baby</option>
-          <option value="Pets">Pets</option>
-          <option value="Sports">Sports</option>
-          <option value="Other">Other</option>
-          </Form.Control>
-          </Col>
-          <Col xs={12} md={8} className={styles.SearchContainerInput}>
-          <i className={`fa-solid fa-magnifying-glass ${styles.SearchIcon}`} />
-          <Form.Control 
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            type="text"
-            className="mr-sm-2"
-            placeholder="Search adverts by location or keywords"
-          />
-          </Col>
+        >
+          <Row>
+            <Col xs={12} md={4} className={styles.SearchContainerSelect}>
+              <i className={`fa-solid fa-caret-down ${styles.SearchIcon}`} />
+              <Form.Control
+                as="select"
+                value={categories}
+                onChange={(event) => setCategories(event.target.value)}
+                className={`mr-sm-2${styles.SearchBar}`}
+              >
+                <option value="">Select category</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Electronics">Electronics</option>
+                <option value="HomeDeco/Furniture">HomeDeco/Furniture</option>
+                <option value="Games">Games</option>
+                <option value="Books">Books</option>
+                <option value="Beauty/Personal Care">
+                  Beauty/Personal Care
+                </option>
+                <option value="Home appliances">Home appliances</option>
+                <option value="Vintage">Vintage</option>
+                <option value="Baby">Baby</option>
+                <option value="Pets">Pets</option>
+                <option value="Sports">Sports</option>
+                <option value="Other">Other</option>
+              </Form.Control>
+            </Col>
+            <Col xs={12} md={8} className={styles.SearchContainerInput}>
+              <i
+                className={`fa-solid fa-magnifying-glass ${styles.SearchIcon}`}
+              />
+              <Form.Control
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                type="text"
+                className="mr-sm-2"
+                placeholder="Search adverts by location or keywords"
+              />
+            </Col>
           </Row>
         </Form>
 
@@ -129,7 +132,7 @@ function AdvertsListViewPage({ message, filter = '' }) {
         )}
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-        <PopularAdverts/>
+        <PopularAdverts />
       </Col>
     </Row>
   );

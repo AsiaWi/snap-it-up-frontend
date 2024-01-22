@@ -1,16 +1,17 @@
 .Advert {
-    text-align: center;
-    background-color: white;
-    border: 1px solid rgb(218, 201, 201, 0.7);
-    border-radius: 15px;
-    margin-bottom: 16px;
+  text-align: center;
+  background-color: white;
+  border: 1px solid rgb(218, 201, 201, 0.7);
+  border-radius: 15px;
+  padding: 5px;
+  margin-bottom: 20px;
 }
-  
+
 .Advert figure,
-            h5 {
-    margin: 0 0;
+h5 {
+  margin: 0 0;
 }
-  
+
 .Advert p {
   font-size: small;
   text-align: left;
@@ -20,6 +21,7 @@
   font-size: 130%;
   padding: 5%;
 }
+
 .Icons:hover {
   cursor: pointer;
   font-size: 150%;
@@ -32,7 +34,12 @@
 }
 
 .DetailViewLink:hover {
-  cursor:pointer;
+  cursor: pointer;
   text-decoration: none;
   color: black;
+}
+
+.ImageAndSaleDetaiContainer {
+  max-width: 100%;
+  object-fit: contain;
 }

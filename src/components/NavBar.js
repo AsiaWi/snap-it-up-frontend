@@ -1,11 +1,8 @@
-// css and styling imports
 import styles from "../styles/NavBar.module.css";
 import logo from "../assets/logo.png";
-// bootstrap imports
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-// react imports
 import { NavLink } from "react-router-dom";
 import React from "react";
 import {
@@ -15,7 +12,6 @@ import {
 import axios from "axios";
 import useCollapseNavBar from "../hooks/useCollapseNavBar";
 import { removeTokenTimestamp } from "../utils/utils";
-
 
 const NavBar = () => {
   const userLoggedIn = useLoggedInUser();

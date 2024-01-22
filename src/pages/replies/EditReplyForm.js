@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { axiosRes } from "../../api/axiosDefaults";
-import styles from "../../styles/CreateEditQuestionForm.module.css";
+import styles from "../../styles/CreateEditForm.module.css";
 
 function EditReplyForm(props) {
   const { id, reply_content, setShowEditForm, setReplies } = props;
-
   const [formContent, setFormContent] = useState(reply_content);
 
   const handleChange = (event) => {
@@ -30,10 +29,9 @@ function EditReplyForm(props) {
             : reply;
         }),
       }));
-      console.log(id)
       setShowEditForm(false);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

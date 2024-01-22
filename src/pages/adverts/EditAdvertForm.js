@@ -1,5 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Form, Image, Button, Col, Row, Container } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import Image from "react-bootstrap/Image";
+import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
 import btnStyles from "../../styles/Button.module.css";
 import formStyling from "../../styles/CreateEditAdvertPost.module.css";
 import { useHistory , useParams} from "react-router";
@@ -20,7 +25,9 @@ function EditAdvertForm() {
     shippment_options: "",
     categories: "",
     location: "",
+    contact_dets: "",
   });
+
   const {
     advert_title,
     tags,
@@ -32,6 +39,7 @@ function EditAdvertForm() {
     shippment_options,
     categories,
     location,
+    contact_dets,
   } = advertData;
 
   const imageInput = useRef(null);
@@ -54,6 +62,7 @@ function EditAdvertForm() {
           shippment_options,
           categories,
           location,
+          contact_dets,
         } = data;
 
         is_owner ? setAdvertData({
@@ -67,9 +76,10 @@ function EditAdvertForm() {
           shippment_options,
           categories,
           location,
+          contact_dets,
         }) : history.push("/");
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 
@@ -79,7 +89,6 @@ function EditAdvertForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
-
     formData.append("advert_title", advert_title);
     formData.append("tags", tags);
     formData.append("default_currency", default_currency);
@@ -89,6 +98,7 @@ function EditAdvertForm() {
     formData.append("shippment_options", shippment_options);
     formData.append("categories", categories);
     formData.append("location", location);
+    formData.append("contact_dets", contact_dets);
     
     if (imageInput?.current?.files[0]) {
       formData.append("image", imageInput.current.files[0]);
@@ -98,7 +108,7 @@ function EditAdvertForm() {
        await axiosReq.put(`/adverts/${id}/`, formData);
       history.push(`/adverts/${id}`);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
@@ -208,7 +218,7 @@ function EditAdvertForm() {
         </Alert>
       ))}
 
-<Form.Group>
+      <Form.Group>
         <Form.Label>Item location</Form.Label>
         <Form.Control
           className={formStyling.Input}
@@ -219,6 +229,22 @@ function EditAdvertForm() {
         />
       </Form.Group>
       {errors?.location?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+      
+      <Form.Group>
+        <Form.Label>Contact details</Form.Label>
+        <Form.Control
+          className={formStyling.Input}
+          type="text"
+          name="contact_dets"
+          value={contact_dets}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.contact_dets?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
@@ -313,8 +339,7 @@ function EditAdvertForm() {
                     Change the image
                   </Form.Label>
                 </div>
-             
-            <div className={`${btnStyles.Button}`}>
+
               <Form.File
                 className={formStyling.Upload}
                 id="image-upload"
@@ -322,7 +347,6 @@ function EditAdvertForm() {
                 onChange={handleChangeImage}
                 ref={imageInput}
               />
-            </div>
           </Form.Group>
           {errors?.image?.map((message, idx) => (
             <Alert variant="warning" key={idx}>

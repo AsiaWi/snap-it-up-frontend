@@ -5,14 +5,15 @@
   margin-bottom: 16px;
 }
 
-.SearchBar input{
+.SearchBar input {
   border-radius: 0 20px 20px 0;
 }
+
 .SearchBar select {
   padding-left: 25px;
-  border-radius:20px 0% 0% 20px;
+  border-radius: 20px 0% 0% 20px;
 }
- 
+
 .SearchContainerSelect {
   padding-right: 0%;
 }
@@ -20,6 +21,7 @@
 .SearchContainerInput {
   padding-left: 0%;
 }
+
 .SearchBar input:hover,
 .SearchBar select:hover {
   border: 4px inset rgb(208, 187, 187);
@@ -37,4 +39,17 @@
 .SearchIcon:hover {
   cursor: pointer;
   color: brown;
+}
+
+@media screen and (max-width: 768px) {
+
+  .SearchContainerSelect,
+  .SearchContainerInput {
+    padding: 0 5% 0 5%;
+  }
+
+  .SearchBar input,
+  .SearchBar select {
+    border-radius: 20px 20px 20px 20px;
+  }
 }

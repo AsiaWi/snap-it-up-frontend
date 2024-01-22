@@ -1,8 +1,8 @@
 .WordBreak {
-    word-break: break-all;
-  }
+  word-break: break-all;
+}
 
-  .Image {
-    height: 55px;
-    width: 55px;
-  }
+.Image {
+  height: 55px;
+  width: 55px;
+}

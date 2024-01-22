@@ -1,30 +1,24 @@
 import React, { useEffect, useState } from "react";
-
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
-
 import { useHistory, useParams } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
-
 import btnStyles from "../../styles/Button.module.css";
-// import appStyles from "../../App.module.css";
 
 const EditPasswordForm = () => {
   const history = useHistory();
   const { id } = useParams();
   const userLoggedIn = useLoggedInUser();
-
   const [userData, setUserData] = useState({
     new_password1: "",
     new_password2: "",
   });
   const { new_password1, new_password2 } = userData;
-
   const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
@@ -36,7 +30,6 @@ const EditPasswordForm = () => {
 
   useEffect(() => {
     if (userLoggedIn?.profile_id?.toString() !== id) {
-      // redirect user if they are not the owner of this profile
       history.push("/");
     }
   }, [userLoggedIn, history, id]);
@@ -47,7 +40,7 @@ const EditPasswordForm = () => {
       await axiosRes.post("/dj-rest-auth/password/change/", userData);
       history.goBack();
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       setErrors(err.response?.data);
     }
   };
@@ -55,8 +48,7 @@ const EditPasswordForm = () => {
   return (
     <Row>
       <Col className="py-2 mx-auto text-center" md={6}>
-        <Container >
-        {/* className={appStyles.Content} */}
+        <Container>
           <Form onSubmit={handleSubmit}>
             <Form.Group>
               <Form.Label>New password</Form.Label>
@@ -94,10 +86,7 @@ const EditPasswordForm = () => {
             >
               cancel
             </Button>
-            <Button
-              type="submit"
-              className={`${btnStyles.Button}`}
-            >
+            <Button type="submit" className={`${btnStyles.Button}`}>
               save
             </Button>
           </Form>

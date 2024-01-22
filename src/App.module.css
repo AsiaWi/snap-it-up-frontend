@@ -3,6 +3,8 @@
     background-color: rgb(241, 227, 227, 0.1);
     margin-top: 100px;
     min-height: 100vh;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 i {
@@ -12,17 +14,14 @@ i {
 a {
     color: black;
 }
+
 a:hover {
-    color:  rgb(210, 182, 148);
+    color: rgb(210, 182, 148);
     cursor: pointer;
     font-size: 130%;
 }
 
-.ImageAndSaleDetaiContainer {
-    max-width: 100%;
-    object-fit: contain;
-}
-
 .tags {
-    padding-top: 20px;;
+    padding-top: 20px;
+    ;
 }

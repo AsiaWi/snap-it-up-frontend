@@ -1,20 +1,15 @@
-// react imports
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-// css imports
-import formStyling from '../../styles/SignInAndRegisterForms.module.css'
-import btnStyling from '../../styles/Button.module.css';
-// bootstrap imports
-import {
-  Container,
-  Row,
-  Col,
-  Form,
-  Button,
-  Image,
-  Alert,
-} from "react-bootstrap";
+import formStyling from "../../styles/SignInAndRegisterForms.module.css";
+import btnStyling from "../../styles/Button.module.css";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Image from "react-bootstrap/Image";
+import Alert from "react-bootstrap/Alert";
 import { useRedirect } from "../../hooks/useRedirect";
 
 const RegisterForm = () => {
@@ -23,7 +18,7 @@ const RegisterForm = () => {
     password1: "",
     password2: "",
   });
-  useRedirect("loggedIn")
+  useRedirect("loggedIn");
   const { username, password1, password2 } = signUpData;
   const [errors, setErrors] = useState({});
   const history = useHistory();

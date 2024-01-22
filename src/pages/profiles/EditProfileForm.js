@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useHistory, useParams } from "react-router-dom";
-
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
@@ -8,15 +7,12 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
-
 import { axiosReq } from "../../api/axiosDefaults";
 import {
   useLoggedInUser,
   useSetLoggedInUser,
 } from "../../contexts/LoggedInUserContext";
-
 import btnStyles from "../../styles/Button.module.css";
-// import appStyles from "../../App.module.css";
 
 const EditProfileForm = () => {
   const userLoggedIn = useLoggedInUser();
@@ -24,13 +20,11 @@ const EditProfileForm = () => {
   const { id } = useParams();
   const history = useHistory();
   const imageFile = useRef();
-
   const [profileData, setProfileData] = useState({
     location: "",
     profile_image: "",
   });
   const { location, profile_image } = profileData;
-
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
@@ -38,17 +32,16 @@ const EditProfileForm = () => {
       if (userLoggedIn?.profile_id?.toString() === id) {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}/`);
-          const { location, profile_image }= data;
+          const { location, profile_image } = data;
           setProfileData({ location, profile_image });
         } catch (err) {
-          console.log(err);
+          // console.log(err);
           history.push("/");
         }
       } else {
         history.push("/");
       }
     };
-
     handleMount();
   }, [userLoggedIn, history, id]);
 
@@ -58,16 +51,13 @@ const EditProfileForm = () => {
       [event.target.name]: event.target.value,
     });
   };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
     formData.append("location", location);
-
     if (imageFile?.current?.files[0]) {
       formData.append("profile_image", imageFile?.current?.files[0]);
     }
-
     try {
       const { data } = await axiosReq.put(`/profiles/${id}/`, formData);
       setLoggedInUser((userLoggedIn) => ({
@@ -76,7 +66,7 @@ const EditProfileForm = () => {
       }));
       history.goBack();
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       setErrors(err.response?.data);
     }
   };

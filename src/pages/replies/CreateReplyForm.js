@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-import styles from "../../styles/CreateEditQuestionForm.module.css";
+import styles from "../../styles/CreateEditForm.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
-
 
 function CreateReplyForm(props) {
   const { question, setQuestion, setReplies, setShowCreateForm } = props;
@@ -19,21 +18,18 @@ function CreateReplyForm(props) {
         reply_content,
         question: question.id,
       });
-      
       setReplies((prevReplies) => ({
         ...prevReplies,
         results: [data, ...prevReplies.results],
-      
       }));
-
       setQuestion((prevQuestion) => ({
-            ...prevQuestion,
-             replies_count: question.replies_count + 1,
+        ...prevQuestion,
+        replies_count: question.replies_count + 1,
       }));
       setContent("");
       setShowCreateForm(false);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -51,13 +47,13 @@ function CreateReplyForm(props) {
           />
         </InputGroup>
       </Form.Group>
-       <button
-          className={styles.Button}
-          onClick={() => setShowCreateForm(false)}
-          type="button"
-        >
-          cancel
-        </button>
+      <button
+        className={styles.Button}
+        onClick={() => setShowCreateForm(false)}
+        type="button"
+      >
+        cancel
+      </button>
       <button
         className={styles.Button}
         disabled={!reply_content.trim()}
@@ -65,7 +61,6 @@ function CreateReplyForm(props) {
       >
         post
       </button>
-      
     </Form>
   );
 }

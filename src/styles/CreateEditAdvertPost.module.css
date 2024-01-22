@@ -5,6 +5,7 @@
 .Image:hover {
     cursor: pointer;
 }
+
 .Input {
     border: 2px inset white;
     cursor: pointer;
@@ -30,3 +31,7 @@
     align-items: left;
 }
 
+input[type="file"] {
+    display: none;
+  }
+  

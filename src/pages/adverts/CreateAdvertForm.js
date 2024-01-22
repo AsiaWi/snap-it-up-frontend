@@ -1,9 +1,13 @@
 import React, { useState, useRef } from "react";
 import uploadImage from "../../assets/upload.png";
-import { Form, Image, Button, Col, Row, Container } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import Image from "react-bootstrap/Image";
+import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
 import btnStyles from "../../styles/Button.module.css";
 import formStyling from "../../styles/CreateEditAdvertPost.module.css";
-
 import Assets from "../../components/Assets";
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -24,6 +28,7 @@ function CreateAdvertForm() {
     shippment_options: "",
     categories: "",
     location: "",
+    contact_dets: "",
   });
   const {
     advert_title,
@@ -36,6 +41,7 @@ function CreateAdvertForm() {
     shippment_options,
     categories,
     location,
+    contact_dets,
   } = advertData;
 
   const imageInput = useRef(null);
@@ -55,12 +61,13 @@ function CreateAdvertForm() {
     formData.append("shippment_options", shippment_options);
     formData.append("categories", categories);
     formData.append("location", location);
+    formData.append("contact_dets", contact_dets);
 
     try {
       const { data } = await axiosReq.post("/adverts/", formData);
       history.push(`/adverts/${data.id}`);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
@@ -101,6 +108,7 @@ function CreateAdvertForm() {
           {message}
         </Alert>
       ))}
+
       <Row>
         <Col xs={6} md={2}>
           <Form.Group>
@@ -170,7 +178,23 @@ function CreateAdvertForm() {
         </Alert>
       ))}
 
-<Form.Group>
+      <Form.Group>
+        <Form.Label>Contact details</Form.Label>
+        <Form.Control
+          className={formStyling.Input}
+          type="text"
+          name="contact_dets"
+          value={contact_dets}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.contact_dets?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
         <Form.Label>Item Location</Form.Label>
         <Form.Control
           className={formStyling.Input}
@@ -195,10 +219,9 @@ function CreateAdvertForm() {
           value={payment_options}
           onChange={handleChange}
         >
-          <option value='Cash or Paypal'>Cash or Paypal</option>
+          <option value="Cash or Paypal">Cash or Paypal</option>
           <option value="Cash only">Cash only</option>
           <option value="PayPal only">PayPal only</option>
-          
         </Form.Control>
       </Form.Group>
 
@@ -210,11 +233,12 @@ function CreateAdvertForm() {
           name="shippment_options"
           value={shippment_options}
           onChange={handleChange}
-        > 
-          <option value="Collection or Royal Mail delivery">Collection or delivery</option>
+        >
+          <option value="Collection or Royal Mail delivery">
+            Collection or delivery
+          </option>
           <option value="Collection only">Collection only</option>
           <option value="Delivery Only">Delivery Only</option>
-          
         </Form.Control>
       </Form.Group>
 
@@ -226,7 +250,7 @@ function CreateAdvertForm() {
           name="categories"
           value={categories}
           onChange={handleChange}
-        > 
+        >
           <option value="Clothing">Clothing</option>
           <option value="Electronics">Electronics</option>
           <option value="HomeDeco/Furniture">HomeDeco/Furniture</option>
@@ -246,9 +270,6 @@ function CreateAdvertForm() {
           {message}
         </Alert>
       ))}
-      
-
-
       <Button className={btnStyles.Button} onClick={() => history.goBack()}>
         cancel
       </Button>
@@ -285,15 +306,12 @@ function CreateAdvertForm() {
                 />
               </Form.Label>
             )}
-            <div className={`${btnStyles.Button}`}>
-              <Form.File
-                className={formStyling.Upload}
-                id="image-upload"
-                accept="image/*"
-                onChange={handleChangeImage}
-                ref={imageInput}
-              />
-            </div>
+            <Form.File
+              id="image-upload"
+              accept="image/*"
+              onChange={handleChangeImage}
+              ref={imageInput}
+            />
           </Form.Group>
           {errors?.image?.map((message, idx) => (
             <Alert variant="warning" key={idx}>

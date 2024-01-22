@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/CreateEditRatingForm.module.css";
+import styles from "../styles/StarRating.module.css";
 
 const StarDisplay = ({ rating }) => {
   const stars = () => {

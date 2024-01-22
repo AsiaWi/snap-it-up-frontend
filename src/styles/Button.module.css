@@ -1,5 +1,5 @@
 .Button {
-    background-color: brown;
+    background-color: rgb(156, 82, 47);
     border: none;
     border-radius: 10px;
     color: white;
@@ -11,11 +11,11 @@
     position: relative;
     transition: all 0.3s ease-out;
     width: 100%;
-    margin-top: 2%;
+    margin: 2%;
 }
 
 .Button:hover {
-    background-color:rgb(128, 88, 88);
+    background-color: rgb(128, 88, 88);
     border: 4px inset white;
     font-size: 20px;
 }
@@ -23,5 +23,23 @@
 .Button:focus {
     background-color: rgb(50, 45, 45, 0.5);
 }
-  
-  
+
+.FormButton {
+    background-color: rgba(0, 0, 0, 0);
+    color: black;
+    padding: 4px 10px;
+    min-width: 75px;
+    margin: 5px;
+    border: 2px solid brown;
+    border-radius: 20px;
+}
+
+.FormButton:hover {
+    cursor: pointer;
+    color: hsl(7, 26%, 19%);
+    background-color: rgb(205, 182, 153);
+}
+
+.FormButton:focus {
+    background-color: rgb(112, 82, 82);
+}

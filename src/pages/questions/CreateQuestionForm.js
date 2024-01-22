@@ -1,15 +1,11 @@
 import React, { useState } from "react";
-// import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-
-import styles from "../../styles/CreateEditQuestionForm.module.css";
-// import Avatar from "../../components/Avatar";
+import styles from "../../styles/CreateEditForm.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
 
-
 function CreateQuestionForm(props) {
-  const { advert, setAdvert, setQuestions} = props;  //, profile_image, asked_by_profile_user 
+  const { advert, setAdvert, setQuestions } = props;
   const [question_content, setContent] = useState("");
 
   const handleChange = (event) => {
@@ -26,21 +22,19 @@ function CreateQuestionForm(props) {
       setQuestions((prevQuestions) => ({
         ...prevQuestions,
         results: [data, ...prevQuestions.results],
-      
       }));
 
       setAdvert((prevAdvert) => ({
         results: [
           {
             ...prevAdvert.results[0],
-            // questions_count: prevAdvert.results[0].questions_count + 1,
           },
         ],
       }));
 
       setContent("");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -48,10 +42,6 @@ function CreateQuestionForm(props) {
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
         <InputGroup>
-        {/* <Link to={`/profiles/${asked_by_profile_user}`}>
-          <Avatar src={profile_image} />
-        </Link> */}
-       
           <Form.Control
             className={styles.Form}
             placeholder="ask a question..."
@@ -69,7 +59,6 @@ function CreateQuestionForm(props) {
       >
         post
       </button>
-      
     </Form>
   );
 }

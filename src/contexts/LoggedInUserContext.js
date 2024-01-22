@@ -18,7 +18,7 @@ export const LoggedInUserProvider = ({ children }) => {
       const { data } = await axiosRes.get("dj-rest-auth/user/");
       setLoggedInUser(data);
     } catch (err) {
-      console.log(err); //to be removed
+      console.log(err);
     }
   };
 
@@ -29,20 +29,20 @@ export const LoggedInUserProvider = ({ children }) => {
   useMemo(() => {
     axiosReq.interceptors.request.use(
       async (config) => {
-        if (shouldRefreshToken()){
-        try {
-          await axios.post("/dj-rest-auth/token/refresh/");
-        } catch (err) {
-          setLoggedInUser((prevUserLoggedIn) => {
-            if (prevUserLoggedIn) {
-              history.push("/sign-in");
-            }
-            return null;
-          });
-          removeTokenTimestamp()
-          return config;
+        if (shouldRefreshToken()) {
+          try {
+            await axios.post("/dj-rest-auth/token/refresh/");
+          } catch (err) {
+            setLoggedInUser((prevUserLoggedIn) => {
+              if (prevUserLoggedIn) {
+                history.push("/sign-in");
+              }
+              return null;
+            });
+            removeTokenTimestamp();
+            return config;
+          }
         }
-      }
         return config;
       },
       (err) => {
@@ -63,7 +63,7 @@ export const LoggedInUserProvider = ({ children }) => {
               }
               return null;
             });
-            removeTokenTimestamp()
+            removeTokenTimestamp();
           }
           return axios(err.config);
         }

@@ -1,9 +1,7 @@
 import React from "react";
-import Image from 'react-bootstrap/Image';
+import Image from "react-bootstrap/Image";
 import stylesFave from "../../styles/FavouriteAdverts.module.css";
 import { Link } from "react-router-dom";
-
-
 
 const FavouriteAdverts = (props) => {
   const { advert, mobile } = props;
@@ -19,7 +17,10 @@ const FavouriteAdverts = (props) => {
         </Link>
       </div>
       <div className={`mx-2 ${stylesFave.WordBreak}`}>
-        <strong><i className={`fa-solid fa-tag`}></i>{tags}</strong>
+        <strong>
+          <i className={`fa-solid fa-tag`}></i>
+          {tags}
+        </strong>
       </div>
     </div>
   );

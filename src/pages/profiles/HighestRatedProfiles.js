@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Container } from 'react-bootstrap';
-import styles from '../../styles/Advert.module.css';
+import { Container } from "react-bootstrap";
+import styles from "../../styles/Advert.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
-
-import Asset from "../../components/Assets"
+import Asset from "../../components/Assets";
 import HighAverageRateProfile from "./HighAverageRateProfile";
 
-
 const HighestRatedProfiles = () => {
-    const [profileData, setProfileData] = useState({
-       
+  const [profileData, setProfileData] = useState({
     highestRatedProfiles: { results: [] },
   });
-  const {  highestRatedProfiles } = profileData;
+  const { highestRatedProfiles } = profileData;
 
   useEffect(() => {
     const handleMount = async () => {
@@ -25,25 +22,20 @@ const HighestRatedProfiles = () => {
           highestRatedProfiles: data,
         }));
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
-
     handleMount();
   }, []);
 
-
   return (
-        <Container
-      className={styles.Advert}>
-      { highestRatedProfiles.results.length ? (
+    <Container className={styles.Advert}>
+      {highestRatedProfiles.results.length ? (
         <>
           <p>Highest rated profiles</p>
-          
-            {highestRatedProfiles.results.map((profile) => (
-                <HighAverageRateProfile key={profile.id} profile={profile} />
-              ))}
-          
+          {highestRatedProfiles.results.map((profile) => (
+            <HighAverageRateProfile key={profile.id} profile={profile} />
+          ))}
         </>
       ) : (
         <Asset spinner />

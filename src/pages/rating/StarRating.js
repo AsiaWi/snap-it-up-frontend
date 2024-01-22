@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "../../styles/CreateEditRatingForm.module.css";
+import styles from "../../styles/StarRating.module.css";
 
 function StarRating({ setRating, setHover, rating, hover, totalStars }) {
   return (
     <div>
-      {[...Array(totalStars)].map((_,index) => {
+      {[...Array(totalStars)].map((_, index) => {
         const currentRating = index + 1;
 
         return (

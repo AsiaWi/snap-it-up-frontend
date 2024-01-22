@@ -1,35 +1,29 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { axiosRes } from "../../api/axiosDefaults";
-import {
-  
-  useSetProfileData,
-} from "../../contexts/ProfileDataContext"; 
-import styles from "../../styles/CreateEditQuestionForm.module.css";
+import { useSetProfileData } from "../../contexts/ProfileDataContext";
+import styles from "../../styles/CreateEditForm.module.css";
 import StarRating from "./StarRating";
 
 function EditRatingForm(props) {
-  const { rated_user, id, feedback, rating, setShowEditForm, setRatings, owners_id } = props;
+  const { rated_user, id, feedback, rating, setShowEditForm, setRatings } =
+    props;
 
   const [feedbackUpdate, setFeedbackUpdate] = useState(feedback);
   const [ratingUpdate, setRatingUpdate] = useState(rating);
   const [hover, setHover] = useState(null);
-  const {handleEditRating} = useSetProfileData();
+  const { handleEditRating } = useSetProfileData();
   const handleFeedbackChange = (event) => {
     setFeedbackUpdate(event.target.value);
   };
- 
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-        console.log(rating, id, owners_id)
       await axiosRes.put(`/ratings/${id}/`, {
         feedback: feedbackUpdate.trim(),
         rating: ratingUpdate,
       });
-      console.log('new feedback',feedbackUpdate );
-      console.log('new feedback',ratingUpdate );
       setRatings((prevRatings) => ({
         ...prevRatings,
         results: prevRatings.results.map((rating) => {
@@ -46,7 +40,7 @@ function EditRatingForm(props) {
       await handleEditRating(rated_user);
       setShowEditForm(false);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -81,7 +75,7 @@ function EditRatingForm(props) {
         </button>
         <button
           className={styles.Button}
-        // disabled={!feedback.trim()}
+          // disabled={!feedback.trim()}
           type="submit"
         >
           save
