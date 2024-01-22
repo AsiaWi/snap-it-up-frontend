@@ -24,7 +24,7 @@ const NavBar = () => {
       setLoggedInUser(null);
       removeTokenTimestamp();
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

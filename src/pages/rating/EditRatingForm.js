@@ -13,6 +13,7 @@ function EditRatingForm(props) {
   const [ratingUpdate, setRatingUpdate] = useState(rating);
   const [hover, setHover] = useState(null);
   const { handleEditRating } = useSetProfileData();
+
   const handleFeedbackChange = (event) => {
     setFeedbackUpdate(event.target.value);
   };
@@ -60,7 +61,7 @@ function EditRatingForm(props) {
         <StarRating
           setRating={setRatingUpdate}
           setHover={setHover}
-          rating={rating}
+          rating={ratingUpdate}
           hover={hover}
           totalStars={5}
         />
