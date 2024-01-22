@@ -234,10 +234,10 @@ function CreateAdvertForm() {
           value={shippment_options}
           onChange={handleChange}
         >
-          <option value="Collection or Royal Mail delivery">
+          <option value="Collection or delivery">
             Collection or delivery
           </option>
-          <option value="Collection only">Collection only</option>
+          <option value="Collection Only">Collection Only</option>
           <option value="Delivery Only">Delivery Only</option>
         </Form.Control>
       </Form.Group>
