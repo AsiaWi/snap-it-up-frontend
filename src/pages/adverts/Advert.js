@@ -117,38 +117,38 @@ const Advert = (props) => {
       </Card.Body>
       <Link className={styles.DetailViewLink} to={`/adverts/${id}`}>
         <Row className={styles.ImageAndSaleDetaiContainer}>
-          <Col className="pr-0" md={6}>
+          <Col className="pr-0 pl-4" md={6}>
             <Card.Img src={image} alt={advert_title || tags} />
           </Col>
 
-          <Col className={` d-flex-direction-column-align-items-left m-2 `}>
+          <Col className={` d-flex-direction-column-align-items-left ml-2 `}>
             <p>
-              <i className="fa-solid fa-sterling-sign"></i>Price: {price}
+              <i className="fa-solid fa-sterling-sign"></i><span className={styles.AdvertDetails}> Price: </span>{price}
             </p>
             <p>
-              <i className="fa-solid fa-location-dot"></i>Item location:{" "}
+              <i className="fa-solid fa-location-dot"></i><span className={styles.AdvertDetails}> Item location: </span>
               {location}
             </p>
             <p>
-              <i className="fa-solid fa-pen"></i>Added/updated: {updated_at}
+              <i className="fa-solid fa-pen"></i><span className={styles.AdvertDetails}> Added/updated: </span>{updated_at}
             </p>
             <p>
-              <i class="fa-solid fa-address-card"></i>Contact: {contact_dets}
+              <i className="fa-solid fa-address-card"></i><span className={styles.AdvertDetails}> Contact: </span>{contact_dets}
             </p>
             <p></p>
             <p>
-              <i className="fa-solid fa-sterling-sign"></i>Payment option:{" "}
+              <i className="fa-solid fa-sterling-sign"></i><span className={styles.AdvertDetails}> Payment option: </span>
               {payment_options}
             </p>
             <p>
-              <i className="fa-regular fa-hand"></i>Delivery/collection:{" "}
+              <i className="fa-regular fa-hand"></i><span className={styles.AdvertDetails}> Delivery/collection: </span>
               {shippment_options}
             </p>
             <p>
-              <i className="fa-solid fa-eye"></i>Page views: {page_views}
+              <i className="fa-solid fa-eye"></i><span className={styles.AdvertDetails}> Page views: </span> {page_views}
             </p>
             <p>
-              <i className="fa-solid fa-bookmark"></i>Saved: {save_count}
+              <i className="fa-solid fa-bookmark"></i><span className={styles.AdvertDetails}> Saved: </span>{save_count}
             </p>
           </Col>
         </Row>
