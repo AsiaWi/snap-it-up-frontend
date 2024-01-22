@@ -74,10 +74,11 @@ function ProfilePage() {
             className={styles.ProfileImage}
             roundedCircle
             src={profile?.profile_image}
+            alt={`Profile image for ${profile?.owner}`}
           />
         </Col>
         <Col lg={6}>
-          <h3 className="m-2">{profile?.owner}</h3>
+          <h1 className="m-2">{profile?.owner}</h1>
           <span>
             <i className="fa-solid fa-location-dot"></i>
             {profile?.location}

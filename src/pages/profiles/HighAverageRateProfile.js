@@ -13,7 +13,7 @@ const HighAverageRateProfile = (props) => {
           <Avatar
             src={profile_image}
             height={85}
-            alt={"highest rated profiles avatar"}
+            alt={`highest rated profiles avatar for ${owner}`}
             text={owner}
           />
         </Link>

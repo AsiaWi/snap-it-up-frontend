@@ -6,6 +6,9 @@
     cursor: pointer;
 }
 
+.Label {
+    width:100%;
+}
 .Input {
     border: 2px inset white;
     cursor: pointer;

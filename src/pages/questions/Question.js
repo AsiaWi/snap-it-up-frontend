@@ -72,7 +72,7 @@ const Question = (props) => {
       <hr />
       <Media>
         <Link to={`/profiles/${asked_by_profile_user}`}>
-          <Avatar src={profile_image} />
+          <Avatar src={profile_image} alt={`avatar for profile ${owner}`} />
         </Link>
         <Media.Body className="align-self-center ml-2">
           <span className={styles.Owner}>{owner}</span>

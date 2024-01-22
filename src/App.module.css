@@ -8,7 +8,7 @@
 }
 
 i {
-    color: rgb(210, 182, 148);
+    color: rgb(200, 167, 124);
 }
 
 a {
@@ -16,12 +16,26 @@ a {
 }
 
 a:hover {
-    color: rgb(210, 182, 148);
+    color: rgb(198, 151, 92);
     cursor: pointer;
     font-size: 130%;
+}
+
+a:focus {
+    color: brown;
 }
 
 .tags {
     padding-top: 20px;
     ;
 }
+
+.VisuallyHidden {
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    position: absolute;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+  }

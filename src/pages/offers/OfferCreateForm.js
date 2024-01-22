@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import styling from "../../styles/CreateOfferForm.module.css";
 import styles from "../../styles/CreateEditForm.module.css";
+import stylesLabel from '../../App.module.css';
 import { axiosRes } from "../../api/axiosDefaults";
 
 function OfferCreateForm(props) {
@@ -45,8 +46,12 @@ function OfferCreateForm(props) {
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
         <InputGroup>
+        <label htmlFor="offer" className={stylesLabel.VisuallyHidden}>
+        make an offer
+      </label>
           <Form.Control
             className={styles.Form}
+            id="offer"
             placeholder="Type an amount you'd like to offer to purchase a product"
             type="number"
             value={amount}

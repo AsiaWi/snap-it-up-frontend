@@ -4,6 +4,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
 import styles from "../../styles/CreateEditForm.module.css";
 import StarRating from "./StarRating";
+import stylesLabel from '../../App.module.css';
 
 function EditRatingForm(props) {
   const { rated_user, id, feedback, rating, setShowEditForm, setRatings } =
@@ -48,16 +49,20 @@ function EditRatingForm(props) {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="pr-1">
+      <label htmlFor="edit feedback" className={stylesLabel.VisuallyHidden}>
+        edit your feedback
+      </label>
         <Form.Control
           className={styles.Form}
           as="textarea"
           value={feedbackUpdate}
           onChange={handleFeedbackChange}
           rows={2}
+          id="edit feedback"
         />
       </Form.Group>
       <Form.Group>
-        <Form.Label>How many stars do you want to give?</Form.Label>
+        <Form.Label>How many stars do you want to give?
         <StarRating
           setRating={setRatingUpdate}
           setHover={setHover}
@@ -65,6 +70,7 @@ function EditRatingForm(props) {
           hover={hover}
           totalStars={5}
         />
+        </Form.Label>
       </Form.Group>
       <div className="text-right">
         <button

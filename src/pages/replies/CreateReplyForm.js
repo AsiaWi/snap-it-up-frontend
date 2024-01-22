@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import styles from "../../styles/CreateEditForm.module.css";
+import stylesLabel from '../../App.module.css';
 import { axiosRes } from "../../api/axiosDefaults";
 
 function CreateReplyForm(props) {
@@ -37,6 +38,9 @@ function CreateReplyForm(props) {
     <Form className="mt-4" onSubmit={handleSubmit}>
       <Form.Group>
         <InputGroup>
+        <label htmlFor="reply" className={stylesLabel.VisuallyHidden}>
+        reply to the question
+      </label>
           <Form.Control
             className={styles.Form}
             placeholder="type your reply here..."
@@ -44,6 +48,7 @@ function CreateReplyForm(props) {
             value={reply_content}
             onChange={handleChange}
             rows={2}
+            id='reply'
           />
         </InputGroup>
       </Form.Group>

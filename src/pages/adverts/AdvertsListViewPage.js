@@ -6,6 +6,7 @@ import { fetchMoreData } from "../../utils/utils";
 import Advert from "./Advert";
 import Assets from "../../components/Assets";
 import styles from "../../styles/AdvertsListViewPage.module.css";
+import stylesLabel from "../../App.module.css";
 import advertStyles from "../../styles/Advert.module.css";
 import NoResults from "../../assets/icons8-unknown-results-96.png";
 import { Form, Container, Row, Col } from "react-bootstrap";
@@ -68,9 +69,13 @@ function AdvertsListViewPage({ message, filter = "" }) {
         >
           <Row>
             <Col xs={12} md={4} className={styles.SearchContainerSelect}>
+            <label htmlFor="select category" className={stylesLabel.VisuallyHidden}>
+        Select category
+      </label>
               <i className={`fa-solid fa-caret-down ${styles.SearchIcon}`} />
               <Form.Control
                 as="select"
+                id="select category"
                 value={categories}
                 onChange={(event) => setCategories(event.target.value)}
                 className={`mr-sm-2${styles.SearchBar}`}
@@ -93,6 +98,9 @@ function AdvertsListViewPage({ message, filter = "" }) {
               </Form.Control>
             </Col>
             <Col xs={12} md={8} className={styles.SearchContainerInput}>
+            <label htmlFor="search adverts" className={stylesLabel.VisuallyHidden}>
+        Search adverts by location or keywords
+      </label>
               <i
                 className={`fa-solid fa-magnifying-glass ${styles.SearchIcon}`}
               />
@@ -102,6 +110,7 @@ function AdvertsListViewPage({ message, filter = "" }) {
                 type="text"
                 className="mr-sm-2"
                 placeholder="Search adverts by location or keywords"
+                id="search adverts"
               />
             </Col>
           </Row>

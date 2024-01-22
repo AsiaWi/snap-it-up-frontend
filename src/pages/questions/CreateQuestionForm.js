@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import styles from "../../styles/CreateEditForm.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
+import stylesLabel from '../../App.module.css';
 
 function CreateQuestionForm(props) {
   const { advert, setAdvert, setQuestions } = props;
@@ -42,9 +43,13 @@ function CreateQuestionForm(props) {
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
         <InputGroup>
+        <label htmlFor="question" className={stylesLabel.VisuallyHidden}>
+        ask a question
+      </label>
           <Form.Control
             className={styles.Form}
             placeholder="ask a question..."
+            id="question"
             as="textarea"
             value={question_content}
             onChange={handleChange}

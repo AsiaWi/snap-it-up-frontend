@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { axiosRes } from "../../api/axiosDefaults";
 import styles from "../../styles/CreateEditForm.module.css";
+import stylesLabel from '../../App.module.css';
 
 function EditReplyForm(props) {
   const { id, reply_content, setShowEditForm, setReplies } = props;
@@ -38,12 +39,16 @@ function EditReplyForm(props) {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="pr-1">
+      <label htmlFor="edit reply" className={stylesLabel.VisuallyHidden}>
+        edit reply
+      </label>
         <Form.Control
           className={styles.Form}
           as="textarea"
           value={formContent}
           onChange={handleChange}
           rows={2}
+          id='edit reply'
         />
       </Form.Group>
       <div className="text-right">

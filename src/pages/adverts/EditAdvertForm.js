@@ -135,7 +135,7 @@ function EditAdvertForm() {
   const inputFields = (
     <Container className="text-center">
       <Form.Group>
-        <Form.Label>Advert Title</Form.Label>
+        <Form.Label className={formStyling.Label}>Advert Title
         <Form.Control
           className={formStyling.Input}
           type="text"
@@ -143,6 +143,7 @@ function EditAdvertForm() {
           value={advert_title}
           onChange={handleChange}
         />
+        </Form.Label>
       </Form.Group>
       {errors?.advert_title?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
@@ -152,7 +153,7 @@ function EditAdvertForm() {
       <Row>
         <Col xs={6} md={2}>
           <Form.Group>
-            <Form.Label>Currency</Form.Label>
+            <Form.Label className={formStyling.Label}>Currency
             <Form.Control
               className={formStyling.Disabled}
               as="span"
@@ -162,11 +163,12 @@ function EditAdvertForm() {
             >
               <option>GBP</option>
             </Form.Control>
+            </Form.Label>
           </Form.Group>
         </Col>
         <Col xs={6} md={10}>
           <Form.Group>
-            <Form.Label>Price</Form.Label>
+            <Form.Label className={formStyling.Label}>Price
             <Form.Control
               className={formStyling.Input}
               type="number"
@@ -176,6 +178,7 @@ function EditAdvertForm() {
               step="0.01"
               min="0"
             />
+            </Form.Label>
           </Form.Group>
           {errors?.price?.map((message, idx) => (
             <Alert variant="warning" key={idx}>
@@ -186,7 +189,7 @@ function EditAdvertForm() {
       </Row>
 
       <Form.Group>
-        <Form.Label>Tags</Form.Label>
+        <Form.Label className={formStyling.Label}>Tags
         <Form.Control
           className={formStyling.Input}
           type="text"
@@ -194,6 +197,7 @@ function EditAdvertForm() {
           value={tags}
           onChange={handleChange}
         />
+        </Form.Label>
       </Form.Group>
       {errors?.tags?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
@@ -202,7 +206,7 @@ function EditAdvertForm() {
       ))}
 
       <Form.Group>
-        <Form.Label>Item description</Form.Label>
+        <Form.Label className={formStyling.Label}>Item description
         <Form.Control
           className={formStyling.Input}
           as="textarea"
@@ -211,6 +215,7 @@ function EditAdvertForm() {
           value={item_description}
           onChange={handleChange}
         />
+        </Form.Label>
       </Form.Group>
       {errors?.item_description?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
@@ -219,7 +224,7 @@ function EditAdvertForm() {
       ))}
 
       <Form.Group>
-        <Form.Label>Item location</Form.Label>
+        <Form.Label className={formStyling.Label}>Item location
         <Form.Control
           className={formStyling.Input}
           type="text"
@@ -227,6 +232,7 @@ function EditAdvertForm() {
           value={location}
           onChange={handleChange}
         />
+        </Form.Label>
       </Form.Group>
       {errors?.location?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
@@ -235,7 +241,7 @@ function EditAdvertForm() {
       ))}
       
       <Form.Group>
-        <Form.Label>Contact details</Form.Label>
+        <Form.Label className={formStyling.Label}>Contact details
         <Form.Control
           className={formStyling.Input}
           type="text"
@@ -243,6 +249,7 @@ function EditAdvertForm() {
           value={contact_dets}
           onChange={handleChange}
         />
+        </Form.Label>
       </Form.Group>
       {errors?.contact_dets?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
@@ -251,7 +258,7 @@ function EditAdvertForm() {
       ))}
 
       <Form.Group>
-        <Form.Label>Payment Options</Form.Label>
+        <Form.Label className={formStyling.Label}>Payment Options
         <Form.Control
           className={formStyling.Input}
           as="select"
@@ -262,12 +269,12 @@ function EditAdvertForm() {
           <option value='Cash or Paypal'>Cash or Paypal</option>
           <option value="Cash only">Cash only</option>
           <option value="PayPal only">PayPal only</option>
-          
         </Form.Control>
+        </Form.Label>
       </Form.Group>
 
       <Form.Group>
-        <Form.Label>Shippment Options</Form.Label>
+        <Form.Label className={formStyling.Label}>Shippment Options
         <Form.Control
           className={formStyling.Input}
           as="select"
@@ -278,12 +285,12 @@ function EditAdvertForm() {
           <option value="Collection or Royal Mail delivery">Collection or delivery</option>
           <option value="Collection only">Collection only</option>
           <option value="Delivery Only">Delivery Only</option>
-          
         </Form.Control>
+        </Form.Label>
       </Form.Group>
 
       <Form.Group>
-        <Form.Label>Categories</Form.Label>
+        <Form.Label className={formStyling.Label}>Categories
         <Form.Control
           className={formStyling.Input}
           as="select"
@@ -304,6 +311,7 @@ function EditAdvertForm() {
           <option value="Sports">Sports</option>
           <option value="Other">Other</option>
         </Form.Control>
+        </Form.Label>
       </Form.Group>
       {errors?.categories?.map((message, idx) => (
         <Alert variant="warning" key={idx}>

@@ -5,6 +5,7 @@ import styles from "../../styles/CreateEditForm.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
 import StarRating from "./StarRating";
+import stylesLabel from '../../App.module.css';
 
 function CreateRatingForm(props) {
   const { rated_user, setRatings } = props;
@@ -41,6 +42,9 @@ function CreateRatingForm(props) {
     <Form className="mt-2" onSubmit={handleSubmitRating}>
       <Form.Group>
         <InputGroup>
+        <label htmlFor="rate user" className={stylesLabel.VisuallyHidden}>
+        rate user
+      </label>
           <Form.Control
             className={styles.Form}
             placeholder="leave your feedback here"
@@ -49,13 +53,14 @@ function CreateRatingForm(props) {
             value={feedback}
             onChange={handleFeedbackChange}
             rows={2}
+            id="rate user"
           />
         </InputGroup>
       </Form.Group>
       <Form.Group>
         <Form.Label>
           How would you rate your experience with the user?
-        </Form.Label>
+        
         <StarRating
           setRating={setRating}
           setHover={setHover}
@@ -63,6 +68,7 @@ function CreateRatingForm(props) {
           hover={hover}
           totalStars={5}
         />
+        </Form.Label>
       </Form.Group>
 
       <button

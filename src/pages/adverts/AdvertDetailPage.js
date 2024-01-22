@@ -19,6 +19,7 @@ import { fetchMoreData } from "../../utils/utils";
 import Assets from "../../components/Assets";
 import { Link } from "react-router-dom";
 import linkStyles from "../../styles/QuestionRatingReplyOffer.module.css";
+import { useLocation } from "react-router-dom";
 
 function AdvertDetailPage() {
   const { id } = useParams();
@@ -236,7 +237,7 @@ function AdvertDetailPage() {
   const mainAdvertTabs = (
     <>
       <Tabs
-        defaultActiveKey="offers"
+        defaultActiveKey='advert_questions'
         id="advert_tabs"
         className={`${styles.Tabs} "mb-3"`}
       >

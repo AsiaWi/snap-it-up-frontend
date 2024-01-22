@@ -92,7 +92,7 @@ const Advert = (props) => {
       <Card.Body>
         <Media className="align-items-center justify-content-between">
           <Link className={styles.Profile} to={`/profiles/${profile_id}`}>
-            <Avatar src={profile_image} height={55} />
+            <Avatar src={profile_image} height={55} alt={`profile avatar for ${owner}`} />
             {owner}
           </Link>
           <div className="d-flex align-items-center">
@@ -209,12 +209,16 @@ const Advert = (props) => {
             delay={{ show: 150, hide: 400 }}
             overlay={
               <Tooltip>
-                Not sure on the item?Ask a question or see if others already
+                Not sure on the item?Click to Ask a question or see if others already
                 asked it
               </Tooltip>
             }
           >
-            <Link className={styles.Icons} to={`/adverts/${id}`}>
+            <Link 
+            aria-label='Not sure on the item?Ask a question or see if others already
+                asked it' 
+                className={styles.Icons} 
+                to={`/adverts/${id}`}>
               <i className="fa-solid fa-question"></i>
             </Link>
           </OverlayTrigger>
@@ -223,7 +227,7 @@ const Advert = (props) => {
             delay={{ show: 150, hide: 400 }}
             overlay={<Tooltip>Make an offer to purchase the product</Tooltip>}
           >
-            <Link className={styles.Icons} to={`/adverts/${id}`}>
+            <Link aria-label='Click to Make an offer to purchase the product' className={styles.Icons} to={`/adverts/${id}`}>
               <i className="fa-solid fa-coins"></i>
             </Link>
           </OverlayTrigger>
