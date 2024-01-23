@@ -30,7 +30,7 @@ const Reply = (props) => {
         ...prevReplies,
         results: prevReplies.results.filter((reply) => reply.id !== id),
       }));
-      toast.success('Successfuly deleted!');
+      toast.success('Successfully deleted!');
     } catch (err) {
       toast.error('Error- unable to delete. Please try again.');
       // console.log("catch error");

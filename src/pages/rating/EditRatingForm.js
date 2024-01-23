@@ -44,7 +44,7 @@ function EditRatingForm(props) {
       setShowEditForm(false);
       toast.success('Changes submitted successfuly!');
     } catch (err) {
-      toast.error('Error submitting the changes. Please try again.');
+      toast.error('Error submitting changes. Please try again.');
       // console.log(err);
     }
   };

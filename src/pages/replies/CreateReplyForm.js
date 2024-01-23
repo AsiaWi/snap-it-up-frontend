@@ -30,9 +30,9 @@ function CreateReplyForm(props) {
       }));
       setContent("");
       setShowCreateForm(false);
-      toast.success('Submission successful!');
+      toast.success('Reply has been posted!');
     } catch (err) {
-      toast.error('Error submitting form. Please try again.');
+      toast.error('Error submitting reply. Please try again.');
       // console.log(err);
     }
   };

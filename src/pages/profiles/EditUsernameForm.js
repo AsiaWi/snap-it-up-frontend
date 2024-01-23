@@ -41,10 +41,10 @@ const EditUsernameForm = () => {
         username,
       }));
       history.goBack();
-      toast.success('Submission successful!');
+      toast.success('Changes submitted successfully!');
     } catch (err) {
       // console.log(err);
-      toast.error('Error submitting form. Please try again.');
+      toast.error('Error submitting changes. Please try again.');
       setErrors(err.response?.data);
     }
   };

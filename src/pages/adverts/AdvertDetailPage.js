@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
@@ -13,6 +12,7 @@ import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import Question from "../questions/Question";
 import PopularAdverts from "../adverts/PopularAdverts";
 import styles from "../../styles/Tabs.module.css";
+import SaleRules from "../../styles/Advert.module.css";
 import OfferCreateForm from "../offers/OfferCreateForm";
 import Offer from "../offers/Offer";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -156,7 +156,8 @@ function AdvertDetailPage() {
             <p className="text-center">
               <Link to="/sign-in">
                 <span className={linkStyles.SignIn}>Sign in</span>
-              </Link> to ask a question. No questions yet.
+              </Link>{" "}
+              to ask a question. No questions yet.
             </p>
             <hr />
           </>
@@ -168,6 +169,15 @@ function AdvertDetailPage() {
   //offers tab
   const offersTab = (
     <>
+      <p className={SaleRules.HowTo}>
+        Asked all necessary questions? Submit an offer and Snap.it.up!. Seller
+        can ACCEPT or REJECT it. Once accepted contact the seller ASAP to
+        arrange the purchase! Contact details above. First come first served so
+        be quick. Once item is collected AND paid for, seller will mark the
+        offer as SOLD which deactivates the ad. You will clearly see if that
+        happens so that you don't waste your time on submitting offers here,
+        shake it off, wave it goodbye and snap it up somewhere else!
+      </p>
       <Container>
         {userLoggedIn ? (
           <OfferCreateForm
@@ -224,9 +234,10 @@ function AdvertDetailPage() {
           <>
             <hr />
             <p className="text-center">
-            <Link to="/sign-in">
+              <Link to="/sign-in">
                 <span className={linkStyles.SignIn}> Sign in </span>
-              </Link> to make an offer.No offers yet..
+              </Link>{" "}
+              to make an offer.No offers yet..
             </p>
             <hr />
           </>
@@ -239,7 +250,7 @@ function AdvertDetailPage() {
   const mainAdvertTabs = (
     <>
       <Tabs
-        defaultActiveKey='advert_questions'
+        defaultActiveKey="advert_questions"
         id="advert_tabs"
         className={`${styles.Tabs} "mb-3"`}
       >

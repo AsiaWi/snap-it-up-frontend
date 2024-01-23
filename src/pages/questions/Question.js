@@ -53,7 +53,7 @@ const Question = (props) => {
       }));
       toast.success('Question deleted!');
     } catch (err) {
-      toast.error('Error-Unable to delete the question. Please try again.');
+      toast.error('Error- unable to delete the question. Please try again.');
     }
   };
 

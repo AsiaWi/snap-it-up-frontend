@@ -36,7 +36,7 @@ function CreateRatingForm(props) {
       await handleSubmit(rated_user);
       setFeedback("");
       setRating("");
-      toast.success('Rating successfuly submitted');
+      toast.success('Rating has been posted');
     } catch (err) {
       // console.log(err);
       toast.error('Error submitting the rating. Please try again.');

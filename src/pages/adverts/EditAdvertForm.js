@@ -110,10 +110,10 @@ function EditAdvertForm() {
     try {
       await axiosReq.put(`/adverts/${id}/`, formData);
       history.push(`/adverts/${id}`);
-      toast.success('Submission successful!');
+      toast.success('Changes submitted successfully!');
     } catch (err) {
       // console.log(err);
-      toast.error('Error submitting form. Please try again.');
+      toast.error('Error submitting changes. Please try again.');
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

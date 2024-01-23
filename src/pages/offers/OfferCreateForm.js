@@ -37,7 +37,7 @@ function OfferCreateForm(props) {
       }));
       setAmount("");
       setStatus("PENDING");
-      toast.success('Offer successfuly posted!');
+      toast.success('Offer successfully posted!');
     } catch (err) {
       toast.error('Error submitting the offer. Please try again.');
       // console.log(err);
