@@ -11,6 +11,7 @@ import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 import Alert from "react-bootstrap/Alert";
 import { useRedirect } from "../../hooks/useRedirect";
+import { toast } from 'react-toastify';
 
 const RegisterForm = () => {
   const [signUpData, setSignUpData] = useState({
@@ -35,7 +36,9 @@ const RegisterForm = () => {
     try {
       await axios.post("/dj-rest-auth/registration/", signUpData);
       history.push("/sign-in");
+      toast.success('Registration successful you can sign in now!');
     } catch (err) {
+      toast.error('Error submitting registration. Please try again.');
       setErrors(err.response?.data);
     }
   };

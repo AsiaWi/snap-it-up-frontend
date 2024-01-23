@@ -13,6 +13,7 @@ import Tooltip from "react-bootstrap/Tooltip";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
+import { toast } from 'react-toastify';
 
 const Advert = (props) => {
   const {
@@ -50,7 +51,9 @@ const Advert = (props) => {
     try {
       await axiosRes.delete(`/adverts/${id}/`);
       history.goBack();
+      toast.success('Advert deleted!');
     } catch (err) {
+      toast.error('Deletion unsuccessful. Please try again.');
       // console.log(err);
     }
   };

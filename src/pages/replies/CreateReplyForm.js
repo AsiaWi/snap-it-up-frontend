@@ -4,6 +4,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import styles from "../../styles/CreateEditForm.module.css";
 import stylesLabel from '../../App.module.css';
 import { axiosRes } from "../../api/axiosDefaults";
+import { toast } from 'react-toastify';
 
 function CreateReplyForm(props) {
   const { question, setQuestion, setReplies, setShowCreateForm } = props;
@@ -29,7 +30,9 @@ function CreateReplyForm(props) {
       }));
       setContent("");
       setShowCreateForm(false);
+      toast.success('Submission successful!');
     } catch (err) {
+      toast.error('Error submitting form. Please try again.');
       // console.log(err);
     }
   };

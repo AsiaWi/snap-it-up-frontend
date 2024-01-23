@@ -4,6 +4,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import styles from "../../styles/CreateEditForm.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
 import stylesLabel from '../../App.module.css';
+import { toast } from 'react-toastify';
 
 function CreateQuestionForm(props) {
   const { advert, setAdvert, setQuestions } = props;
@@ -34,7 +35,9 @@ function CreateQuestionForm(props) {
       }));
 
       setContent("");
+      toast.success('Question has been posted!');
     } catch (err) {
+      toast.error('Error submitting the question. Please try again.');
       // console.log(err);
     }
   };

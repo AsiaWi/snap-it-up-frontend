@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import { axiosRes } from "../../api/axiosDefaults";
 import styles from "../../styles/CreateEditForm.module.css";
 import stylesLabel from '../../App.module.css';
+import { toast } from 'react-toastify';
 
 function EditReplyForm(props) {
   const { id, reply_content, setShowEditForm, setReplies } = props;
@@ -31,7 +32,9 @@ function EditReplyForm(props) {
         }),
       }));
       setShowEditForm(false);
+      toast.success('Changes successfuly submitted!');
     } catch (err) {
+      toast.error('Error submitting the changes. Please try again.');
       // console.log(err);
     }
   };

@@ -10,6 +10,7 @@ import formStyling from "../../styles/CreateEditAdvertPost.module.css";
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Alert from "react-bootstrap/Alert";
+import { toast } from 'react-toastify';
 
 function EditAdvertForm() {
   const [errors, setErrors] = useState({});
@@ -109,8 +110,10 @@ function EditAdvertForm() {
     try {
       await axiosReq.put(`/adverts/${id}/`, formData);
       history.push(`/adverts/${id}`);
+      toast.success('Submission successful!');
     } catch (err) {
       // console.log(err);
+      toast.error('Error submitting form. Please try again.');
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

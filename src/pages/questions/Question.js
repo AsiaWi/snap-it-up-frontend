@@ -15,6 +15,7 @@ import Assets from "../../components/Assets";
 import Reply from "../replies/Reply";
 import { axiosReq } from "../../api/axiosDefaults";
 import btnStyles from "../../styles/Button.module.css";
+import { toast } from 'react-toastify';
 
 const Question = (props) => {
   const {
@@ -50,7 +51,10 @@ const Question = (props) => {
         ...prevQuestions,
         results: prevQuestions.results.filter((question) => question.id !== id),
       }));
-    } catch (err) {}
+      toast.success('Question deleted!');
+    } catch (err) {
+      toast.error('Error-Unable to delete the question. Please try again.');
+    }
   };
 
   useEffect(() => {

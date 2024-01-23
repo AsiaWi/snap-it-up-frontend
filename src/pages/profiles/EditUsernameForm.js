@@ -12,6 +12,7 @@ import {
   useSetLoggedInUser,
 } from "../../contexts/LoggedInUserContext";
 import btnStyles from "../../styles/Button.module.css";
+import { toast } from 'react-toastify';
 
 const EditUsernameForm = () => {
   const [username, setUsername] = useState("");
@@ -40,8 +41,10 @@ const EditUsernameForm = () => {
         username,
       }));
       history.goBack();
+      toast.success('Submission successful!');
     } catch (err) {
       // console.log(err);
+      toast.error('Error submitting form. Please try again.');
       setErrors(err.response?.data);
     }
   };

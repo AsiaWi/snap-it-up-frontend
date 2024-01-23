@@ -5,6 +5,7 @@ import { useSetProfileData } from "../../contexts/ProfileDataContext";
 import styles from "../../styles/CreateEditForm.module.css";
 import StarRating from "./StarRating";
 import stylesLabel from '../../App.module.css';
+import { toast } from 'react-toastify';
 
 function EditRatingForm(props) {
   const { rated_user, id, feedback, rating, setShowEditForm, setRatings } =
@@ -41,7 +42,9 @@ function EditRatingForm(props) {
       }));
       await handleEditRating(rated_user);
       setShowEditForm(false);
+      toast.success('Changes submitted successfuly!');
     } catch (err) {
+      toast.error('Error submitting the changes. Please try again.');
       // console.log(err);
     }
   };

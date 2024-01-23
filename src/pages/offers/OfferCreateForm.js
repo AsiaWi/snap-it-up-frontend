@@ -5,6 +5,7 @@ import styling from "../../styles/CreateOfferForm.module.css";
 import styles from "../../styles/CreateEditForm.module.css";
 import stylesLabel from '../../App.module.css';
 import { axiosRes } from "../../api/axiosDefaults";
+import { toast } from 'react-toastify';
 
 function OfferCreateForm(props) {
   const { advert, setAdvert, setOffers } = props;
@@ -37,7 +38,9 @@ function OfferCreateForm(props) {
       }));
       setAmount("");
       setStatus("PENDING");
+      toast.success('Offer successfuly posted!');
     } catch (err) {
+      toast.error('Error submitting the offer. Please try again.');
       // console.log(err);
     }
   };

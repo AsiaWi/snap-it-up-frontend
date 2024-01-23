@@ -9,6 +9,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useLoggedInUser } from "../../contexts/LoggedInUserContext";
 import btnStyles from "../../styles/Button.module.css";
+import { toast } from 'react-toastify';
 
 const EditPasswordForm = () => {
   const history = useHistory();
@@ -39,7 +40,9 @@ const EditPasswordForm = () => {
     try {
       await axiosRes.post("/dj-rest-auth/password/change/", userData);
       history.goBack();
+      toast.success('Password change successful!');
     } catch (err) {
+      toast.error('Error changing password.Please try again');
       // console.log(err);
       setErrors(err.response?.data);
     }

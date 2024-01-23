@@ -8,6 +8,7 @@ import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useState } from "react";
 import EditReplyForm from "../replies/EditReplyForm";
+import { toast } from 'react-toastify';
 
 const Reply = (props) => {
   const {
@@ -30,7 +31,9 @@ const Reply = (props) => {
         ...prevReplies,
         results: prevReplies.results.filter((reply) => reply.id !== id),
       }));
+      toast.success('Successfuly deleted!');
     } catch (err) {
+      toast.error('Error- unable to delete. Please try again.');
       // console.log("catch error");
     }
   };

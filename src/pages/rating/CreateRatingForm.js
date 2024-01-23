@@ -7,6 +7,7 @@ import { useSetProfileData } from "../../contexts/ProfileDataContext";
 import StarRating from "./StarRating";
 import stylesLabel from '../../App.module.css';
 import Alert from "react-bootstrap/Alert";
+import { toast } from 'react-toastify';
 
 function CreateRatingForm(props) {
   const [errors, setErrors] = useState({});
@@ -35,8 +36,10 @@ function CreateRatingForm(props) {
       await handleSubmit(rated_user);
       setFeedback("");
       setRating("");
+      toast.success('Rating successfuly submitted');
     } catch (err) {
       // console.log(err);
+      toast.error('Error submitting the rating. Please try again.');
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

@@ -15,6 +15,8 @@ import EditUsernameForm from "./pages/profiles/EditUsernameForm";
 import EditPasswordForm from "./pages/profiles/EditPasswordForm";
 import EditProfileForm from "./pages/profiles/EditProfileForm";
 import PageNotFound from "./components/PageNotFound";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const userLoggedIn = useLoggedInUser();
@@ -24,6 +26,7 @@ function App() {
     <div className={styles.App}>
       <NavBar />
       <Container>
+      <ToastContainer position="top-right" autoClose={3000} />
         <Switch>
           <Route
             exact
