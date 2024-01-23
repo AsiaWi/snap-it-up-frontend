@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import formStyling from "../../styles/SignInAndRegisterForms.module.css";
 import btnStyling from "../../styles/Button.module.css";

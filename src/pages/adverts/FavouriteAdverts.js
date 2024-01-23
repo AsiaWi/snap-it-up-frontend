@@ -1,4 +1,3 @@
-import React from "react";
 import stylesFave from "../../styles/FavouriteAdverts.module.css";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";

@@ -1,7 +1,7 @@
-import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/EditDeleteDropdown.module.css";
 import { useHistory } from "react-router";
+import React from 'react';
 
 const MenuAccessIcon = React.forwardRef(({ onClick }, ref) => (
   <i
@@ -13,7 +13,7 @@ const MenuAccessIcon = React.forwardRef(({ onClick }, ref) => (
     }}
   />
 ));
-
+MenuAccessIcon.displayName = "MenuAccessIcon";
 export const EditDeleteDropdown = ({ handleEdit, handleDelete }) => {
   return (
     <Dropdown className="ml-auto" drop="left">

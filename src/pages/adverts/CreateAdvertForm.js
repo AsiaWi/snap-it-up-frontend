@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import uploadImage from "../../assets/upload.png";
 import Form from "react-bootstrap/Form";
 import Image from "react-bootstrap/Image";

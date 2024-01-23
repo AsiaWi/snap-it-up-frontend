@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import Row from "react-bootstrap/Row";

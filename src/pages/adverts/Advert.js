@@ -1,4 +1,3 @@
-import React from "react";
 import { axiosRes } from "../../api/axiosDefaults";
 import { Link, useHistory } from "react-router-dom";
 import styles from "../../styles/Advert.module.css";

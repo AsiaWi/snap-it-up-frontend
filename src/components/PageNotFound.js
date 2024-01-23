@@ -1,4 +1,3 @@
-import React from "react";
 import notFound from "../assets/icons8-unknown-results-96.png";
 import Assets from "../components/Assets";
 

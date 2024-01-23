@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import InfiniteScroll from "react-infinite-scroll-component";

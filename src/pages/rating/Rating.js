@@ -1,4 +1,3 @@
-import React from "react";
 import { Media } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";

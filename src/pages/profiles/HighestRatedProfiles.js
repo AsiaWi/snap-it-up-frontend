@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import styles from "../../styles/Advert.module.css";
 import { axiosReq } from "../../api/axiosDefaults";

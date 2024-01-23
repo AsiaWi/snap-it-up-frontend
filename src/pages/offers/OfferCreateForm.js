@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import styling from "../../styles/CreateOfferForm.module.css";
