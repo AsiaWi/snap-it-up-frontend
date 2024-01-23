@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
@@ -154,8 +155,8 @@ function AdvertDetailPage() {
             <hr />
             <p className="text-center">
               <Link to="/sign-in">
-                <span>Sign in</span> to ask a question. No questions yet.
-              </Link>
+                <span className={linkStyles.SignIn}>Sign in</span>
+              </Link> to ask a question. No questions yet.
             </p>
             <hr />
           </>
@@ -223,7 +224,9 @@ function AdvertDetailPage() {
           <>
             <hr />
             <p className="text-center">
-              Log in to make an offer.No offers yet..
+            <Link to="/sign-in">
+                <span className={linkStyles.SignIn}> Sign in </span>
+              </Link> to make an offer.No offers yet..
             </p>
             <hr />
           </>

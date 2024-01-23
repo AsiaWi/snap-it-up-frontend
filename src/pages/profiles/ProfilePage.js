@@ -188,7 +188,7 @@ function ProfilePage() {
               {profile?.owner} haven't received any feedback yet.
               <Link to="/sign-in">
                 <span className={linkStyles.SignIn}> sign in </span>
-              </Link>{" "}
+              </Link>
               to leave a review
             </p>
           </>

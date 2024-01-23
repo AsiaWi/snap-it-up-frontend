@@ -36,6 +36,7 @@ const Advert = (props) => {
     setAdverts,
     location,
     contact_dets,
+    active,
   } = props;
 
   const userLoggedin = useLoggedInUser();
@@ -90,7 +91,7 @@ const Advert = (props) => {
   };
 
   return (
-    <Card className={styles.Advert}>
+    <Card className={styles.Advert} style={{ opacity : !active ? "40%" : null}}>
       <Card.Body>
         <Media className="align-items-center justify-content-between">
           <Link className={styles.Profile} to={`/profiles/${profile_id}`}>
@@ -111,6 +112,7 @@ const Advert = (props) => {
           </div>
         </Media>
         <Container>
+        {!active ? <span className={styles.Sold}>ITEM SOLD</span> : null}
           {advert_title && (
             <Card.Title className="text-center">{advert_title}</Card.Title>
           )}
@@ -234,8 +236,10 @@ const Advert = (props) => {
             </Link>
           </OverlayTrigger>
         </div>
+        
       </Card.Body>
     </Card>
+  
   );
 };
 

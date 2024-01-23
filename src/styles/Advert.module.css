@@ -49,6 +49,16 @@ h5 {
   color: brown;
 }
 
-.Hidden {
-  visibility: hidden;
+.Sold {
+  color: red;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.HowTo {
+  font-size: small;
+  font-weight: bolder;
+  background-color: rgb(255, 165, 0, 0.2);
+  padding: 5%;
+  margin-top: 2%;
 }

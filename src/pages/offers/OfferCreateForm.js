@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-import styling from "../../styles/CreateOfferForm.module.css";
 import styles from "../../styles/CreateEditForm.module.css";
 import stylesLabel from '../../App.module.css';
 import { axiosRes } from "../../api/axiosDefaults";
@@ -60,12 +59,6 @@ function OfferCreateForm(props) {
             value={amount}
             onChange={handleChange}
           />
-          <span className={styling.HowTo}>
-            seller will either accept or reject your offer so keep an eye on
-            your offer status, Once you pay and collect your item- seller can
-            update the status to SOLD, until then- first come first served so if
-            you see it's ACCEPTED, contact the seller ASAP!
-          </span>
         </InputGroup>
       </Form.Group>
       <button className={`${styles.Button} btn d-block ml-auto`} type="submit">
