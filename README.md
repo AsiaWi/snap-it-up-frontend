@@ -250,6 +250,8 @@ FEATURE DESIGN FOR LARGE AND SMALL SCREENS:
 ![REGISTER_LARGESCREENS](https://res.cloudinary.com/dmod5eglu/image/upload/v1706204429/REGISTER_LARGESCREEN_uwj28p.png)
 ![REGISTER_SMALLSCREENS](https://res.cloudinary.com/dmod5eglu/image/upload/v1706204428/REGISTER_SMALLSCREEN_uepmc7.png)
 
+Link to sign-in if user entered incorrect page have been provided for better UX.
+
 Implementing this user story allows users to sign-in:
 
 ``As a REGISTERED USER I want to be able to SIGN IN to ACCESS MY ACCOUNT``
@@ -257,6 +259,8 @@ Implementing this user story allows users to sign-in:
 FEATURE DESIGN FOR LARGE AND SMALL SCREENS:
 ![SIGNIN_LARGESCREENS](https://res.cloudinary.com/dmod5eglu/image/upload/v1706204422/SIGN-IN-LARGESCREENS_wcttjo.png)
 ![SIGNIN_SMALLSCREENS](https://res.cloudinary.com/dmod5eglu/image/upload/v1706204422/SIGN-IN-SMALLSCREENS_vqdysn.png)
+
+Link to register if user entered incorrect page have been provided for better UX.
 
 Implementing this user story improves user experience whilst using the page, it keeps user logged in and allows for sign-out from nav menu rather than logging out on every refresh:
 
@@ -279,9 +283,13 @@ suggests the experience here is smooth and easy. Adverts are listed based on cre
 - Infinite scroll has been implemented so that the user doesn't have to use page pagination which makes the experience nice and smooth.
 
 `As a user I can navigate through pages seamlessly so that I don't have to wait for page to refresh every time`
-- Refresh token has been implemented to seamlessly navigate through content without having to wait for page refresh every time user clicks on something. This has been done throughout the entire page.
+- Routing has been implemented to seamlessly navigate through content without having to wait for page refresh every time user clicks on something. This has been done throughout the entire page.
+
+Home page view/desktop:
 
 ![home_page_DESKTOP](https://res.cloudinary.com/dmod5eglu/image/upload/v1706206029/HOME_PAGE_DESKTOP_qbead0.png)
+
+Home page view/mobile:
 
 ![home_page_mobile](https://res.cloudinary.com/dmod5eglu/image/upload/v1706206028/HOME_PAGE_MOBILE_uobzhe.png)
 
@@ -346,10 +354,10 @@ This is so that for exmaple if seller includes key work within item description 
 #### Advert
 `As a USER I can VIEW THE ADVERT POSTS DETAILS so that I LEARN MORE ABOUT IT`
 
-* Advert view from list view/ medium to large screens:
+* Advert view / medium to large screens:
 
 ![ADVERT_VIEW_FROM_LISTVIEW_LARGE_TO_MEDIUM_SCREENS](https://res.cloudinary.com/dmod5eglu/image/upload/v1706209272/ADVERT_VIEW_FROM_LISTVIEW_LARGE_TO_MEDIUM_SCREENS_f9jly1.png)
-* Advert view from list view/ small screens:
+* Advert view / small screens:
 
 ![ADVERT_VIEW_FROM_LISTVIEW_SMALL_SCREENS](https://res.cloudinary.com/dmod5eglu/image/upload/v1706209273/ADVERT_VIEW_FROM_LISTVIEW_SMALL_SCREENS_e3bayl.png)
 
@@ -375,6 +383,35 @@ This is so that for exmaple if seller includes key work within item description 
 
 - This feature allows all users those who are logged in and not- to view posts shared by other users.
 -The aim of this feature having this content is so that firstly- user can see from the moment they enter the page what is the aim of the page,keep anyone who just entered the page interested and encourage to explore it more, and secondly-it saves the user on clicking to another page for actual content if I was to include the adverts list view on another page.
+
+ ##### Save advert
+ `` As a LOGGED IN USER I can SAVE ITEMS so that I CAN GET BACK TO ADVERTS I'M INTERESTED IN EASILY ``
+
+bookmark before item is saved/ bookmark available from advert view as described here: [Advert](#advert)
+
+ ![SAVE_ADVERT_BOOKMARK_not_saved](https://res.cloudinary.com/dmod5eglu/image/upload/v1706218623/bookmark_not_saved_vimuec.png)
+
+ `As a LOGGED IN USER I can SAVE AN ADVERT BY CLICKING ON SAVE ICON so that I CAN VIEW IT AGAINST OTHER ITEMS I SAVED/ KEEP AN EYE ON THE ITEM`
+
+List of saved items available through 'saved' option from nav bar/ please note as this advert was saved the bookmark within the ad shows solid:
+
+ ![SAVE_ADVERTS_LIST](https://res.cloudinary.com/dmod5eglu/image/upload/v1706218626/saved_list_kicrg9.png)
+
+ - This feature allows any logged in user who is not an advert owner, to save an advert they are interested in.
+   - Unauthorised user - will be taken to 'sign-in' page and upon successful login will be taken back to the same page as they were before.
+   - Authorised user - if didn't previously like the post - hollow bookmark icon will be displayed -if clicked - the icon will change to solid one and the 'saved' number within the add will increase by 1.
+   - Authorised user - if previously saved the post- solid bookmark icon will be shown- if clicked- the icon will change to hollow one and the 'saved' number within the add will decrease by one.
+  - advert owner will get an overlay text to say they can't save their own posts as can view their own within their own profile page.
+  
+
+##### Page views
+
+`As a USER I can SEE HOW MANY VIEWS EACH POST HAD so that I KNOW HOW POPULAR ARE DIFFERENT ITEMS WITHIN THE PAGE`
+
+![page_views](https://res.cloudinary.com/dmod5eglu/image/upload/v1706219011/page_views_dpb6ov.png)
+- The page views increment when user enters detail view, per session. The page views are visible from the [advert](#advert) (list view and detail view). 
+
+- The aim of this is to increase users interest when scrolling through list view, knowing a lot of people are interested too.
 
 #### Add Advert
 
@@ -421,34 +458,6 @@ Advert has the same view as: [Advert view from list View](#advert-view-from-list
    - The aim of this is so that is user makes any errors/ wants to update the post- they can update it here. 
    - if user selects delete option which is the ' trash-bin' icon, the advert will get deleted -if successful a message confirming deletion will show, if unsuccessful an error toast message will display.
    - The aim of this is for user to be able to delete any unwanted content 
- ##### Save advert
- `` As a LOGGED IN USER I can SAVE ITEMS so that I CAN GET BACK TO ADVERTS I'M INTERESTED IN EASILY ``
-
-bookmark before item is saved/ bookmark available from advert view as described here: [Advert](#advert)
-
- ![SAVE_ADVERT_BOOKMARK_not_saved](https://res.cloudinary.com/dmod5eglu/image/upload/v1706218623/bookmark_not_saved_vimuec.png)
-
- `As a LOGGED IN USER I can SAVE AN ADVERT BY CLICKING ON SAVE ICON so that I CAN VIEW IT AGAINST OTHER ITEMS I SAVED/ KEEP AN EYE ON THE ITEM`
-
-List of saved items available through 'saved' option from nav bar/ please note as this advert was saved the bookmark within the ad shows solid:
-
- ![SAVE_ADVERTS_LIST](https://res.cloudinary.com/dmod5eglu/image/upload/v1706218626/saved_list_kicrg9.png)
-
- - This feature allows any logged in user who is not an advert owner, to save an advert they are interested in.
-   - Unauthorised user - will be taken to 'sign-in' page and upon successful login will be taken back to the same page as they were before.
-   - Authorised user - if didn't previously like the post - hollow bookmark icon will be displayed -if clicked - the icon will change to solid one and the 'saved' number within the add will increase by 1.
-   - Authorised user - if previously saved the post- solid bookmark icon will be shown- if clicked- the icon will change to hollow one and the 'saved' number within the add will decrease by one.
-  - advert owner will get an overlay text to say they can't save their own posts as can view their own within their own profile page.
-  
-
-##### Page views
-
-`As a USER I can SEE HOW MANY VIEWS EACH POST HAD so that I KNOW HOW POPULAR ARE DIFFERENT ITEMS WITHIN THE PAGE`
-
-![page_views](https://res.cloudinary.com/dmod5eglu/image/upload/v1706219011/page_views_dpb6ov.png)
-- The page views increment when user enters detail view, per session. The page views are visible from the [advert](#advert) (list view and detail view). 
-
-- The aim of this is to increase users interest when scrolling through list view, knowing a lot of people are interested too.
 
 #### Questions
 
@@ -501,7 +510,7 @@ when questions already exist:
  - The aim of this feature is to allow users to ask questions if they have any concerns regarding the item advertised.
  
  - If user isn't logged in they will see sign in prompt, once logged in they will be taken back to advert page
-      - Promped to log in when questions exist:
+      - Prompt to log in when questions exist:
 
     ![LOG_IN_QUESTIONS_EXIST](https://res.cloudinary.com/dmod5eglu/image/upload/v1706216323/QUESTIONS_LIST_QS_EXIST_USER_SIGNED_OUT_p1k78g.png)
       - Prompt to log in when no questions has been asked:
@@ -520,3 +529,76 @@ when questions already exist:
    - if user selects delete option which is the ' trash-bin' icon, the advert will get deleted -if successful a message confirming deletion will show, if unsuccessful an error toast message will display.
    - The aim of this is for user to be able to delete any unwanted content 
 
+#### Replies
+
+`As a BUYER I can VIEW REPLIES LIST TO MY QUESTION BELOW THE QUESTION so that CLARIFY MY CONCERNS`
+
+ - Replies list is a feature available to all users regardless of auth state, list of replies related to each question can be accessed within each question by clicking on '{number} Replies' button, when clicked the button text will change to 'Hide {number} replies', user can hide the replies list by clicking the button again.
+
+Here you can see 2 buttons related to that specific question: 'Reply' button and Replies list button '1 Replies` before it has been clicked to reveal the list:
+
+![Replies_button](https://res.cloudinary.com/dmod5eglu/image/upload/v1706224255/REPLIES_BUTTONS_ryo1rm.png)
+
+Replies list view when logged in/ '1 replies' button has already been clicked so the button text changed to 'Hide 1 Replies':
+
+![REPLIES_LIST_EXIST_USER_LOGGED_IN](https://res.cloudinary.com/dmod5eglu/image/upload/v1706225394/REPLIES_LIST_EXIST_USER_LOGGED_IN_owt48v.png)
+
+Replies list view when logged out/ here the 'Reply' button is no longer displayed as user is logged out, 'Replies' button view before it has been clicked :
+
+![REPLIES_LIST_EXIST_USER_SIGNED_OUT](https://res.cloudinary.com/dmod5eglu/image/upload/v1706225394/REPLIES_LIST_EXIST_USER_SIGNED_OUT_zy9ebo.png)
+
+Replies list view when logged out/ here the 'Reply' button is no longer displayed as user is logged out, 'Replies' button view AFTER it has been clicked shows 'Hide replies' and a list of replies shows below/ as user is logged out that is where it prompts them to log in :
+
+![REPLIES_LIST_EXIST_USER_SIGNED_OUT](https://res.cloudinary.com/dmod5eglu/image/upload/v1706225394/REPLIES_LIST_EXIST_USER_SIGNED_OUT_LIST_SHOWN_ks5jpt.png)
+
+- When no replies exists yet, a message informing users of this will show:
+
+when logged in:
+
+![NO_REPLIES_YET_LOGGED_IN](https://res.cloudinary.com/dmod5eglu/image/upload/v1706225394/NO_REPLIES_YET_LOGGED_IN_x3pkym.png)
+
+when signed-out:
+
+![NO_REPLIES_YET_SIGNED_OUT](https://res.cloudinary.com/dmod5eglu/image/upload/v1706225394/NO_REPLIES_YET_SIGNED_OUT_tgfz1b.png)
+
+- The aim of the replies list is so that potential buyers can see answers to previously asked questions should they be interested, and not ask the same thing twice. The reason I created the replies model is that I think it's better to keep the conversation in one place rather then search through a list of random comments to see if anyone already replied to something similar. The reason why I implemented the feature to hide and display is so that if there is many replies to a question, users who are not interested in the specific topic can scroll through questions easier.
+
+   `As a USER I can SEE WHEN SOMEONE REPLIED TO MY QUESTION so that I KNOW IF IT'S MOST RELEVANT`
+
+- This feature shows human friendly timestamp displayed next to reply owner
+- The aim of this is so that potential buyers can see when replies have been submitted and if since then no offers higher than they were willing to put were made.
+
+   `As a USER I can SCROLL THROUGH REPLIES WITHOUT USING PAGINATION so that MY EXPERIENCE OF USING PAGE IS MORE SEAMLESS`
+
+- The aim of infinite scroll is to make users experience as enjoyable as possible without having to use page pagination.
+
+`` As a LOGGED IN USER I can REPLY TO QUESTIONS so that I CAN COMMUNICATE BACK WITH POTENTIAL BUYERS ``
+
+-  if user is logged in they will see a button within each question saying 'REPLY', they can click on the button which will open up a form where they can type a reply and press post to send it, once submitted- a confirmation message will display at top of the screen, the reply will display within replies list view and a number of replies within replies button will increase by 1
+
+
+
+![REPLY_FORM_NO_REPLIES_YET_LOGGED_IN](https://res.cloudinary.com/dmod5eglu/image/upload/v1706225394/REPLY_FORM_NO_REPLIES_YET_LOGGED_IN_lxzlto.png)
+
+
+ - The aim of this feature is to allow users to reply to any asked questions.
+ 
+ - If user isn't logged in they will not see 'REPLY' button, instead they will only see replies list and when clicked they will see sign in prompt, once logged in they will be taken back to the same page
+      - Promped to log in when replies exist:
+
+    ![LOG_IN_replies_EXIST](https://res.cloudinary.com/dmod5eglu/image/upload/v1706225394/REPLIES_LIST_EXIST_USER_SIGNED_OUT_LIST_SHOWN_ks5jpt.png)
+      - Prompt to log in when no replies has been provided yet:
+
+    ![LOGIN_NO_REPLIES_YET](https://res.cloudinary.com/dmod5eglu/image/upload/v1706225394/NO_REPLIES_YET_SIGNED_OUT_tgfz1b.png)
+
+ `` As a LOGGED IN USER I can EDIT/DELETE MY REPLY so that MANAGE MY INPUT``
+ 
+ [EDIT_OR_DELETE_MENU](https://res.cloudinary.com/dmod5eglu/image/upload/v1706210442/EDIT_OR_DELETE_ADVERT_suwcko.png)
+
+ - CRUD functionality. This feature is available only if user is logged in and only within replies they have posted,when clicked on the three dots menu:
+   - user will see an icon to edit and icon to delete
+   - if user clicks on edit- this will bring up edit form looking the same as add form but already with reply content, user can make any changes and press 'save' or 'cancel' if changed mind
+   - if user submits changes a toast message confirming that updates were saved will display if successful, or toast error message if unsuccessful.
+   - The aim of this is so that users can update their own content should they need to
+   - if user selects delete option which is the ' trash-bin' icon, the reply will get deleted -if successful a toast message confirming deletion will show, if unsuccessful an error toast message will display.
+   - The aim of this is for user to be able to delete any unwanted content 
