@@ -190,3 +190,333 @@ The stories that have both labels will be discussed in each README.
 - EPIC 10-Documentation and deployment:
   - `As a DEVELOPER I need to CREATE README FILE so that I CAN DOCUMENT THE PROCESS OF CREATING THE APPLICATION`
   - `As a DEVELOPER I need to deploy both projects and link them together so that USERS CAN USE FULL STACK WEBSITE`
+
+## The Structure Plane
+
+### Features
+
+All features have been implemented with user stories in mind 
+
+#### Favicon
+
+``As a DEVELOPER I need to ADD FAVICON TO THE PAGE so that USERS CAN EASILY FIND IT IF HAVING MULTIPLE TABS OPEN``
+
+![favicon_image](https://res.cloudinary.com/dmod5eglu/image/upload/v1706203930/favicon_image_revvnf.png)
+
+- Favicon icon displayed within a tab.
+- The aim of the feature is for user to easily find the tab if for example having a lot of sites open at the same time 
+
+#### Navigation menu
+
+``As a USER I can SEE NAV BAR IN THE SAME PLACE so that I CAN NAVIGATE THE PAGE EASILY``
+
+``As a user I can see different authentication options within nav bar depending on my log in status so that I'm not confused with my current log in status``
+
+`As a USER I can SEE MY LOGGED IN STATUS so that I KNOW I NEED TO LOG IN OR LOG OUT AS NEEDED`
+
+* Nav bar/ large screens/ user unauthorised:
+![nav_bar_large_screens_UNAUTHORISED](https://res.cloudinary.com/dmod5eglu/image/upload/v1706201613/NAVBAR_LARGE_SCREEN_UNAUTHORISED_cjlluc.png)
+* Nav bar/ large screens/ user authorised:
+![nav_bar_large_screens_AUTHORISED](https://res.cloudinary.com/dmod5eglu/image/upload/v1706201613/NAVBAR_LARGE_SCREEN_AUTHORISED_pt8mha.png)
+
+* Nav bar/ small screens/ user unauthorised:
+
+![nav_bar_small_screens_UNAUTHORISED](https://res.cloudinary.com/dmod5eglu/image/upload/v1706201613/NAVBAR_SMALL_SCREEN_UNAUTHORISED_mmhq9i.png)
+* Nav bar/ small screens/ user authorised:
+
+![nav_bar_small_screens_AUTHORISED](https://res.cloudinary.com/dmod5eglu/image/upload/v1706201613/NAVBAR_SMALL_SCREEN_AUTHORISED_k02dhm.png)
+
+
+- This is shown the same on all pages for consistent design and good UX. Responsive design allows for hamburger bar on smaller screens. When user is logged in - a username is displayed.
+- The aim of the feature is so that the user can easily navigate around the page. Username shown is there for confirmation of logged in state for user on each page.  Options the user can select differ based on wheter the user is logged in or not. This is so that the nav bar isn't overcrowded and is simple to use.
+     - Home - for all users
+     - Snap.it.up logo - taking users to home page-for all users
+     - Register - for unauthorised users
+     - Sign in - for unauthorised users
+     - Sign-out- for authorised users
+     - Saved - for authorised users 
+     - 'username' - for authorised users
+     - Sell !t - for authorised users
+
+#### Sign-In/ Sign-Up/ Log-Out
+
+Each of the following pages are accessible through the navigation menu as explained above.
+
+Implementing this user story allows users to register:
+
+`` As a USER I want to CREATE AN ACCOUNT to ACCESS ADDITIONAL FEATURES``
+
+FEATURE DESIGN FOR LARGE AND SMALL SCREENS:
+![REGISTER_LARGESCREENS](https://res.cloudinary.com/dmod5eglu/image/upload/v1706204429/REGISTER_LARGESCREEN_uwj28p.png)
+![REGISTER_SMALLSCREENS](https://res.cloudinary.com/dmod5eglu/image/upload/v1706204428/REGISTER_SMALLSCREEN_uepmc7.png)
+
+Implementing this user story allows users to sign-in:
+
+``As a REGISTERED USER I want to be able to SIGN IN to ACCESS MY ACCOUNT``
+
+FEATURE DESIGN FOR LARGE AND SMALL SCREENS:
+![SIGNIN_LARGESCREENS](https://res.cloudinary.com/dmod5eglu/image/upload/v1706204422/SIGN-IN-LARGESCREENS_wcttjo.png)
+![SIGNIN_SMALLSCREENS](https://res.cloudinary.com/dmod5eglu/image/upload/v1706204422/SIGN-IN-SMALLSCREENS_vqdysn.png)
+
+Implementing this user story improves user experience whilst using the page, it keeps user logged in and allows for sign-out from nav menu rather than logging out on every refresh:
+
+``As a LOGGED IN USER I can STAY LOGGED IN so that I CAN KEEP USING THE FEATURES UNTIL I LOG OUT MYSELF ``
+
+![sign_OUT](https://res.cloudinary.com/dmod5eglu/image/upload/v1706204655/SIGN-OUT_tfulux.png)
+
+
+- These pages allow the user to sign up so that they have more options to interact with other users/adverts or post their own content.
+- The aim of these features is so that the page is more interactive and users have access to CRUD of their own content.
+
+
+### Home/Advert List View
+
+`As a USER I can VIEW ALL ADVERTS AS A LIST STARTING WITH MOST RECENT ONES so that I CAN PICK UP ON THE NEWEST DEALS`
+- When entering page for the first time, the user can see list of adverts straight away. They can see all the additional functionality which already
+suggests the experience here is smooth and easy. Adverts are listed based on created and updated date in descending order, this was done so that if seller updates price of item to lower one for example - people can easily pick it up. If I have included only created date, these updated adverts would have gone lost down the bottom of the list so people could not see sales/bargains straight away.
+
+`As a USER I can KEEP SCROLLING THROUGH ADVERT LIST VIEW so that I DON'T HAVE TO USE PAGINATION SYSTEM`
+- Infinite scroll has been implemented so that the user doesn't have to use page pagination which makes the experience nice and smooth.
+
+`As a user I can navigate through pages seamlessly so that I don't have to wait for page to refresh every time`
+- Refresh token has been implemented to seamlessly navigate through content without having to wait for page refresh every time user clicks on something. This has been done throughout the entire page.
+
+![home_page_DESKTOP](https://res.cloudinary.com/dmod5eglu/image/upload/v1706206029/HOME_PAGE_DESKTOP_qbead0.png)
+
+![home_page_mobile](https://res.cloudinary.com/dmod5eglu/image/upload/v1706206028/HOME_PAGE_MOBILE_uobzhe.png)
+
+EACH FEATURE DESCRIPTION BUILDING UP THE LIST VIEW IN DETAIL AS FOLLOWS:
+
+#### MOST SAVED ADVERTS SIDEBAR
+
+`As a USER I can VIEW A LIST OF MOST SAVED ITEMS so that I CAN FIND BEST DEALS`
+
+- Desktop view:
+
+![MOST_SAVED_ADVERTS_SIDEBAR_DESKTOP](https://res.cloudinary.com/dmod5eglu/image/upload/v1706207153/MOST_SAVED_ADVERTS_SIDEBAR_DESKTOP_zpxj2d.png)
+- Mobile view:
+
+![MOST_SAVED_ADVERTS_SIDEBAR_MOBILE](https://res.cloudinary.com/dmod5eglu/image/upload/v1706207152/MOST_SAVED_ADVERTS_SIDEBAR_MOBILE_fgwcof.png)
+
+- This feature allows users to see top most saved adverts, (3 for mobile)
+- The aim of this feature is both: to encourage users to be more active on the page and boost the pages and to improve the UI for desktop page
+
+#### Search adverts
+
+`As a USER I can SEARCH ADVERTS BY ITEM LOCATION OR KEYWORD/TAG NAME so that I CAN FIND ITEMS THAT I'M INTERESTED IN`
+
+* Search bar view from large screens/ right side:
+![SEARCH_LARGE_SCREEN](https://res.cloudinary.com/dmod5eglu/image/upload/v1706207516/SEARCH_SELECT_LARGE_SCREENS_piyjke.png)
+* Search bar view from medium to small screens:
+
+![SEARCH_small_SCREEN](https://res.cloudinary.com/dmod5eglu/image/upload/v1706207516/SEARCH_SMALL_SCREEN_zbkbwv.png)
+
+- This feature allows users to search adverts by keywords, title, item description, tags and location has been included in this search bar to allow users to find items more easily.
+This is so that for exmaple if seller includes key work within item description but not title- potential buyers can still find it with the help of search bar. Location included in search here refers to item location which has been implemented seperately to profile location so that the seller isn't restricted to only sell items from own location(they might want to sell something on behalf of their parents for example).
+
+- The aim of this feature is to make user experience as smooth and easy as possible
+
+#### Categories selection
+`As a USER I can VIEW ITEMS BY CATEGORY so that I CAN FIND ITEMS I NEED`
+
+* Select categories drop-down view from large screens/ left side:
+
+![SELECT_LARGE_SCREEN](https://res.cloudinary.com/dmod5eglu/image/upload/v1706207516/SEARCH_SELECT_LARGE_SCREENS_piyjke.png)
+* Search bar view from medium to small screens:
+
+![Select_small_SCREEN](https://res.cloudinary.com/dmod5eglu/image/upload/v1706207522/SELECT_SMALL_SCREEN_gzbfrp.png)
+
+* CATEGORIES AVAILABLE:
+   * 'Clothing'
+   * 'Electronics'
+   * 'HomeDeco/Furniture'
+   * 'Games'
+   * 'Books'
+   * 'Beauty/Personal Care'
+   * 'Home appliances'
+   * 'Vintage'
+   * 'Baby'
+   * 'Pets'
+   * 'Sports'
+   * 'Other'
+
+- This feature allows user to select category they might be interested in to view items related to it. This has been done as a search field on backend which means it will also pick up string from other search fields (title, item description etc. -as above, to broaden the search and pick up all related ads)
+- The aim of this feature is to again broaden the search for the potential buyer.
+
+#### Advert
+`As a USER I can VIEW THE ADVERT POSTS DETAILS so that I LEARN MORE ABOUT IT`
+
+* Advert view from list view/ medium to large screens:
+
+![ADVERT_VIEW_FROM_LISTVIEW_LARGE_TO_MEDIUM_SCREENS](https://res.cloudinary.com/dmod5eglu/image/upload/v1706209272/ADVERT_VIEW_FROM_LISTVIEW_LARGE_TO_MEDIUM_SCREENS_f9jly1.png)
+* Advert view from list view/ small screens:
+
+![ADVERT_VIEW_FROM_LISTVIEW_SMALL_SCREENS](https://res.cloudinary.com/dmod5eglu/image/upload/v1706209273/ADVERT_VIEW_FROM_LISTVIEW_SMALL_SCREENS_e3bayl.png)
+
+- This is in regards to being able to see some of the adverts details straight away with the aim of not having to click to detail view. User can see :
+   - title (optional)
+   - sellers avatar and name
+   - sellers location
+   - item description
+   - item image
+   - item key details:
+      - price
+      - item location
+      - added/updated date
+      - contact details for seller
+      - payment options
+      - delivery/collection option
+      - Page Views number
+      - Number of how many times ad was saved
+      - tags
+      - icon to save an item
+      - icon to show user can click to detail view to ask question
+      - icon to show user can click to detail view to make an offer
+
+- This feature allows all users those who are logged in and not- to view posts shared by other users.
+-The aim of this feature having this content is so that firstly- user can see from the moment they enter the page what is the aim of the page,keep anyone who just entered the page interested and encourage to explore it more, and secondly-it saves the user on clicking to another page for actual content if I was to include the adverts list view on another page.
+
+#### Add Advert
+
+`` As a LOGGED IN USER I can ADD AN ADVERT so that I CAN SHARE IT WITH OTHERS AND SELL ITEMS``
+
+![ADD_ADVERT](https://res.cloudinary.com/dmod5eglu/image/upload/v1706210440/ADD_ADVERT_xq08lz.png)
+
+- This feature allows user to add their own advert/entry. Available through nav bar 'sell !t' option. The following fields have been added to form once entered the sell it:
+   - Activity Title - optional , this has been made optional as there is already a lot of other content wo describe item like tags, which could be easier for users to express then thinking of a title.
+   - Currency- set to GBP and disabled as the page is a UK website
+   - Add image- required
+   - Price - required
+   - Tags - required
+   - Item description - required
+   - Contact details - required
+   - Item location - required, this has been marked specifically as 'item location' as users can also add their profile location. This means that users can sell items from more than one   location.
+   - Payment options - default set to 'Cash or Paypal', can be changed to 'Cash only' or 'Paypal only'
+   - Shippment options - default set to 'Collection or delivery', can be changed to 'Collection only' or 'Delivery only'
+   - Categories - default set to clothing, can be changed to any of the categories described here : [Categories selection](#categories-selection)
+   
+- This is a main feature of the page without which the page intent would not be fullfilled.
+- The aim of the feature is to allow users to post and sell their unwanted items
+
+### Advert detail view
+`As a USER I can VIEW A POSTED ADVERT so that I CAN FIND OUT ALL DETAILS ABOUT AN ITEM AND SELLER`
+
+This feature opens up when clicked on the advert from list view, The features that build it up are as follows:
+
+#### Advert
+Advert has the same view as: [Advert view from list View](#advert-view-from-list-view)
+
+##### Edit or Delete Advert
+
+`` As a SELLER I can EDIT MY ADVERTS so that I CAN UPDATE IT OR CORRECT IT IF NEEDED``
+
+ `` As a LOGGED IN USER I can DELETE MY OWNS POSTS so that I CAN KEEP MY ACCOUNT UP TO DATE ``
+
+![EDIT_OR_DELETE_ADVERT](https://res.cloudinary.com/dmod5eglu/image/upload/v1706210442/EDIT_OR_DELETE_ADVERT_suwcko.png)
+
+ - CRUD functionality. This feature is available only if user is logged in and post belongs to the logged in user,when clicked on the three dots menu:
+   - user will see an icon to edit and icon to delete
+   - if user clicks on edit- this will take them to already filled in advert form which looks the same as the add advert form above. User can change whatever they want and save an item to    keep changes.
+   - if user submits changes, a message confirming those updates were saved will display if successful or a toast error will display to inform the user the changes were unsuccessful
+   - The aim of this is so that is user makes any errors/ wants to update the post- they can update it here. 
+   - if user selects delete option which is the ' trash-bin' icon, the advert will get deleted -if successful a message confirming deletion will show, if unsuccessful an error toast message will display.
+   - The aim of this is for user to be able to delete any unwanted content 
+ ##### Save advert
+ `` As a LOGGED IN USER I can SAVE ITEMS so that I CAN GET BACK TO ADVERTS I'M INTERESTED IN EASILY ``
+
+bookmark before item is saved/ bookmark available from advert view as described here: [Advert](#advert)
+
+ ![SAVE_ADVERT_BOOKMARK_not_saved](https://res.cloudinary.com/dmod5eglu/image/upload/v1706218623/bookmark_not_saved_vimuec.png)
+
+ `As a LOGGED IN USER I can SAVE AN ADVERT BY CLICKING ON SAVE ICON so that I CAN VIEW IT AGAINST OTHER ITEMS I SAVED/ KEEP AN EYE ON THE ITEM`
+
+List of saved items available through 'saved' option from nav bar/ please note as this advert was saved the bookmark within the ad shows solid:
+
+ ![SAVE_ADVERTS_LIST](https://res.cloudinary.com/dmod5eglu/image/upload/v1706218626/saved_list_kicrg9.png)
+
+ - This feature allows any logged in user who is not an advert owner, to save an advert they are interested in.
+   - Unauthorised user - will be taken to 'sign-in' page and upon successful login will be taken back to the same page as they were before.
+   - Authorised user - if didn't previously like the post - hollow bookmark icon will be displayed -if clicked - the icon will change to solid one and the 'saved' number within the add will increase by 1.
+   - Authorised user - if previously saved the post- solid bookmark icon will be shown- if clicked- the icon will change to hollow one and the 'saved' number within the add will decrease by one.
+  - advert owner will get an overlay text to say they can't save their own posts as can view their own within their own profile page.
+  
+
+##### Page views
+
+`As a USER I can SEE HOW MANY VIEWS EACH POST HAD so that I KNOW HOW POPULAR ARE DIFFERENT ITEMS WITHIN THE PAGE`
+
+![page_views](https://res.cloudinary.com/dmod5eglu/image/upload/v1706219011/page_views_dpb6ov.png)
+- The page views increment when user enters detail view, per session. The page views are visible from the [advert](#advert) (list view and detail view). 
+
+- The aim of this is to increase users interest when scrolling through list view, knowing a lot of people are interested too.
+
+#### Questions
+
+`As a SELLER I want OTHER USERS TO SEE THE PREVIOUSLY ASKED QUESTIONS AND ANSWERS so that I DON'T HAVE TO ANSWER TO EVERYONE INDIVIDUALLY`
+
+ - Questions list is a feature available to all users regardless of auth state, it shows within a tab under an advert view. This tab has been set as a default one when advert detail view is opened so that both tabs don't show as closed, this is so user doesn't open half empty page with no content different to what they already seen in advert list view.
+
+Questions list view when logged in:
+
+![QUESTIONS_LIST_QS_EXIST_USER_LOGGED_IN](https://res.cloudinary.com/dmod5eglu/image/upload/v1706216324/QUESTIONS_LIST_QS_EXIST_USER_LOGGED_IN_dexn9e.png)
+
+Questions list view when logged out:
+
+![QUESTIONS_LIST_QS_EXIST_USER_SIGNED_OUT](https://res.cloudinary.com/dmod5eglu/image/upload/v1706216323/QUESTIONS_LIST_QS_EXIST_USER_SIGNED_OUT_p1k78g.png)
+
+- When no questions has been asked yet a message informing users of this will show:
+
+when logged in:
+
+![NO_QUESTIONS_YET_LOGGED_IN](https://res.cloudinary.com/dmod5eglu/image/upload/v1706216325/NO_QUESTIONS_YET_LOGGED_IN_mblog8.png)
+
+when signed-out:
+
+![NO_QUESTIONS_YET_SIGNED_OUT](https://res.cloudinary.com/dmod5eglu/image/upload/v1706216326/NO_QUESTIONS_YET_SIGNED_OUT_acdid1.png)
+
+- The aim of the questions list is so that potential buyers can see previously asked questions and not ask the same thing twice.
+
+   `As a SELLER I can SEE A DATE WHEN QUESTION WAS ASKED so that I KNOW IF IT'S STILL RELEVANT OR URGENT`
+
+- This feature shows human friendly timestamp displayed next to question owner
+- The aim of all this is to make seller aware how long potential buyers have been waiting for reply.
+
+   `As a USER I can SCROLL THROUGH QUESTIONS WITHOUT USING PAGE PAGINATION so that MY EXPERIENCE OS USING PAGE IS MORE SEAMLESS`
+
+- The aim of infinite scroll is to make users experience as enjoyable as possible without having to use page pagination.
+
+`` As a LOGGED IN USER I can ASK A QUESTION ABOUT AN ADVERT so that I CAN GET MORE INFORMATION BEFORE PURCHASE ``
+
+-  if user is logged in they will see a form to leave a question, once submitted- a confirmation message will display at top of the screen and the question will display below within questions list view
+
+when no questions exists yet:
+
+![QUESTION_FORM_NO_QUESTIONS_YET_LOGGED_IN](https://res.cloudinary.com/dmod5eglu/image/upload/v1706216325/NO_QUESTIONS_YET_LOGGED_IN_mblog8.png)
+
+when questions already exist:
+
+![QUESTION_FORM_QUESTIONS_LIST_QS_EXIST_USER_LOGGED_IN](https://res.cloudinary.com/dmod5eglu/image/upload/v1706216324/QUESTIONS_LIST_QS_EXIST_USER_LOGGED_IN_dexn9e.png)
+
+
+ - The aim of this feature is to allow users to ask questions if they have any concerns regarding the item advertised.
+ 
+ - If user isn't logged in they will see sign in prompt, once logged in they will be taken back to advert page
+      - Promped to log in when questions exist:
+
+    ![LOG_IN_QUESTIONS_EXIST](https://res.cloudinary.com/dmod5eglu/image/upload/v1706216323/QUESTIONS_LIST_QS_EXIST_USER_SIGNED_OUT_p1k78g.png)
+      - Prompt to log in when no questions has been asked:
+
+    ![LOGIN_NO_QUESTIONS_YET](https://res.cloudinary.com/dmod5eglu/image/upload/v1706216326/NO_QUESTIONS_YET_SIGNED_OUT_acdid1.png)
+
+ `` As a QUESTION OWNER I can EDIT OR DELETE A QUESTION I ASKED so that I CAN CONTROL MY OUTPUT``
+ 
+ ![EDIT_OR_DELETE_ADVERT](https://res.cloudinary.com/dmod5eglu/image/upload/v1706210442/EDIT_OR_DELETE_ADVERT_suwcko.png)
+
+ - CRUD functionality. This feature is available only if user is logged in only within their own questions,when clicked on the three dots menu:
+   - user will see an icon to edit and icon to delete
+   - if user clicks on edit- this will bring up the question within edit form, user can make any changes and press 'save' or 'cancel' if changed mind
+   - if user submits changes a message confirming that updates were saved will display if successful, or toast error message if unsuccessful.
+   - The aim of this is so that is user can edit questions if they made any mistakes. 
+   - if user selects delete option which is the ' trash-bin' icon, the advert will get deleted -if successful a message confirming deletion will show, if unsuccessful an error toast message will display.
+   - The aim of this is for user to be able to delete any unwanted content 
+
