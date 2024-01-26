@@ -2,8 +2,8 @@ import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { axiosRes } from "../../api/axiosDefaults";
 import styles from "../../styles/CreateEditForm.module.css";
-import stylesLabel from '../../App.module.css';
-import { toast } from 'react-toastify';
+import stylesLabel from "../../App.module.css";
+import { toast } from "react-toastify";
 
 function EditQuestionForm(props) {
   const { id, question_content, setShowEditForm, setQuestions } = props;
@@ -32,9 +32,9 @@ function EditQuestionForm(props) {
         }),
       }));
       setShowEditForm(false);
-      toast.success('Changes submitted successfully!');
+      toast.success("Changes submitted successfully!");
     } catch (err) {
-      toast.error('Error submitting changes. Please try again.');
+      toast.error("Error submitting changes. Please try again.");
       // console.log(err);
     }
   };
@@ -42,9 +42,9 @@ function EditQuestionForm(props) {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="pr-1">
-      <label htmlFor="edit question" className={stylesLabel.VisuallyHidden}>
-        edit question
-      </label>
+        <label htmlFor="edit question" className={stylesLabel.VisuallyHidden}>
+          edit question
+        </label>
         <Form.Control
           className={styles.Form}
           as="textarea"

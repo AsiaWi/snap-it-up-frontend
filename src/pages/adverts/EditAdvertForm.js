@@ -10,7 +10,7 @@ import formStyling from "../../styles/CreateEditAdvertPost.module.css";
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Alert from "react-bootstrap/Alert";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 function EditAdvertForm() {
   const [errors, setErrors] = useState({});
@@ -110,10 +110,10 @@ function EditAdvertForm() {
     try {
       await axiosReq.put(`/adverts/${id}/`, formData);
       history.push(`/adverts/${id}`);
-      toast.success('Changes submitted successfully!');
+      toast.success("Changes submitted successfully!");
     } catch (err) {
       // console.log(err);
-      toast.error('Error submitting changes. Please try again.');
+      toast.error("Error submitting changes. Please try again.");
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
@@ -346,7 +346,11 @@ function EditAdvertForm() {
         <Col lg={10} md={12} sm={12} className="mx-auto">
           <Form.Group className="text-center">
             <figure>
-              <Image className={formStyling.ImageUpload} src={image} alt="upload new image" />
+              <Image
+                className={formStyling.ImageUpload}
+                src={image}
+                alt="upload new image"
+              />
             </figure>
             <div>
               <Form.Label className={btnStyles.Button} htmlFor="image-upload">

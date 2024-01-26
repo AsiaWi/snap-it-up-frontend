@@ -4,8 +4,8 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
 import styles from "../../styles/CreateEditForm.module.css";
 import StarRating from "./StarRating";
-import stylesLabel from '../../App.module.css';
-import { toast } from 'react-toastify';
+import stylesLabel from "../../App.module.css";
+import { toast } from "react-toastify";
 
 function EditRatingForm(props) {
   const { rated_user, id, feedback, rating, setShowEditForm, setRatings } =
@@ -42,9 +42,9 @@ function EditRatingForm(props) {
       }));
       await handleEditRating(rated_user);
       setShowEditForm(false);
-      toast.success('Changes submitted successfuly!');
+      toast.success("Changes submitted successfuly!");
     } catch (err) {
-      toast.error('Error submitting changes. Please try again.');
+      toast.error("Error submitting changes. Please try again.");
       // console.log(err);
     }
   };
@@ -52,9 +52,9 @@ function EditRatingForm(props) {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="pr-1">
-      <label htmlFor="edit feedback" className={stylesLabel.VisuallyHidden}>
-        edit your feedback
-      </label>
+        <label htmlFor="edit feedback" className={stylesLabel.VisuallyHidden}>
+          edit your feedback
+        </label>
         <Form.Control
           className={styles.Form}
           as="textarea"
@@ -65,14 +65,15 @@ function EditRatingForm(props) {
         />
       </Form.Group>
       <Form.Group>
-        <Form.Label>How many stars do you want to give?
-        <StarRating
-          setRating={setRatingUpdate}
-          setHover={setHover}
-          rating={ratingUpdate}
-          hover={hover}
-          totalStars={5}
-        />
+        <Form.Label>
+          How many stars do you want to give?
+          <StarRating
+            setRating={setRatingUpdate}
+            setHover={setHover}
+            rating={ratingUpdate}
+            hover={hover}
+            totalStars={5}
+          />
         </Form.Label>
       </Form.Group>
       <div className="text-right">

@@ -13,7 +13,7 @@ import {
   useSetLoggedInUser,
 } from "../../contexts/LoggedInUserContext";
 import btnStyles from "../../styles/Button.module.css";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 const EditProfileForm = () => {
   const userLoggedIn = useLoggedInUser();
@@ -66,10 +66,10 @@ const EditProfileForm = () => {
         profile_image: data.profile_image,
       }));
       history.goBack();
-      toast.success('Changes submitted successfully!');
+      toast.success("Changes submitted successfully!");
     } catch (err) {
       // console.log(err);
-      toast.error('Error submitting changes. Please try again.');
+      toast.error("Error submitting changes. Please try again.");
       setErrors(err.response?.data);
     }
   };

@@ -1,6 +1,6 @@
 import styles from "../styles/Avatar.module.css";
 
-const Avatar = ({ src, height = 40, text, alt= 'avatar' }) => {
+const Avatar = ({ src, height = 40, text, alt = "avatar" }) => {
   return (
     <span>
       <img

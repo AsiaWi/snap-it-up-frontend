@@ -5,9 +5,9 @@ import styles from "../../styles/CreateEditForm.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
 import StarRating from "./StarRating";
-import stylesLabel from '../../App.module.css';
+import stylesLabel from "../../App.module.css";
 import Alert from "react-bootstrap/Alert";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 function CreateRatingForm(props) {
   const [errors, setErrors] = useState({});
@@ -36,10 +36,10 @@ function CreateRatingForm(props) {
       await handleSubmit(rated_user);
       setFeedback("");
       setRating("");
-      toast.success('Rating has been posted');
+      toast.success("Rating has been posted");
     } catch (err) {
       // console.log(err);
-      toast.error('Error submitting the rating. Please try again.');
+      toast.error("Error submitting the rating. Please try again.");
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
@@ -50,9 +50,12 @@ function CreateRatingForm(props) {
     <Form className="mt-2" onSubmit={handleSubmitRating}>
       <Form.Group>
         <InputGroup>
-        <label htmlFor="feedback field" className={stylesLabel.VisuallyHidden}>
-        Optional feedback field
-      </label>
+          <label
+            htmlFor="feedback field"
+            className={stylesLabel.VisuallyHidden}
+          >
+            Optional feedback field
+          </label>
           <Form.Control
             className={styles.Form}
             placeholder="You can leave feedback here or simply submit star rating on it's own"
@@ -68,14 +71,13 @@ function CreateRatingForm(props) {
       <Form.Group>
         <Form.Label>
           How would you rate your experience with the user?
-        
-        <StarRating
-          setRating={setRating}
-          setHover={setHover}
-          rating={rating}
-          hover={hover}
-          totalStars={5}
-        />
+          <StarRating
+            setRating={setRating}
+            setHover={setHover}
+            rating={rating}
+            hover={hover}
+            totalStars={5}
+          />
         </Form.Label>
       </Form.Group>
       {errors?.rating?.map((message, idx) => (
@@ -83,10 +85,7 @@ function CreateRatingForm(props) {
           {message}
         </Alert>
       ))}
-      <button
-        className={`${styles.Button} btn d-block ml-auto`}
-        type="submit"
-      >
+      <button className={`${styles.Button} btn d-block ml-auto`} type="submit">
         post
       </button>
     </Form>

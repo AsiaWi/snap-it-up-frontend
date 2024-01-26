@@ -3,8 +3,8 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import styles from "../../styles/CreateEditForm.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
-import stylesLabel from '../../App.module.css';
-import { toast } from 'react-toastify';
+import stylesLabel from "../../App.module.css";
+import { toast } from "react-toastify";
 
 function CreateQuestionForm(props) {
   const { advert, setAdvert, setQuestions } = props;
@@ -35,9 +35,9 @@ function CreateQuestionForm(props) {
       }));
 
       setContent("");
-      toast.success('Question has been posted!');
+      toast.success("Question has been posted!");
     } catch (err) {
-      toast.error('Error submitting the question. Please try again.');
+      toast.error("Error submitting the question. Please try again.");
       // console.log(err);
     }
   };
@@ -46,9 +46,9 @@ function CreateQuestionForm(props) {
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
         <InputGroup>
-        <label htmlFor="question" className={stylesLabel.VisuallyHidden}>
-        ask a question
-      </label>
+          <label htmlFor="question" className={stylesLabel.VisuallyHidden}>
+            ask a question
+          </label>
           <Form.Control
             className={styles.Form}
             placeholder="ask a question..."

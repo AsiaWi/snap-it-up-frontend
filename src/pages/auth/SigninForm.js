@@ -13,7 +13,7 @@ import Alert from "react-bootstrap/Alert";
 import { useSetLoggedInUser } from "../../contexts/LoggedInUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
 import { setTokenTimestamp } from "../../utils/utils";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 const SigninForm = () => {
   const setLoggedInUser = useSetLoggedInUser();
@@ -43,7 +43,7 @@ const SigninForm = () => {
       history.goBack();
       toast.success(`You're signed in!:)`);
     } catch (err) {
-      toast.error('Unable to sign in. Please try again.');
+      toast.error("Unable to sign in. Please try again.");
       setErrors(err.response?.data);
     }
   };

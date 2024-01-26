@@ -2,9 +2,9 @@ import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import styles from "../../styles/CreateEditForm.module.css";
-import stylesLabel from '../../App.module.css';
+import stylesLabel from "../../App.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 function CreateReplyForm(props) {
   const { question, setQuestion, setReplies, setShowCreateForm } = props;
@@ -30,9 +30,9 @@ function CreateReplyForm(props) {
       }));
       setContent("");
       setShowCreateForm(false);
-      toast.success('Reply has been posted!');
+      toast.success("Reply has been posted!");
     } catch (err) {
-      toast.error('Error submitting reply. Please try again.');
+      toast.error("Error submitting reply. Please try again.");
       // console.log(err);
     }
   };
@@ -41,9 +41,9 @@ function CreateReplyForm(props) {
     <Form className="mt-4" onSubmit={handleSubmit}>
       <Form.Group>
         <InputGroup>
-        <label htmlFor="reply" className={stylesLabel.VisuallyHidden}>
-        reply to the question
-      </label>
+          <label htmlFor="reply" className={stylesLabel.VisuallyHidden}>
+            reply to the question
+          </label>
           <Form.Control
             className={styles.Form}
             placeholder="type your reply here..."
@@ -51,7 +51,7 @@ function CreateReplyForm(props) {
             value={reply_content}
             onChange={handleChange}
             rows={2}
-            id='reply'
+            id="reply"
           />
         </InputGroup>
       </Form.Group>

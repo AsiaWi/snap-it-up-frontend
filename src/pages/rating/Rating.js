@@ -8,7 +8,7 @@ import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
 import EditRatingForm from "../rating/EditRatingForm";
 import StarDisplay from "../../components/StarDisplay";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 const Rating = (props) => {
   const {
@@ -34,9 +34,9 @@ const Rating = (props) => {
         ...prevRatings,
         results: prevRatings.results.filter((rating) => rating.id !== id),
       }));
-      toast.success('Rating deleted!');
+      toast.success("Rating deleted!");
     } catch (error) {
-      toast.error('Error- unable to delete. Please try again.');
+      toast.error("Error- unable to delete. Please try again.");
       // console.error("Error deleting rating:", error);
     }
   };

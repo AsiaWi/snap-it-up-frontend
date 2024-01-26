@@ -69,9 +69,12 @@ function AdvertsListViewPage({ message, filter = "" }) {
         >
           <Row>
             <Col xs={12} md={4} className={styles.SearchContainerSelect}>
-            <label htmlFor="select category" className={stylesLabel.VisuallyHidden}>
-        Select category
-      </label>
+              <label
+                htmlFor="select category"
+                className={stylesLabel.VisuallyHidden}
+              >
+                Select category
+              </label>
               <i className={`fa-solid fa-caret-down ${styles.SearchIcon}`} />
               <Form.Control
                 as="select"
@@ -98,9 +101,12 @@ function AdvertsListViewPage({ message, filter = "" }) {
               </Form.Control>
             </Col>
             <Col xs={12} md={8} className={styles.SearchContainerInput}>
-            <label htmlFor="search adverts" className={stylesLabel.VisuallyHidden}>
-        Search adverts by location or keywords
-      </label>
+              <label
+                htmlFor="search adverts"
+                className={stylesLabel.VisuallyHidden}
+              >
+                Search adverts by location or keywords
+              </label>
               <i
                 className={`fa-solid fa-magnifying-glass ${styles.SearchIcon}`}
               />

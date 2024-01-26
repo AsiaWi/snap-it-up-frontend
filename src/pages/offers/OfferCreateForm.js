@@ -2,9 +2,9 @@ import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import styles from "../../styles/CreateEditForm.module.css";
-import stylesLabel from '../../App.module.css';
+import stylesLabel from "../../App.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 function OfferCreateForm(props) {
   const { advert, setAdvert, setOffers } = props;
@@ -37,9 +37,9 @@ function OfferCreateForm(props) {
       }));
       setAmount("");
       setStatus("PENDING");
-      toast.success('Offer successfully posted!');
+      toast.success("Offer successfully posted!");
     } catch (err) {
-      toast.error('Error submitting the offer. Please try again.');
+      toast.error("Error submitting the offer. Please try again.");
       // console.log(err);
     }
   };
@@ -48,9 +48,9 @@ function OfferCreateForm(props) {
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
         <InputGroup>
-        <label htmlFor="offer" className={stylesLabel.VisuallyHidden}>
-        make an offer
-      </label>
+          <label htmlFor="offer" className={stylesLabel.VisuallyHidden}>
+            make an offer
+          </label>
           <Form.Control
             className={styles.Form}
             id="offer"

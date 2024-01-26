@@ -863,6 +863,7 @@ The design of the page has been kept clean and simple. Page isn't overcrowded an
 * CSS- used for website styling
 * JavaScript- main language used to make page interactive
 * Heroku - to deploy the app 
+* [toastify](https://www.npmjs.com/package/react-toastify?activeTab=versions)
 * [Balsamiq](https://balsamiq.com/wireframes/)- used to create wireframes
 * [Favicon](https://favicon.io/favicon-generator/) - used to create favicon for the page
 * [Font Awesome](https://fontawesome.com/) - used to add icons for the page
@@ -953,16 +954,120 @@ No errors were found when passing all CSS files through the official Jigsaw W3 V
 
 
 ### JavaScript
-## Manual Testing
-### Functional Testing
-#### Links and Buttons
-#### Negative Testing
-## Automatic Testing
-### Unit Tests
+
+Each file has been opened in a workspace to check it with ESLINT however I am getting a warning:
+
+![eslint_warning](https://res.cloudinary.com/dmod5eglu/image/upload/v1706246313/eslint_warning_nuxuyh.png)
+
+I was unable to fix it, I tried multiple ways, used createRoot, installed different React version but it seemed to have cause more issues. As it is not an error but a warning I have left it in for now.
+
+All other files show:
+
+![eslint_no_problems](https://res.cloudinary.com/dmod5eglu/image/upload/v1706246311/eslint_no_problems_ubtukt.png)
+
+### Manual Testing
+
+#### Functional Testing
+##### Links and Buttons
+##### Negative Testing
+### Automatic Testing
+#### Unit Tests
+
+No unit testing performed at this stage. 
+
 ## Bugs
+
+Warning as mentioned [here](#javascript)
+
+### Console warnings
+ 
 ## Deployment
+
 ### Version Control
-### Deploying in Heroku
-### Cloning the Repository
-### Forking
-### Credits
+
+* Git 
+    Code has been pushed with git commands to remote repository on Github with commands:
+
+   `` git add .`` - to add files ready to commit
+
+   ``git commit -m "message"`` - to commit the code to local 
+    repository ready to be pushed
+
+   ``git push`` - final command used to push commited code to remote repo on Github
+   
+### Deploying in Heroku 
+
+* The project has been deployed on Heroku as follows:
+     * Use: ``pip freeze > requirements.txt`` to add external libraries to deployed app.
+     * Create Heroku account ( step by step guide [here](https://coding-boot-camp.github.io/full-stack/heroku/deploy-with-heroku-and-mysql))
+     * In the top right, click 'New'
+     * Click 'Create new app'
+     * Give your app a name and select your region from drop down 
+     * Click 'Create new app' 
+     * Scroll down to 'Buildpacks' section
+     * Click 'Add buildpack'
+     * Add Python as first dependency and select 'Save changes'
+     * Add node.js as a second dependency and save again
+     (This is settings section done)
+     * Select 'Deploy' tab at the top
+     * Select ' Github' from 'Deployment method'
+     * type the name of how you called project in Github and click 'search'
+     * Scroll down and select manual deployment method
+     * Auto method has also been selected to allow the project to update every time i push the code from Gitpod
+     * You can now click to view the app ready and running
+
+* Once you have the deployment of front end-done you can connect it to API:
+
+   * Go to your drf api in Heroku
+   * Add Config Vars within settings section:
+     - 'CLIENT_ORIGIN_DEV' as key with a value of: link to your local host (front-end) no quote marks no forward slash at the end.
+     - 'CLIENT_ORIGIN' as key and value of: URL to your deployed front end repo from heroku
+     - in front end workspace install ``npm install axios``
+     - create a folder 'API' --> AND FILE : 'axiosDefaults'.
+     - at the top of the file import axios at the top of the file
+     - define your baseURL which is the URL of your deployed API project
+     - set content-type header to multi-part/form-data as the API will need to deal with images as well as text in it's requests.
+     - to avoid any CORS issues, set withCredentials to True.
+     - import this file into App.js to be used across all pages
+
+
+### CLONING THE REPOSITORY
+
+1. On Github navigate to repository
+2. Click "Code" a green button shown right above the file list
+3. Copy the URL of the repo using HTTPS, SSH OR Github CLI
+4. Open Git Bash
+5. Change the current working directory to the location where you want the cloned directory
+6. Type git clone, and then paste the URL you copied earlier
+7. Press enter to create local Clone
+
+For more details on how to clone the remote repo in order to create a local copy for own use, please click [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+
+
+### FORKING
+
+1. On Github navigate to repository
+2. click "Fork" located towards the top right corner
+3. Select "owner" for the forked repo, from the dropdown menu under "owner" Under "Owner"
+4. It will create forked repo under the same name as orinial by default but you can type a name in "Repository name" or add a description in "Description" box.
+5. Click "Create fork" !
+
+Forking allows you to make any changes without affecting original project. You can send the suggestions over by submitting pull request. Project owner can review the pull request before accepting the suggestions and merging them.
+
+
+For more details on how to fork the repo, in order to for example suggest any changes to the project you can click [here](https://docs.github.com/en/get-started/quickstart/fork-a-repo) 
+
+
+When you have fork to a repository you don't have access to files locally on your device, for this you will need to clone the forked repo.
+
+## Credits
+
+- Code institues learning material for advanced front end which I have used as a base of this project
+- [STAR RATING](https://dev.to/kartikbudhraja/creating-a-dynamic-star-rating-system-in-react-2c8)
+- Logo created with [rawpixel](https://www.rawpixel.com/) and [canva](https://www.canva.com/)
+- all images from [pexels](https://www.pexels.com/)
+- [Tom Alumnus](https://code-institute-room.slack.com/team/U02DP5GEYKE) from Slack, for creating ESLINT file with configs.
+
+## Acknowledgements
+
+My mentor [Daisy Mc Girr](https://github.com/Daisy-McG) for helping me fix the app when it completely crashed due to incorrectly react version  installed and all the help throughout the process.
