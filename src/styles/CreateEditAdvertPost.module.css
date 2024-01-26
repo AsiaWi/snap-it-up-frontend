@@ -7,8 +7,9 @@
 }
 
 .Label {
-    width:100%;
+    width: 100%;
 }
+
 .Input {
     border: 2px inset white;
     cursor: pointer;
@@ -29,12 +30,11 @@
 }
 
 .ImageUpload {
-    display: flex;
-    justify-content: center;
-    align-items: left;
+    max-width: 100%;
+  object-fit: contain;
+  max-height: 50vh;
 }
 
 input[type="file"] {
     display: none;
-  }
-  
+}

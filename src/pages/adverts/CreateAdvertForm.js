@@ -13,7 +13,7 @@ import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Alert from "react-bootstrap/Alert";
 import { useRedirect } from "../../hooks/useRedirect";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 function CreateAdvertForm() {
   const [errors, setErrors] = useState({});
@@ -67,10 +67,10 @@ function CreateAdvertForm() {
     try {
       const { data } = await axiosReq.post("/adverts/", formData);
       history.push(`/adverts/${data.id}`);
-      toast.success('Submission successful!');
+      toast.success("Submission successful!");
     } catch (err) {
       // console.log(err);
-      toast.error('Error submitting form. Please try again.');
+      toast.error("Error submitting form. Please try again.");
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
@@ -304,7 +304,11 @@ function CreateAdvertForm() {
             {image ? (
               <>
                 <figure>
-                  <Image src={image} alt="upload image" />
+                  <Image
+                    className={formStyling.ImageUpload}
+                    src={image}
+                    alt="upload image"
+                  />
                 </figure>
                 <div>
                   <Form.Label
