@@ -835,9 +835,31 @@ The aim of this is to improve users experience and not encourance users to leave
 ### Reusable components 
 
 - Navbar
-- Asset 
+
+[Full feature here](#navigation-menu)
+
+Reused throughout the entire page to provide consistent design allowing users to become familiar with navigating the pages and making it an easy and enjoyable experience.
+
+- Assets 
+
+This component was used throughout the page to show page was loading or no results has been found, improving users experience.
+
 - Avatar
+
+![avatars](https://res.cloudinary.com/dmod5eglu/image/upload/v1706231918/highest_rated_profiles_ebtkvk.png)
+This component has been reused to display profile images within any content that has been added by the specific profile. This made it easy for other users to click on the profile avatar and check out who was the content from. I have also used it to display the sidebar for most rated adverts lists.
+
 - Edit delete dropdown menu
+
+![edit_delete_dropdown](https://res.cloudinary.com/dmod5eglu/image/upload/v1706210442/EDIT_OR_DELETE_ADVERT_suwcko.png)
+
+This component has been reused in every single form that allowed users for Update and Delete funcionality. The simple design allowed me to use it within the small forms like replies for example. It didn't overcrowd the page despite being used in so many places. 
+
+- Star Rating
+
+![star_rating](https://res.cloudinary.com/dmod5eglu/image/upload/v1706237788/ratings_received_signed_out_mk1byz.png)
+
+This component has been used in add and delete form and If time allowed I would have added it to show average rating within the profile page as well as to rate products sold.
 
 
 ### Features Left To Implement
