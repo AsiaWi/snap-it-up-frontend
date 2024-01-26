@@ -20,6 +20,7 @@ For details on back-end please visit this link: [BACK-END REPO](https://github.c
       - [User Stories](#user-stories)
   - [The Structure Plane](#the-structure-plane)
     - [Features](#features)
+    - [Reusable components](#reusable-components)
     - [Features Left To Implement](#features-left-to-implement)
   - [The Skeleton Plane](#the-skeleton-plane)
     - [Wireframes](#wireframes)
@@ -80,7 +81,7 @@ and which ones required front-end work:
 
   - **React**. 
   
-The stories that have both labels will be discussed in each README.
+The stories that have both labels will be discussed in each README from either front end work or back end work perspective.
 
 - REACT USER STORIES SPRINT1
 ![REACT_SPRINT1](https://res.cloudinary.com/dmod5eglu/image/upload/v1706197429/REACT_SPRINT1_byuss3.png)
@@ -172,7 +173,7 @@ The stories that have both labels will be discussed in each README.
   - `As a LOGGED IN USER I can MAKE AN OFFER TO A SELLER so that I CAN PURCHASE THE ITEM`
   - `As a SELLER I can ACCEPT OR REJECT AN OFFER RECEIVED so that I CAN SELL AN ITEM AT PRICE I FIND ACCEPTABLE`
   - `As a SELLER I can MARK AN OFFER AS SOLD so that IT'S CLEAR WHICH OFFER WENT THROUGH`
-  - `As a BUYER I can SEE SELLERS EMAIL/TEL NUMBER OR BOTH so that I CAN DISCUSS DETAILS REGARDING POSTAGE/COLLECTION once offer was accepted
+  - `As a BUYER I can SEE SELLERS EMAIL/TEL NUMBER OR BOTH so that I CAN DISCUSS DETAILS REGARDING POSTAGE/COLLECTION once offer was accepted`
   - `As a SELLER I want ALL OFFERS TO STAY VISIBLE so that OTHERS DON'T MAKE SAME OFFERS AGAIN IF I'M NOT HAPPY WITH PRICE`
 - EPIC 8-Profile:
   - `As a USER I can VIEW EVERYONES PROFILE DETAILS so that I CAN LEARN MORE ABOUT SELLERS/BUYERS:(how long they're active, number of adverts posted, feedback/rating)`
@@ -309,6 +310,8 @@ EACH FEATURE DESCRIPTION BUILDING UP THE LIST VIEW IN DETAIL AS FOLLOWS:
 - This feature allows users to see top most saved adverts, (3 for mobile)
 - The aim of this feature is both: to encourage users to be more active on the page and boost the pages and to improve the UI for desktop page
 
+PLEASE NOTE THIS FEATURE IN ADVERTS DETAIL VIEW HAS ONLY BEEN ADDED TO DESKTOP VIEW. I DECIDED NOT TO OVERCROWD THE PAGE WITH IT FOR MOBILE VIEW WHEN USERS INTENTIONALLY CLICKS TO VIEW MOMRE DETAILS ABOUT SPECIFIC ADVERT I WANTED TO PROVIDE EXACTLY THAT. I STILL THINK THIS IMPROVES UI IN DESKTOP VIEW SO HAVE LEFT IT THERE. 
+
 #### Search adverts
 
 `As a USER I can SEARCH ADVERTS BY ITEM LOCATION OR KEYWORD/TAG NAME so that I CAN FIND ITEMS THAT I'M INTERESTED IN`
@@ -420,7 +423,7 @@ List of saved items available through 'saved' option from nav bar/ please note a
 ![ADD_ADVERT](https://res.cloudinary.com/dmod5eglu/image/upload/v1706210440/ADD_ADVERT_xq08lz.png)
 
 - This feature allows user to add their own advert/entry. Available through nav bar 'sell !t' option. The following fields have been added to form once entered the sell it:
-   - Activity Title - optional , this has been made optional as there is already a lot of other content wo describe item like tags, which could be easier for users to express then thinking of a title.
+   - Activity Title - optional , this has been made optional as there is already a lot of other content to describe item like tags, which could be easier for users to express then thinking of a title.
    - Currency- set to GBP and disabled as the page is a UK website
    - Add image- required
    - Price - required
@@ -438,10 +441,10 @@ List of saved items available through 'saved' option from nav bar/ please note a
 ### Advert detail view
 `As a USER I can VIEW A POSTED ADVERT so that I CAN FIND OUT ALL DETAILS ABOUT AN ITEM AND SELLER`
 
-This feature opens up when clicked on the advert from list view, The features that build it up are as follows:
+This feature opens up when clicked on the advert from list view, user will se a pointer when hovering over the image and advert key pointers. The features that build it up are as follows:
 
 #### Advert
-Advert has the same view as: [Advert view from list View](#advert-view-from-list-view)
+Advert has the same view as: [here](#advert)
 
 ##### Edit or Delete Advert
 
@@ -523,7 +526,7 @@ when questions already exist:
 
  - CRUD functionality. This feature is available only if user is logged in only within their own questions,when clicked on the three dots menu:
    - user will see an icon to edit and icon to delete
-   - if user clicks on edit- this will bring up the question within edit form, user can make any changes and press 'save' or 'cancel' if changed mind
+   - if user clicks on edit- this will bring up the question within edit form which looks the same as question form above, user can make any changes and press 'save' or 'cancel' if changed mind
    - if user submits changes a message confirming that updates were saved will display if successful, or toast error message if unsuccessful.
    - The aim of this is so that is user can edit questions if they made any mistakes. 
    - if user selects delete option which is the ' trash-bin' icon, the advert will get deleted -if successful a message confirming deletion will show, if unsuccessful an error toast message will display.
@@ -536,6 +539,7 @@ when questions already exist:
  - Replies list is a feature available to all users regardless of auth state, list of replies related to each question can be accessed within each question by clicking on '{number} Replies' button, when clicked the button text will change to 'Hide {number} replies', user can hide the replies list by clicking the button again.
 
 Here you can see 2 buttons related to that specific question: 'Reply' button and Replies list button '1 Replies` before it has been clicked to reveal the list:
+PLEASE NOTE I HAVE UPDATED THE CODE NOW AND LIVE PAGE WILL CORRECTLY SHOW '1Reply' 
 
 ![Replies_button](https://res.cloudinary.com/dmod5eglu/image/upload/v1706224255/REPLIES_BUTTONS_ryo1rm.png)
 
@@ -593,7 +597,7 @@ when signed-out:
 
  `` As a LOGGED IN USER I can EDIT/DELETE MY REPLY so that MANAGE MY INPUT``
  
- [EDIT_OR_DELETE_MENU](https://res.cloudinary.com/dmod5eglu/image/upload/v1706210442/EDIT_OR_DELETE_ADVERT_suwcko.png)
+ ![EDIT_OR_DELETE_MENU](https://res.cloudinary.com/dmod5eglu/image/upload/v1706210442/EDIT_OR_DELETE_ADVERT_suwcko.png)
 
  - CRUD functionality. This feature is available only if user is logged in and only within replies they have posted,when clicked on the three dots menu:
    - user will see an icon to edit and icon to delete
@@ -603,7 +607,7 @@ when signed-out:
    - if user selects delete option which is the ' trash-bin' icon, the reply will get deleted -if successful a toast message confirming deletion will show, if unsuccessful an error toast message will display.
    - The aim of this is for user to be able to delete any unwanted content 
 
-   #### Offers
+#### Offers
 
 `As a USER I can SEE ALL PREVIOUSLY MADE OFFERS so that I DON'T WASTE MY TIME MAKING THE SAME OFFERS SELLER ALREADY WASN'T HAPPY WITH`
 
@@ -620,6 +624,7 @@ offers list for advert owner(so logged in of course):
 ![OFFER_LIST_ADVERT_OWNER](https://res.cloudinary.com/dmod5eglu/image/upload/v1706228259/OFFER_LIST_ADVERT_OWNER_obfwys.png)
 
 Offers list for all other users:
+
 -when logged in/ logged out when offers already exist:
 
 ![OFFER_LIST_ALL_USERS](https://res.cloudinary.com/dmod5eglu/image/upload/v1706228350/OFFER_LIST_ALL_USERS_bcnzr4.png)
@@ -667,6 +672,10 @@ The first two change the offer status. If seller rejects it, potential buyers ca
 - Once the seller received a payment for the item and the item has been collected, this feature allows the seller to mark the winning offer to SOLD which will also change the advert active status from active to inactive- which will change the styling of the advert to clearly display that the item has been sold. (Once seller marked the offer sold - this can't be undone as it has been set up with the intention that sellers will only set it to such status if the item is gone. Even if another user sent an offer (even if seller accepted such offer by mistake) - the advert status would stay inactive).The Info box at the top of the offers tab clearly explains the process.
 
 - The aim of this feature is to stop sellers from receiving a lot of contact/offers for products they no longer have but at the same time not have to delete the advert. This will keep nice history of sellers activity improving sellers 'reputation' in a long run if successful. As you can see the image above- the offer there has status SOLD, this would have changed the advert status to inactive which would trigger the advert styling : I have reduced opacity of displayed advert and added clear red 'item sold' sign to make it clear that item is no longer available.
+
+#### MOST SAVED ADVERTS SIDEBAR
+
+This feature is included within the advert detail view but please see the description here: [MOST SAVED ADVERTS SIDEBAR](#most-saved-adverts-sidebar)
 
 ### Profile Page
 
@@ -789,13 +798,15 @@ As a User I can CLEARLY SEE CONFIRMATION OF MY SUBMISSIONS so that I AM SURE FOR
 
 All forms within the page have has the toast messages implemented
  
-When submission is successful user will receive a green message / text content has been personalised to each form action to communicate it in clear matter however the style is the same:
+When submission is successful user will receive a green message / text content has been personalised to each form action to communicate it in clear manner however the style is the same:
 
 ![Success-message](https://res.cloudinary.com/dmod5eglu/image/upload/v1706239042/success_gaia1o.png)
 
 In case of unsuccessful submission user will receive an error toast message in this style:
 
 ![Error-message](https://res.cloudinary.com/dmod5eglu/image/upload/v1706239037/error_vnbjdf.png)
+
+In both cases messages stay on screen for 3 seconds.
 
 - the aim of this was to communicate to users if their submissions have been successful or not. 
 
@@ -809,7 +820,7 @@ all this has been done to improve user experience.
 
 #### Errors covered
 
-In case of user going to incorrect address use rwill see Page not found error:
+In case of user going to incorrect address user will see Page not found error:
 
 ![page_not_found](https://res.cloudinary.com/dmod5eglu/image/upload/v1706241638/page_not_found_bmxs3h.png)
 
@@ -820,6 +831,14 @@ In case of no results to users search, user will see:
 in both cases user will still have a nav bar to navigate from the page.
 
 The aim of this is to improve users experience and not encourance users to leave the website.
+
+### Reusable components 
+
+- Navbar
+- Asset 
+- Avatar
+- Edit delete dropdown menu
+
 
 ### Features Left To Implement
 
@@ -846,9 +865,9 @@ The design of the page has been kept clean and simple. Page isn't overcrowded an
 
 - Font imported from google and used throughout the entire page
 
-- Logo has been created in ![rawpixel](https://www.rawpixel.com/) and ![canva](https://www.canva.com/)
+- Logo has been created in [rawpixel](https://www.rawpixel.com/) and [canva](https://www.canva.com/)
 
-- All images from ![pexels](https://www.pexels.com/) including profile pictures.
+- All images from [pexels](https://www.pexels.com/) including profile pictures.
 
 # Technolgies
 ## Tools and Technologies
@@ -863,7 +882,7 @@ The design of the page has been kept clean and simple. Page isn't overcrowded an
 * CSS- used for website styling
 * JavaScript- main language used to make page interactive
 * Heroku - to deploy the app 
-* [toastify](https://www.npmjs.com/package/react-toastify?activeTab=versions)
+* [toastify](https://www.npmjs.com/package/react-toastify?activeTab=versions) used to create toast messages
 * [Balsamiq](https://balsamiq.com/wireframes/)- used to create wireframes
 * [Favicon](https://favicon.io/favicon-generator/) - used to create favicon for the page
 * [Font Awesome](https://fontawesome.com/) - used to add icons for the page
@@ -959,7 +978,7 @@ Each file has been opened in a workspace to check it with ESLINT however I am ge
 
 ![eslint_warning](https://res.cloudinary.com/dmod5eglu/image/upload/v1706246313/eslint_warning_nuxuyh.png)
 
-I was unable to fix it, I tried multiple ways, used createRoot, installed different React version but it seemed to have cause more issues. As it is not an error but a warning I have left it in for now.
+I was unable to fix it, I tried multiple ways, used createRoot, installed different React version but it seemed to have caused more issues. As it is not an error but a warning I have left it in for now.
 
 All other files show:
 
@@ -968,7 +987,61 @@ All other files show:
 ### Manual Testing
 
 #### Functional Testing
-##### Links and Buttons
+
+| TESTING                                                                                                                     | ACTION                                                                                                                                 | EXPECTED                                                                                                                                                                                                                                                                                                                                                                                                                                    | ACTUAL      |
+| --------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| ADVERTS LIST VIEW RETURNS ALL ADVERTS- any auth state                                                                       | Go to https://snap-it-up-frontend-0a24e912efd8.herokuapp.com                                                                           | all adverts display in descending order based on created and updated date                                                                                                                                                                                                                                                                                                                                                                   | as expected |
+| ADVERTS LIST VIEW INFINITE SCROLL                                                                                           | Scroll through adverts list                                                                                                            | User doesn't need to use page pagination , user can keep scrolling through list view even if more then 25 objects available                                                                                                                                                                                                                                                                                                                 | as expected |
+| SEARCH BAR RETURNS ADVERTS BY KEY WORDS- any auth state                                                                     | Navigate to home page or 'saved' link within nav bar , type a keyword in search bar                                                    | adverts with the keyword either in title, description, item location or tags is returned                                                                                                                                                                                                                                                                                                                                                    | as expected |
+| SELECT DROP-DOWN BAR RETURNS ADVERTS- any auth state                                                                        | Select any category from select drop down menu.                                                                                        | Adverts matching category returned, adverts that include the category word in title, description, tags, location are also returned within the list view                                                                                                                                                                                                                                                                                     | as expected |
+| ADVERT DETAILS RETURNED CORRECTLY WHEN CLICKED ON ADVERT (FROM LIST VIEW OR FROM MOST SAVED ITEMS SIDE BAR)- any auth state | Click on the Image or list of key advert details section from advert or advert avatar from sidebar                                     | User taken to correct advert detail view. All details rendered for correct advert                                                                                                                                                                                                                                                                                                                                                           | as expected |
+| ADD ADVERT- logged in                                                                                                       | Click on 'sell !it' link from nav bar, type up all the required fields, click submit                                                   | User receives submission success toast message, user taken to advert detail view with all correct advert details                                                                                                                                                                                                                                                                                                                            | as expected |
+| EDIT ADVERT- logged in                                                                                                      | Select three dots drop down menu from advert detail view, select edit icon                                                             | User taken back to advert form with all details already populated, correct populated details show, user changes any field and submits a form. user receives success toast message and gets redirected back to advert detail view, all correct updated details show                                                                                                                                                                          | as expected |
+| DELETE ADVERT- logged in                                                                                                    | Select three dots drop down menu from advert detail view, select delete icon                                                           | User receives success toast message and get's redirected to last page they were on                                                                                                                                                                                                                                                                                                                                                          | as expected |
+| SAVE ITEM OPTION- other users advert- signed out                                                                            | Hover over then Click on save bookmark to save any advert                                                                              | User can see an overlay message to sign in to save posts, when clicked- user directed to sign in page, when signed in- user directed back to the previous page, user can see success toast message confirming sign in state                                                                                                                                                                                                                 | as expected |
+| SAVE ITEM OPTION- own post- logged in                                                                                       | However over then click the icon                                                                                                       | User can see a message that they can see own posts within own profile, when clicked nothing happens                                                                                                                                                                                                                                                                                                                                         | as expected |
+| SAVE ITEM OPTION- other users advert- signed in                                                                             | Sign in and click on save bookmark to save someone else's advert                                                                       | Icon now shows as solid , item shows within list view when clicked on 'saved' link from nav bar                                                                                                                                                                                                                                                                                                                                             | as expected |
+| MOST SAVED ITEMS SIDEBAR- any auth state                                                                                    | Check the list                                                                                                                         | User checks each advert from sidebar , adverts with most save's show at the top                                                                                                                                                                                                                                                                                                                                                             | as expected |
+| SAVED- LINK FROM NAV BAR- logged in                                                                                         | Sign in, click on 'saved' from navbar                                                                                                  | User can see adverts they have saved, no unsaved items shows within the list                                                                                                                                                                                                                                                                                                                                                                | as expected |
+| QUESTION MARK ICON FROM LIST VIEW- any auth state                                                                           | Hover over the icon, click the icon                                                                                                    | When hovered over - user can see prompt to click if they want to ask a question, when clicked user directed to advert detail view where Questions tab is                                                                                                                                                                                                                                                                                    | as expected |
+| COIN ICON FROM LIST VIEW- any auth state                                                                                    | Hover over the icon, click the icon                                                                                                    | When hovered over - user can see prompt to make an offer, when clicked user directed to advert detail view where Offer tab is                                                                                                                                                                                                                                                                                                               | as expected |
+| PROFILE AVATAR FROM ADVERT VIEW- any auth state                                                                             | Click on profile avatar from advert view                                                                                               | User directed to profile page view, user can see correct profile details: Username, location if available, adverts number, number of ratings, average ratings if available.                                                                                                                                                                                                                                                                 | as expected |
+| USERNAME LINK FROM NAV BAR-logged in                                                                                        | Click on username link                                                                                                                 | User directed to profile page view, user can see correct profile details                                                                                                                                                                                                                                                                                                                                                                    | as expected |
+| SIGN OUT- logged in                                                                                                         | Click on sign out link from nav bar                                                                                                    | User logged in, redirected to home page, links to sign in and sign-up now available within nav bar. Username and saved link no longer within nav bar                                                                                                                                                                                                                                                                                        | as expected |
+| SIGN-IN - logged out                                                                                                        | Click on Sign in link from nav bar, click on sign in link from registration page, click on question mark or coin icon from advert view | User directed to sign in page, user enters correct username and password, user receives success toast message and is directed to last page they were on                                                                                                                                                                                                                                                                                     | as expected |
+| REGISTER-logged out                                                                                                         | Click on register link from nav bar, click on register link from sign in page                                                          | User enters username and password twice to confirm, form successful- user receives success toast message and gets directed to sign in page                                                                                                                                                                                                                                                                                                  | as expected |
+| LOGO and HOME link from nav bar- any auth state                                                                             | Click on logo                                                                                                                          | User directed to home page                                                                                                                                                                                                                                                                                                                                                                                                                  | as expected |
+| QUESTIONS TAB - any auth state                                                                                              | click on advert from list view or most saved items sidebar                                                                             | User can see questions tab as default tab opened                                                                                                                                                                                                                                                                                                                                                                                            | as expected |
+| QUESTION FORM-ADD QUESTION- logged in                                                                                       | type up question and click post                                                                                                        | User receives success toast message and can see a question within list view as a top message                                                                                                                                                                                                                                                                                                                                                | as expected |
+| QUESTIONS LIST VIEW- any auth state                                                                                         | Click on questions tab if not there yet                                                                                                | User can see a questions list view, most recent questions at the top                                                                                                                                                                                                                                                                                                                                                                        | as expected |
+| QUESTION EDIT- logged in- own question                                                                                      | Select three dots drop down menu within the question, select edit icon                                                                 | User can see the question within an edit form, user changes the question and submits it. User receives success toast message and can see the edited now question within the list                                                                                                                                                                                                                                                            | as expected |
+| QUESTION DELETE- logged in                                                                                                  | Select three dots drop down menu within the question, select delete icon                                                               | User receives success toast message- question no longer displays within the question list                                                                                                                                                                                                                                                                                                                                                   | as expected |
+| QUESTIONS INFINITE SCROLL-any auth state                                                                                    | Scroll through questions list                                                                                                          | User doesn't need to use pagination even if more then 25 objects available within the list                                                                                                                                                                                                                                                                                                                                                  | as expected |
+| REPLIES BUTTON- REPLIES LIST- any auth state                                                                                | User clicks on '{number}replies' button from list view                                                                                 | User can now see replies list view , Most recent replies at the top, the button text has changed to 'Hide {number} replies'                                                                                                                                                                                                                                                                                                                 | as expected |
+| REPLY BUTTON-CREATE REPLY - logged in                                                                                       | navigate to any questions list                                                                                                         | User can see 'reply' button within questions, user clicks on the reply button which opens up a reply form, user types up the reply and posts it, user can see that the reply now shows within replies list and replies number incremented by1                                                                                                                                                                                               | as expected |
+| REPLY EDIT- logged in - own reply                                                                                           | Select three dots drop down menu within the reply, select edit icon                                                                    | User can see the previously submitted reply within the edit form, user makes changes and submits the changes. User receives success toast message and can now see the updated reply within the replies list view                                                                                                                                                                                                                            | as expected |
+| REPLY DELETE- logged in - own reply                                                                                         | Select three dots drop down menu within the reply, select delete icon                                                                  | User receives success toast message, user can see that the reply is no longer within the related question. User can see that the replies button number decremented by 1                                                                                                                                                                                                                                                                     | as expected |
+| REPLIES INFINITE SCROLL-any auth state                                                                                      | Scroll through replies list                                                                                                            | User doesn't need to use pagination even if more then 25 objects available within the list and can keep scrolling                                                                                                                                                                                                                                                                                                                           | as expected |
+| OFFERS TAB- any auth state                                                                                                  | navigate to offers tab                                                                                                                 | User can see offers tab next to questions tab, banner explaining the process displayed, offers listed, most recent on the top of the list                                                                                                                                                                                                                                                                                                   | as expected |
+| OFFERS FORM-CREATE OFFER- logged in                                                                                         | Enter any number and click send                                                                                                        | User receives success toast message and offer shows below the form at the top of the list, offer status set as pending                                                                                                                                                                                                                                                                                                                      | as expected |
+| OFFER LIST VIEW- advert owner                                                                                               | Go to own advert, click on offers tab                                                                                                  | User can see received offers, user can see buttons to ACCEPT, REJECT, SOLD                                                                                                                                                                                                                                                                                                                                                                  | as expected |
+| OFFER STATUS CHANGE- advert owner                                                                                           | Click on ACCEPT or REJECT within the offer received                                                                                    | Status of the offer updated to ACCEPT or REJECT when clicked.                                                                                                                                                                                                                                                                                                                                                                               | as expected |
+| SET status to SOLD- advert owner                                                                                            | Click SOLD within one of the offers                                                                                                    | Adverts styling changes to low opacity, 'item sold' banner displayed, user unable to change the offer now                                                                                                                                                                                                                                                                                                                                   | as expected |
+| PROFILE EDIT- own profile , logged in                                                                                       | User clicks on three dots edit/delete dropdown menu                                                                                    | User can see options to edit profile, change username, change password                                                                                                                                                                                                                                                                                                                                                                      | as expected |
+| EDIT PROFILE- logged in profile owner                                                                                       | Click on edit profile option                                                                                                           | User taken to profile edit form, Image and location prepopulated with existing details, on submit user receives success toast message and get's directed to previous page                                                                                                                                                                                                                                                                   | as expected |
+| CHANGE USERNAME- logged in profile owner                                                                                    | Click on change username option                                                                                                        | User taken to username edit form, username form prepopulated with existing data, on submit user receives success toast message and get's directed to previous page                                                                                                                                                                                                                                                                          | as expected |
+| CHANGE PASSWORD- logged in profile owner                                                                                    | Click on change password option                                                                                                        | User taken to password change form, user enters valid password and confirms password again, on submit user receives success toast message and get's directed to previous page                                                                                                                                                                                                                                                               | as expected |
+| PROFILES OWN ADVERTS- any auth state                                                                                        | Click on profile owners ad's tab from profile page                                                                                     | User can see list of adverts that belong to that profile, adverts are listed with most recently added/updated at the top                                                                                                                                                                                                                                                                                                                    | as expected |
+| FEEDBACK TAB-list view - any auth state                                                                                     | Click on profiles feedback tab within profile page                                                                                     | User can see a list of ratings if any available, if not message displays to communicate lack of off feedback                                                                                                                                                                                                                                                                                                                                | as expected |
+| FEEDBACK FORM - CREATE--logged in state-not profile owner                                                                   | Fill in the feedback form then select star rating, post. 2. don't fill in the feedback form , select star rating, post                 | User in both cases receives success message and can see the submitted date within a list view below the form, most recent item at the top. User can see that the rating number within the profile view increments by 1 and average rating within the profile view has changed.                                                                                                                                                              | as expected |
+| FEEDBACK EDIT- logged in- rating owner                                                                                      | Select three dots drop down menu within the rating, select edit icon                                                                   | User can see the previously submitted feedback, user can make changes to either of the fields regardless if the optional feedback field has been submitted or not, user clicks to submit the changes. User receives success toast message and can see the updated rating within the rating view. User can see that the rating number stays the same within profile view and the average rating changes only if star rating has been updated | as expected |
+| FEEDBACK DELETE- logged in - rating owner                                                                                   | Select three dots drop down menu within the rating, select delete icon                                                                 | User receives success toast message, rating disappeared from the list view. User can see that rating number from the profile view decrements by 1 and the average rating changes.                                                                                                                                                                                                                                                           | as expected |
+| HIGHEST RATED PROFILES LIST SIDE BAR- any auth state                                                                        | User selects any of the profiles from the highest rated side bar                                                                       | User directed to that profile page, user can see correct profile details.                                                                                                                                                                                                                                                                                                                                                                   | as expected |
+| PAGE NOT FOUND- any auth state                                                                                              | Enter incorrect URL                                                                                                                    | User received an error page with 'page not found' styling                                                                                                                                                                                                                                                                                                                                                                                   |             |
+| NO RESULTS- any auth state                                                                                                  | search for keyword that doesn't exist across the adverts                                                                               | User receives no results page                                                                                                                                                                                                                                                                                                                                                                                                               |             |
+| PAGE-VIEWS                                                                                                                  | Check number of page views for advert, enter advert detail view , go back to home page and check page views number again               | User can see that page views number incremented by one                                                                                                                                                                                                                                                                                                                                                                                      |
+
+
 ##### Negative Testing
 ### Automatic Testing
 #### Unit Tests
@@ -978,6 +1051,8 @@ No unit testing performed at this stage.
 ## Bugs
 
 Warning as mentioned [here](#javascript)
+
+Safari issue as explained [here](#accessibility)
 
 ### Console warnings
  
@@ -1070,4 +1145,4 @@ When you have fork to a repository you don't have access to files locally on you
 
 ## Acknowledgements
 
-My mentor [Daisy Mc Girr](https://github.com/Daisy-McG) for helping me fix the app when it completely crashed due to incorrectly react version  installed and all the help throughout the process.
+My mentor [Daisy Mc Girr](https://github.com/Daisy-McG) for helping me fix the app when it completely crashed due to incorrect react version  installed and all the help throughout the process.
