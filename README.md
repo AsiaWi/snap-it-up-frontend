@@ -668,7 +668,119 @@ The first two change the offer status. If seller rejects it, potential buyers ca
 
 - The aim of this feature is to stop sellers from receiving a lot of contact/offers for products they no longer have but at the same time not have to delete the advert. This will keep nice history of sellers activity improving sellers 'reputation' in a long run if successful. As you can see the image above- the offer there has status SOLD, this would have changed the advert status to inactive which would trigger the advert styling : I have reduced opacity of displayed advert and added clear red 'item sold' sign to make it clear that item is no longer available.
 
+### Profile Page
+
+![PROFILE_PAGE](https://res.cloudinary.com/dmod5eglu/image/upload/v1706231920/PROFILE_PAGE_pmjn1q.png)
+
+This feature has been implemented to keep track of most important key events for the users. Profile can be accessed by clicking on profiles avatar or username link within nav bar if logged in, the profile page has been build up of the following features:
 
 
+#### Profile details feature
+`As a USER I can VIEW EVERYONES PROFILE DETAILS so that I CAN LEARN MORE ABOUT SELLERS/BUYERS:(how long they're active, number of adverts posted, feedback/rating)`
+
+![PROFILE_FEATURE](https://res.cloudinary.com/dmod5eglu/image/upload/v1706231918/profile_feature_nnpcl1.png)
+
+This feature displays profile details, You can see profile image, profile location if provided, number of adverts posted by the profile owner, number of ratings received by the profile owner, an average rating for those and lastly how long the profile owner has been a page member.
+
+- The aim of this is for other user to quickly see key profile events that draw a general picture of how reliable the user is should they want to purchase anything from them.
+
+`As a PROFILE OWNER I can EDIT MY PROFILE DETAILS so that I CAN KEEP IT UP TO DATE`
+`As a PROFILE OWNER I can UPDATE PASSWORD AND USERNAME so that I CAN KEEP MY PROFILE SAFE`
+
+![EDIT_PROFILE_MENU](https://res.cloudinary.com/dmod5eglu/image/upload/v1706232156/profile_edit_uklsx4.png)
+
+CRUD functionality. This feature is available only if user is logged in only within their own profile, when clicked on the three dots menu:
+user will see three options:
+    - edit profile (location, image)
+
+![edit_profile_form](https://res.cloudinary.com/dmod5eglu/image/upload/v1706232154/profile_edit_form_zjkkms.png)
+
+    - change username
+
+![profile_edit_username](https://res.cloudinary.com/dmod5eglu/image/upload/v1706232155/profile_edit_username_ciiu2s.png)
+
+    - change password
+
+![profile_edit_password](https://res.cloudinary.com/dmod5eglu/image/upload/v1706232153/profile_edit_password_tvyrny.png)
+
+Regardless which option user selects, it will take them to an edit form where they can process the changes and save or cancel if they change their mind. On save - user will either receive a toast message confirmation to say it has been successfull or a toast error to say it has been unsuccessful.
+
+#### Highest Rated profile list sidebar
+
+`As a USER I can SEE HIGHEST RATED PROFILE LIST so that I KNOW WHAT USERS ARE MOST RECOMMENDED`
+
+![HIGHEST_RATED_PROFILES_SIDEBAR](https://res.cloudinary.com/dmod5eglu/image/upload/v1706231918/highest_rated_profiles_ebtkvk.png)
+
+- This feature has only been implemented for desktop view, it displays highest rated profiles which might incentify some sellers.
+
+- The aim of this was to reward the most reliable users but also to improve UI for desktop view, I havent added this to mobile view as I didn't want to overcrowd the content as I assume the user who clicked on the profile avatar to get to the profile page had an intent of finding out more information about that specific profile. As it's a selling site, users would only be interested in other users if they are interested in specific item so didn't see the need to ovecrowd the page.
+
+#### Profiles own adverts tab
+`As a USER I can SEE ALL ADVERTS USER POSTED so that I CAN PURCHASE MORE IF I WANT TO`
+
+![PROFILES_ADS](https://res.cloudinary.com/dmod5eglu/image/upload/v1706231919/profiles_adverts_zprgu4.png)
+
+- This feature sits below the profile content within one of the tabs
+
+- The aim of this feature is both: for profile owner to have easy access to own content and for other users to search through their ads, I imagine this might help users sales- buyers might have one product that they want to purchase from the seller and check if maybe seller has anything else they are interested in to purchase at the same time.
+
+#### Profiles ratings received from other users
+
+`As a SELLER AND BUYER I can SEE WHEN RATINGS HAVE BEEN LEFT FOR USERS so that I KNOW IF IT'S SAFE TO USE THEM`
+
+Rating list/ ratings exist/ NOT OWN PROFILE/ when logged in:
+
+![ratings_list_exists_loggedin](https://res.cloudinary.com/dmod5eglu/image/upload/v1706233925/rating_list_logged_in_j5fkn5.png)
+
+Rating list/ ratings don't exist yet / NOT OWN PROFILE/ when logged in:
+
+![ratings_list_not_yet_logged_in](https://res.cloudinary.com/dmod5eglu/image/upload/v1706234027/no_ratings_yet_logged_in_dims4s.png)
+
+Rating list/ ratings exist/OWN PROFILE/ when logged in:
+
+![ratings_list_exists_loggedin_own_profile](https://res.cloudinary.com/dmod5eglu/image/upload/v1706237884/ratings_received_own_profile__asendg.png)
+
+Rating list/ ratings don't exist yet / OWN PROFILE/ when logged in:
+
+![ratings_list_not_yet_logged_in_own_profile](https://res.cloudinary.com/dmod5eglu/image/upload/v1706234196/no_ratings_own_profile_jzjzht.png)
+
+Rating list when signed out:
+
+when no ratings received yet:
+
+![ratings_list_signed_out](https://res.cloudinary.com/dmod5eglu/image/upload/v1706234331/no_ratings_yet_logged_out_cwtyyi.png)
+
+when ratings received:
+
+![ratings_list_signed_out](https://res.cloudinary.com/dmod5eglu/image/upload/v1706237788/ratings_received_signed_out_mk1byz.png)
+
+
+- The feature of viewing ratings is available to all users 
+
+- The aim of this feature is to keep all users safe knowing they can choose who they want to buy from based on previous experience, and make them accountable- sellers as well as buyers
+
+`As a LOGGED IN USER I can RATE A PROFILE ONCE I PURCHASED SOMETHING FROM THE SELLER so that OTHERS KNOW HOW RELIABLE THE SELLER IS`
+
+`As a LOGGED IN USER I can LEAVE FEEDBACK FOR THE BUYER/SELLER so that OTHERS KNOW HOW RELIABLE THE USER IS`
+
+![Rating_form](https://res.cloudinary.com/dmod5eglu/image/upload/v1706238481/rating_form_dcqrn6.png)
+
+- This feature is available to all logged in users apart from the profile owner. User can submit feedback message as an optional field, star rating is required to submit a form as it provides average rating to the profile. User can simply hover over the stars, the stars will change color to indicate how many stars will get ticked off.
+
+- The aim of this is so users can let each other know how they enjoyed their experience with one another. The form does not display to profile owner so that they can't raise their own average score and rate themselves.
+
+`As a USER I can EDIT OR DELETE RATING I HAVE LEFT so that I CONTROL MY INPUT`
+
+![ratings_edit](https://res.cloudinary.com/dmod5eglu/image/upload/v1706210442/EDIT_OR_DELETE_ADVERT_suwcko.png)
+
+- This feature is available to users who are logged in and only within the ratings they have left.
+
+CRUD functionality. This feature is available only if user is logged in only within the ratings they have left ,when clicked on the three dots menu:
+  - user will see an icon to edit and icon to delete
+  - if user clicks on edit- this will bring up the rating form where the feedback message is optional again and the star rating is required, the form will have previously submitted content and it looks exactly the same as the initial create form, to change star rating user can simply click on another star, user can make any changes and press 'save' or 'cancel' if changed mind
+  - if user submits changes a message confirming that updates were saved will display if successful, or toast error message if unsuccessful.
+  - The aim of this is so that is user can edit or update their rating- they could have left a nasty rating and then when seller rectified or clarified anything - they might want to change it. 
+  - if user selects delete option which is the ' trash-bin' icon, the advert will get deleted -if successful a message confirming deletion will show, if unsuccessful an error toast message  will display.
+  - The aim of this is for user to be able to delete any unwanted content.
 
  
