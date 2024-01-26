@@ -711,7 +711,7 @@ Regardless which option user selects, it will take them to an edit form where th
 
 ![HIGHEST_RATED_PROFILES_SIDEBAR](https://res.cloudinary.com/dmod5eglu/image/upload/v1706231918/highest_rated_profiles_ebtkvk.png)
 
-- This feature has only been implemented for desktop view, it displays highest rated profiles which might incentify some sellers.
+- This feature has only been implemented for desktop view, it displays highest average_rated profiles which might incentify some sellers.
 
 - The aim of this was to reward the most reliable users but also to improve UI for desktop view, I havent added this to mobile view as I didn't want to overcrowd the content as I assume the user who clicked on the profile avatar to get to the profile page had an intent of finding out more information about that specific profile. As it's a selling site, users would only be interested in other users if they are interested in specific item so didn't see the need to ovecrowd the page.
 
@@ -799,7 +799,7 @@ In case of unsuccessful submission user will receive an error toast message in t
 
 - the aim of this was to communicate to users if their submissions have been successful or not. 
 
-#### FORMS
+#### FORMS WARNINGS
 
 All forms  with more than one field have warning messages added into required fields so that it is easier for users to understand why or which fields cause error and stop from submitting.
 
@@ -807,11 +807,114 @@ All forms  with more than one field have warning messages added into required fi
 
 all this has been done to improve user experience.
 
-### FUTURE FEATURES
+#### Errors covered
+
+In case of user going to incorrect address use rwill see Page not found error:
+
+![page_not_found](https://res.cloudinary.com/dmod5eglu/image/upload/v1706241638/page_not_found_bmxs3h.png)
+
+In case of no results to users search, user will see:
+
+![no_results](https://res.cloudinary.com/dmod5eglu/image/upload/v1706241643/no_results_found_faj8if.png)
+
+in both cases user will still have a nav bar to navigate from the page.
+
+The aim of this is to improve users experience and not encourance users to leave the website.
+
+### Features Left To Implement
 
 `As a SELLER OR BUYER I can COMMUNICATE PRIVATELY WITH A BUYER/SELLER ONCE OFFER HAS BEEN ACCEPTED so that I CAN ARRANGE FURTHER DETAILS`
 
 I have initially created an offer model with private messages however I realised this would not work in a way I intended. I would like to create a seperate model in the future with permissions to only view by two parties involved ( the initial message owner who would like to purchase an item and the user the owner is sending it to (advert owner)), this way they could share personal details only privately to arrange collection etc. and possibly not even have to share tel numbers as users could chat within the website. Unfortunately I did not have time to create this at this moment.
 
+## The Skeleton Plane
 
+### Wireframes
 
+<details><summary>Homepage [Logged out user]</summary>
+
+![]()
+</details>
+
+## The Surface Plane
+
+### Design/ Colour-Scheme/ Font/ Images
+
+The design of the page has been kept clean and simple. Page isn't overcrowded and easily accessible.
+
+- Main colors used were light, warm and natural to show a bit of a clean but vintage style with it being a page selling pre-owned stuff.
+
+- Font imported from google and used throughout the entire page
+
+- Logo has been created in ![rawpixel](https://www.rawpixel.com/) and ![canva](https://www.canva.com/)
+
+- All images from ![pexels](https://www.pexels.com/) including profile pictures.
+
+# Technolgies
+## Tools and Technologies
+
+* Node - package manager used to install dependencies
+* React - framework used for UI
+* Bootstrap React - CSS framework used for responsive design 
+* Visual Studio Code - used to develop the website
+* Github - used to host source code and deploy on Github Pages
+* Git- used to commit and push code 
+* HTML - used for static content sporadically
+* CSS- used for website styling
+* JavaScript- main language used to make page interactive
+* Heroku - to deploy the app 
+* [Balsamiq](https://balsamiq.com/wireframes/)- used to create wireframes
+* [Favicon](https://favicon.io/favicon-generator/) - used to create favicon for the page
+* [Font Awesome](https://fontawesome.com/) - used to add icons for the page
+* [Wave Evaluation Tool](https://wave.webaim.org/)- used for checking accessibility
+* [Techsini](https://techsini.com/multi-mockup/index.php)- used for creating mockup image
+* [W3C Validator](https://validator.w3.org/)- used for checking HTML and CSS for errors
+* ESLINT - tool installed and used to check java script code meets standards and has no errors
+* [Table Markdown](https://tabletomarkdown.com/)- to create tables in readme 
+* Lighthouse - used to check performance of the page
+
+## Testing
+### Responsiveness
+
+Website has been checked for responsiveness through Development tools. In order to do this, the following steps have been taken:
+1. Open browser
+2. Navigate to Snap.it.up at https://snap-it-up-frontend-0a24e912efd8.herokuapp.com/
+3. Right click anywhere on the page and go to "Inspect" to open Development Tools
+4. Click on drop down menu: "Dimensions: Responsive" and choose "Responsive"
+5. Drag the side of the screen and change screen size, make sure the website looks good from 320px and up. Make sure no side 
+   scroll bar is showing.
+
+* Expected- page is user friendly when viewing the website on small and large screens.
+* Actual- website looks good, no bottom scroll bar showing, all content clearly visible. Website is user friendly on all screen sizes.
+
+* The following devices have been used to check responsiveness:
+    * Iphone 13 Pro
+    * Google Pixel 7 Pro 
+    * Asus Vivobook
+
+* The following browsers have been used to check responsiveness:
+    * Chrome
+    * Microsoft Edge 
+    * Firefox
+
+Unable to use the app on Iphone, it registers the account as shown in admin panel however it won't allow to sign in, I have found that everyone submitting the project has the same issue and this can not be fixed. [Sean explains it here](https://code-institute-room.slack.com/archives/C02MTH5MBDG/p1659719243446449?thread_ts=1659705919.570999&cid=C02MTH5MBDG)
+
+### Accessibility
+### Lighthouse
+## Validator Testing
+### HTML
+### CSS
+### JavaScript
+## Manual Testing
+### Functional Testing
+#### Links and Buttons
+#### Negative Testing
+## Automatic Testing
+### Unit Tests
+## Bugs
+## Deployment
+### Version Control
+### Deploying in Heroku
+### Cloning the Repository
+### Forking
+### Credits
