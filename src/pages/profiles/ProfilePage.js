@@ -141,17 +141,30 @@ function ProfilePage() {
   const profileFeedback = (
     <>
       <Container>
-        {!profile?.is_owner && userLoggedIn ? (
-          <CreateRatingForm
-            owners_id={userLoggedIn.owners_id}
-            profile_image={profile_image}
-            rated_user={id}
-            setRatings={setRatings}
-          />
+        {userLoggedIn ? (
+          !profile?.is_owner ? (
+            <CreateRatingForm
+              owners_id={userLoggedIn.owners_id}
+              profile_image={profile_image}
+              rated_user={id}
+              setRatings={setRatings}
+            />
+          ) : ratings.results.length ? (
+            <>
+              <hr />
+              <p className="text-center">Feedback you've received</p>
+              <hr />
+            </>
+          ) : null
         ) : ratings.results.length ? (
           <>
             <hr />
-            <p className="text-center">Feedback received</p>
+            <p className="text-center">
+              <Link to="/sign-in">
+                <span className={linkStyles.SignIn}>Sign in </span>
+              </Link>
+              if you want to leave a review for {profile?.owner}
+            </p>
             <hr />
           </>
         ) : null}

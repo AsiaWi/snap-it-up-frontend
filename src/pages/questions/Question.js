@@ -15,7 +15,7 @@ import Assets from "../../components/Assets";
 import Reply from "../replies/Reply";
 import { axiosReq } from "../../api/axiosDefaults";
 import btnStyles from "../../styles/Button.module.css";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 const Question = (props) => {
   const {
@@ -51,9 +51,9 @@ const Question = (props) => {
         ...prevQuestions,
         results: prevQuestions.results.filter((question) => question.id !== id),
       }));
-      toast.success('Question deleted!');
+      toast.success("Question deleted!");
     } catch (err) {
-      toast.error('Error- unable to delete the question. Please try again.');
+      toast.error("Error- unable to delete the question. Please try again.");
     }
   };
 
@@ -124,14 +124,18 @@ const Question = (props) => {
                   className={btnStyles.FormButton}
                   onClick={() => setShowRepliesList(true)}
                 >
-                  {replies.results.length} Replies:{" "}
+                  {replies.results.length == 1
+                    ? `${replies.results.length} Reply`
+                    : `${replies.results.length} Replies`}
                 </Button>
               ) : (
                 <Button
                   className={btnStyles.FormButton}
                   onClick={() => setShowRepliesList(false)}
                 >
-                  Hide {replies.results.length} replies
+                  {replies.results.length == 1
+                    ? `Hide ${replies.results.length} reply`
+                    : `Hide ${replies.results.length} replies`}
                 </Button>
               )}
 
@@ -185,10 +189,10 @@ const Question = (props) => {
                     <>
                       <hr />
                       <p className="text-center">
-                      <Link to="/sign-in">
-                              <span className={styles.SignIn}>Sign in </span>
-                            </Link>
-                            to reply, no replies yet.
+                        <Link to="/sign-in">
+                          <span className={styles.SignIn}>Sign in </span>
+                        </Link>
+                        to reply, no replies yet.
                       </p>
                       <hr />
                     </>
