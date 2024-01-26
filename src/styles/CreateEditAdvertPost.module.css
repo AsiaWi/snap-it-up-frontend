@@ -31,8 +31,8 @@
 
 .ImageUpload {
     max-width: 100%;
-  object-fit: contain;
-  max-height: 50vh;
+    object-fit: contain;
+    max-height: 50vh;
 }
 
 input[type="file"] {

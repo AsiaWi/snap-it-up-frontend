@@ -900,10 +900,58 @@ Website has been checked for responsiveness through Development tools. In order 
 Unable to use the app on Iphone, it registers the account as shown in admin panel however it won't allow to sign in, I have found that everyone submitting the project has the same issue and this can not be fixed. [Sean explains it here](https://code-institute-room.slack.com/archives/C02MTH5MBDG/p1659719243446449?thread_ts=1659705919.570999&cid=C02MTH5MBDG)
 
 ### Accessibility
+
+Each page checked with the help of [WAVE Accessibility tool](https://wave.webaim.org/). Each page passes accesibility test with no error for:
+* contrast
+* aria- labels for users who use screen-readers
+* alternative text as a function for screen readers or in events when images don't load
+* structural elements - for users of assistive technology as well as visual and semantic meaning
+* language of the document- for screen readers
+
+* alerts coming up 'Reduntant link-Adjacent links go to the same URL', however as it doesn't come up as an error, I have left it in. This is due to the instructional icon to click to detail view if user want's to ask a question/ make an offer/also two links to home page from 'home' link and logo.
+
 ### Lighthouse
-## Validator Testing
-### HTML
-### CSS
+
+* HOME PAGE (desktop & mobile)
+
+![lighthouse_desktop](https://res.cloudinary.com/dmod5eglu/image/upload/v1706243998/lighthouse_desktop_home_cessny.png)
+
+![lighthouse_mobile](https://res.cloudinary.com/dmod5eglu/image/upload/v1706243996/lighthouse_mobile_home_weckz4.png)
+
+*  ADVERTS DETAIL VIEW (desktop & mobile)
+
+![lighthouse_desktop_advert_view](https://res.cloudinary.com/dmod5eglu/image/upload/v1706244005/LIGHTHOUSE_DESKTOP_ADVERT_i0biam.png)
+
+![lighthouse_mobile_advert_view](https://res.cloudinary.com/dmod5eglu/image/upload/v1706243994/LIGHTHOUSE_MOBILE_ADVERT_hlq14r.png)
+
+* PROFILE PAGE (desktop & mobile)
+
+![lighthouse_desktop_profile_page_view](https://res.cloudinary.com/dmod5eglu/image/upload/v1706244003/LIGHTHOUSE_DESKTOP_PROFILE_pqpvbg.png)
+
+![lighthouse_mobile_profile_page_view](https://res.cloudinary.com/dmod5eglu/image/upload/v1706244000/LIGHTHOUSE_mobile_PROFILE_ajrxvl.png)
+
+The performance is lower due to the fact that the page is heavy on images, fixes can be applied in the future as time won't allow me for it now.
+
+### Validator Testing
+
+#### HTML
+
+Only index.js page has HTML code and this comes up clear of errors in [W3C VALIDATOR](https://validator.w3.org/).
+
+In order to check HTML code in dynamic website:
+
+* go to the live page
+* click right and select 'Inspect' then click right and select 'View page source'
+* code will open in new tab - copy the code
+* paste the code in the validator as 'direct input'
+
+#### CSS
+
+No errors were found when passing all CSS files through the official Jigsaw W3 Validator
+
+![css_validator_check](https://res.cloudinary.com/dmod5eglu/image/upload/v1706245588/CSS_VALIDATION_q19x4k.png)
+
+
 ### JavaScript
 ## Manual Testing
 ### Functional Testing
