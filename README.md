@@ -783,4 +783,35 @@ CRUD functionality. This feature is available only if user is logged in only wit
   - if user selects delete option which is the ' trash-bin' icon, the advert will get deleted -if successful a message confirming deletion will show, if unsuccessful an error toast message  will display.
   - The aim of this is for user to be able to delete any unwanted content.
 
+ ### Toast messages
+
+As a User I can CLEARLY SEE CONFIRMATION OF MY SUBMISSIONS so that I AM SURE FORMS CONTENT HAS REACHED THE RIGHT PLACE
+
+All forms within the page have has the toast messages implemented
  
+When submission is successful user will receive a green message / text content has been personalised to each form action to communicate it in clear matter however the style is the same:
+
+![Success-message](https://res.cloudinary.com/dmod5eglu/image/upload/v1706239042/success_gaia1o.png)
+
+In case of unsuccessful submission user will receive an error toast message in this style:
+
+![Error-message](https://res.cloudinary.com/dmod5eglu/image/upload/v1706239037/error_vnbjdf.png)
+
+- the aim of this was to communicate to users if their submissions have been successful or not. 
+
+#### FORMS
+
+All forms  with more than one field have warning messages added into required fields so that it is easier for users to understand why or which fields cause error and stop from submitting.
+
+![warning](https://res.cloudinary.com/dmod5eglu/image/upload/v1706239709/warnings_wvjvfy.png)
+
+all this has been done to improve user experience.
+
+### FUTURE FEATURES
+
+`As a SELLER OR BUYER I can COMMUNICATE PRIVATELY WITH A BUYER/SELLER ONCE OFFER HAS BEEN ACCEPTED so that I CAN ARRANGE FURTHER DETAILS`
+
+I have initially created an offer model with private messages however I realised this would not work in a way I intended. I would like to create a seperate model in the future with permissions to only view by two parties involved ( the initial message owner who would like to purchase an item and the user the owner is sending it to (advert owner)), this way they could share personal details only privately to arrange collection etc. and possibly not even have to share tel numbers as users could chat within the website. Unfortunately I did not have time to create this at this moment.
+
+
+
