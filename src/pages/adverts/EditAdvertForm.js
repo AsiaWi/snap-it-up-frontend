@@ -346,7 +346,7 @@ function EditAdvertForm() {
         <Col lg={10} md={12} sm={12} className="mx-auto">
           <Form.Group className="text-center">
             <figure>
-              <Image src={image} alt="upload new image" />
+              <Image className={formStyling.ImageUpload} src={image} alt="upload new image" />
             </figure>
             <div>
               <Form.Label className={btnStyles.Button} htmlFor="image-upload">
