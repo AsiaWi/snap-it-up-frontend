@@ -602,3 +602,73 @@ when signed-out:
    - The aim of this is so that users can update their own content should they need to
    - if user selects delete option which is the ' trash-bin' icon, the reply will get deleted -if successful a toast message confirming deletion will show, if unsuccessful an error toast message will display.
    - The aim of this is for user to be able to delete any unwanted content 
+
+   #### Offers
+
+`As a USER I can SEE ALL PREVIOUSLY MADE OFFERS so that I DON'T WASTE MY TIME MAKING THE SAME OFFERS SELLER ALREADY WASN'T HAPPY WITH`
+
+ - Offer list is a feature available to all users regardless of auth state, list of offers related to each question can be accessed by clicking on the tab next to questions tab- below advert within advert details page.
+
+There is an offer 'how-to' box at the top of the offer tab, for all users so that they understand the process if using the app for the first time:
+
+![how_to_offer](https://res.cloudinary.com/dmod5eglu/image/upload/v1706229712/offer_info_oy799q.png)
+
+Offers list looks different to advert owner and to all other users:
+
+offers list for advert owner(so logged in of course):
+
+![OFFER_LIST_ADVERT_OWNER](https://res.cloudinary.com/dmod5eglu/image/upload/v1706228259/OFFER_LIST_ADVERT_OWNER_obfwys.png)
+
+Offers list for all other users:
+-when logged in/ logged out when offers already exist:
+
+![OFFER_LIST_ALL_USERS](https://res.cloudinary.com/dmod5eglu/image/upload/v1706228350/OFFER_LIST_ALL_USERS_bcnzr4.png)
+
+-when no offers has been made and logged in:
+
+![NO_OFFERS_YET_LOGGED_IN](https://res.cloudinary.com/dmod5eglu/image/upload/v1706228442/NO_OFFERS_YET_LOGGED_IN_ceuith.png)
+
+-when no offers has been made and logged out:
+
+![NO_OFFERS_YET_LOGGED_OUT](https://res.cloudinary.com/dmod5eglu/image/upload/v1706228596/NO_OFFERS_YET_LOGGED_OUT_eo3ldc.png)
+
+- The aim of keeping the offers as list view helps other users to know what amounts seller is not willing to accept
+
+`` As a LOGGED IN USER I can MAKE AN OFFER TO A SELLER so that I CAN PURCHASE THE ITEM ``
+
+available to all logged in users right above offers list/ only numbers can be submitted which keeps the intent of offers and questions in place:
+
+![OFFER_FORM](https://res.cloudinary.com/dmod5eglu/image/upload/v1706228672/OFFER_FORM_kiwdhu.png)
+
+- This feature has been provided to submit an offer of how much the buyer would like to purchse the product
+- The aim of this is to provide straight forward system to check with seller what amount they are happy with
+ 
+`As a SELLER I want ALL OFFERS TO STAY VISIBLE so that OTHERS DON'T MAKE SAME OFFERS AGAIN IF I'M NOT HAPPY WITH PRICE`
+
+- This feature means that an option to delete and edit the offers by the user who initially submitted it, noone but advert owner has access to the buttons to change offer status, offers can't be deleted, this functionality has been disabled.
+
+- The aim of this is to ensure that all offers stay on and other users not repeat offers with the same or lower amounts
+
+`` As a SELLER I can ACCEPT OR REJECT AN OFFER RECEIVED so that I CAN SELL AN ITEM AT PRICE I FIND ACCEPTABLE``
+
+![offer_status_change](https://res.cloudinary.com/dmod5eglu/image/upload/v1706228259/OFFER_LIST_ADVERT_OWNER_obfwys.png)
+
+- This feature allows seller to have an access to change displayed within the received offer- offer status, the seller has access to three buttons: 'accept', 'reject' and 'sold'
+The first two change the offer status. If seller rejects it, potential buyers can see what seller isn't willing to accept, if seller accepts it, this means two things: first- the buyer who submitted the offer can contact the seller via provided contact details to arrange the sale, but also second- if any other potential buyer sees that the seller is happy with the amount but really wants the item, they can raise a higher amount to bid it. 
+
+- The aim of this feature is to provide a clear signal to the buyer if they should contact the seller rather then receiving a lot of messages or calls via personal contact means, for offers they are not happy with.
+
+`As a SELLER I can MARK AN OFFER AS SOLD so that IT'S CLEAR WHICH OFFER WENT THROUGH`
+
+`As a USER I can SEE ADVERT'S STATUS so that I KNOW IF ITEM IS AVAILABLE OR NOT`
+
+![item_sold](https://res.cloudinary.com/dmod5eglu/image/upload/v1706229040/sold_riwnki.png)
+
+- Once the seller received a payment for the item and the item has been collected, this feature allows the seller to mark the winning offer to SOLD which will also change the advert active status from active to inactive- which will change the styling of the advert to clearly display that the item has been sold. (Once seller marked the offer sold - this can't be undone as it has been set up with the intention that sellers will only set it to such status if the item is gone. Even if another user sent an offer (even if seller accepted such offer by mistake) - the advert status would stay inactive).The Info box at the top of the offers tab clearly explains the process.
+
+- The aim of this feature is to stop sellers from receiving a lot of contact/offers for products they no longer have but at the same time not have to delete the advert. This will keep nice history of sellers activity improving sellers 'reputation' in a long run if successful. As you can see the image above- the offer there has status SOLD, this would have changed the advert status to inactive which would trigger the advert styling : I have reduced opacity of displayed advert and added clear red 'item sold' sign to make it clear that item is no longer available.
+
+
+
+
+ 
