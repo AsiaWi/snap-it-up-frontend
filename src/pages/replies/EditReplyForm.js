@@ -62,11 +62,7 @@ function EditReplyForm(props) {
         >
           cancel
         </button>
-        <button
-          className={styles.Button}
-          disabled={!reply_content.trim()}
-          type="submit"
-        >
+        <button className={styles.Button} type="submit">
           save
         </button>
       </div>

@@ -62,11 +62,7 @@ function EditQuestionForm(props) {
         >
           cancel
         </button>
-        <button
-          className={styles.Button}
-          disabled={!question_content.trim()}
-          type="submit"
-        >
+        <button className={styles.Button} type="submit">
           save
         </button>
       </div>

@@ -60,11 +60,7 @@ function CreateQuestionForm(props) {
           />
         </InputGroup>
       </Form.Group>
-      <button
-        className={`${styles.Button} btn d-block ml-auto`}
-        disabled={!question_content.trim()}
-        type="submit"
-      >
+      <button className={`${styles.Button} btn d-block ml-auto`} type="submit">
         post
       </button>
     </Form>

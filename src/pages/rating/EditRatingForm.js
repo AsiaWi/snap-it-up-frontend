@@ -86,7 +86,6 @@ function EditRatingForm(props) {
         </button>
         <button
           className={styles.Button}
-          // disabled={!feedback.trim()}
           type="submit"
         >
           save
