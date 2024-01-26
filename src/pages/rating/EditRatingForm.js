@@ -84,10 +84,7 @@ function EditRatingForm(props) {
         >
           cancel
         </button>
-        <button
-          className={styles.Button}
-          type="submit"
-        >
+        <button className={styles.Button} type="submit">
           save
         </button>
       </div>
