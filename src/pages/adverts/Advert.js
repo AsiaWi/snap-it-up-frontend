@@ -12,7 +12,7 @@ import Tooltip from "react-bootstrap/Tooltip";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 const Advert = (props) => {
   const {
@@ -51,9 +51,9 @@ const Advert = (props) => {
     try {
       await axiosRes.delete(`/adverts/${id}/`);
       history.goBack();
-      toast.success('Advert deleted!');
+      toast.success("Advert deleted!");
     } catch (err) {
-      toast.error('Deletion unsuccessful. Please try again.');
+      toast.error("Deletion unsuccessful. Please try again.");
       // console.log(err);
     }
   };
@@ -91,11 +91,15 @@ const Advert = (props) => {
   };
 
   return (
-    <Card className={styles.Advert} style={{ opacity : !active ? "40%" : null}}>
+    <Card className={styles.Advert} style={{ opacity: !active ? "40%" : null }}>
       <Card.Body>
         <Media className="align-items-center justify-content-between">
           <Link className={styles.Profile} to={`/profiles/${profile_id}`}>
-            <Avatar src={profile_image} height={55} alt={`profile avatar for ${owner}`} />
+            <Avatar
+              src={profile_image}
+              height={55}
+              alt={`profile avatar for ${owner}`}
+            />
             {owner}
           </Link>
           <div className="d-flex align-items-center">
@@ -112,7 +116,7 @@ const Advert = (props) => {
           </div>
         </Media>
         <Container>
-        {!active ? <span className={styles.Sold}>ITEM SOLD</span> : null}
+          {!active ? <span className={styles.Sold}>ITEM SOLD</span> : null}
           {advert_title && (
             <Card.Title className="text-center">{advert_title}</Card.Title>
           )}
@@ -127,32 +131,48 @@ const Advert = (props) => {
 
           <Col className={` d-flex-direction-column-align-items-left ml-2 `}>
             <p>
-              <i className="fa-solid fa-sterling-sign"></i><span className={styles.AdvertDetails}> Price: </span>{price}
+              <i className="fa-solid fa-sterling-sign"></i>
+              <span className={styles.AdvertDetails}> Price: </span>
+              {price}
             </p>
             <p>
-              <i className="fa-solid fa-location-dot"></i><span className={styles.AdvertDetails}> Item location: </span>
+              <i className="fa-solid fa-location-dot"></i>
+              <span className={styles.AdvertDetails}> Item location: </span>
               {location}
             </p>
             <p>
-              <i className="fa-solid fa-pen"></i><span className={styles.AdvertDetails}> Added/updated: </span>{updated_at}
+              <i className="fa-solid fa-pen"></i>
+              <span className={styles.AdvertDetails}> Added/updated: </span>
+              {updated_at}
             </p>
             <p>
-              <i className="fa-solid fa-address-card"></i><span className={styles.AdvertDetails}> Contact: </span>{contact_dets}
+              <i className="fa-solid fa-address-card"></i>
+              <span className={styles.AdvertDetails}> Contact: </span>
+              {contact_dets}
             </p>
             <p></p>
             <p>
-              <i className="fa-solid fa-sterling-sign"></i><span className={styles.AdvertDetails}> Payment option: </span>
+              <i className="fa-solid fa-sterling-sign"></i>
+              <span className={styles.AdvertDetails}> Payment option: </span>
               {payment_options}
             </p>
             <p>
-              <i className="fa-regular fa-hand"></i><span className={styles.AdvertDetails}> Delivery/collection: </span>
+              <i className="fa-regular fa-hand"></i>
+              <span className={styles.AdvertDetails}>
+                {" "}
+                Delivery/collection:{" "}
+              </span>
               {shippment_options}
             </p>
             <p>
-              <i className="fa-solid fa-eye"></i><span className={styles.AdvertDetails}> Page views: </span> {page_views}
+              <i className="fa-solid fa-eye"></i>
+              <span className={styles.AdvertDetails}> Page views: </span>{" "}
+              {page_views}
             </p>
             <p>
-              <i className="fa-solid fa-bookmark"></i><span className={styles.AdvertDetails}> Saved: </span>{save_count}
+              <i className="fa-solid fa-bookmark"></i>
+              <span className={styles.AdvertDetails}> Saved: </span>
+              {save_count}
             </p>
           </Col>
         </Row>
@@ -205,7 +225,14 @@ const Advert = (props) => {
               delay={{ show: 150, hide: 400 }}
               overlay={<Tooltip>Log in to save posts!</Tooltip>}
             >
-              <i className={`fa-regular fa-bookmark ${styles.Icons}`}></i>
+              <Link
+                aria-label="Not sure on the item?Ask a question or see if others already
+                asked it"
+                className={styles.Icons}
+                to="/sign-in"
+              >
+                <i className={`fa-regular fa-bookmark`}></i>
+              </Link>
             </OverlayTrigger>
           )}
           <OverlayTrigger
@@ -213,16 +240,17 @@ const Advert = (props) => {
             delay={{ show: 150, hide: 400 }}
             overlay={
               <Tooltip>
-                Not sure on the item?Click to Ask a question or see if others already
-                asked it
+                Not sure on the item?Click to Ask a question or see if others
+                already asked it
               </Tooltip>
             }
           >
-            <Link 
-            aria-label='Not sure on the item?Ask a question or see if others already
-                asked it' 
-                className={styles.Icons} 
-                to={`/adverts/${id}`}>
+            <Link
+              aria-label="Not sure on the item?Ask a question or see if others already
+                asked it"
+              className={styles.Icons}
+              to={`/adverts/${id}`}
+            >
               <i className="fa-solid fa-question"></i>
             </Link>
           </OverlayTrigger>
@@ -231,15 +259,17 @@ const Advert = (props) => {
             delay={{ show: 150, hide: 400 }}
             overlay={<Tooltip>Make an offer to purchase the product</Tooltip>}
           >
-            <Link aria-label='Click to Make an offer to purchase the product' className={styles.Icons} to={`/adverts/${id}`}>
+            <Link
+              aria-label="Click to Make an offer to purchase the product"
+              className={styles.Icons}
+              to={`/adverts/${id}`}
+            >
               <i className="fa-solid fa-coins"></i>
             </Link>
           </OverlayTrigger>
         </div>
-        
       </Card.Body>
     </Card>
-  
   );
 };
 
