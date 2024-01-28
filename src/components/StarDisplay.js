@@ -1,6 +1,9 @@
 import styles from "../styles/StarRating.module.css";
 
 const StarDisplay = ({ rating }) => {
+  {/*Component allowing to convert number (in this case rating) into star icons, 
+   uses length of 5, takes number 'rating' and styles it,
+   rest of the array indexes styled differently */}
   const stars = () => {
     const starsList = [];
 

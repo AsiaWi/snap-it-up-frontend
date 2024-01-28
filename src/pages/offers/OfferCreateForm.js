@@ -16,6 +16,9 @@ function OfferCreateForm(props) {
   };
 
   const handleSubmit = async (event) => {
+    {/*post the offer, set status to pending as default 
+     update offers state
+     display either success or error message */}
     event.preventDefault();
     try {
       const { data } = await axiosRes.post("/offers/", {

@@ -13,6 +13,7 @@ import useCollapseNavBar from "../hooks/useCollapseNavBar";
 import { removeTokenTimestamp } from "../utils/utils";
 
 const NavBar = () => {
+  {/* userLoggedIn used to establish logged in state */}
   const userLoggedIn = useLoggedInUser();
   const setLoggedInUser = useSetLoggedInUser();
   const { collapsed, setCollapsed, ref } = useCollapseNavBar();
@@ -105,7 +106,8 @@ const NavBar = () => {
             >
               <i className="fa-solid fa-house"></i>Home
             </NavLink>
-
+            {/* ternary statement allowing to render correct navbar links
+             if userLoggedIn true or false */}
             {userLoggedIn ? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>

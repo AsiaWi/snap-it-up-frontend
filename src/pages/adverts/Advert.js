@@ -44,10 +44,13 @@ const Advert = (props) => {
   const history = useHistory();
 
   const handleEdit = () => {
+    {/*Redirects user to edit advert page*/}
     history.push(`/adverts/${id}/edit`);
   };
 
   const handleDelete = async () => {
+    {/*Removes advert from data and redirects user to 
+      the last page they were on*/}
     try {
       await axiosRes.delete(`/adverts/${id}/`);
       history.goBack();
@@ -59,6 +62,8 @@ const Advert = (props) => {
   };
 
   const handleSaveItem = async () => {
+    {/*Create 'save' object,
+      increment number of save_count for the advert*/}
     try {
       const { data } = await axiosRes.post("/saved/", { advert: id });
       setAdverts((prevAdverts) => ({
@@ -75,6 +80,8 @@ const Advert = (props) => {
   };
 
   const handleRemoveFromSavedList = async () => {
+    {/*Remove save object, 
+      decrement save_count by 1 from advert id*/}
     try {
       await axiosRes.delete(`/saved/${save_id}/`);
       setAdverts((prevAdverts) => ({

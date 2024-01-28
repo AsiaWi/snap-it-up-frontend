@@ -40,6 +40,9 @@ function ProfilePage() {
 
   useEffect(() => {
     const fetchData = async () => {
+      {/* await until all objects mounted
+        update profile state, get all adverts and ratings
+      related to profile*/}
       try {
         const [
           { data: pageProfile },
@@ -64,7 +67,7 @@ function ProfilePage() {
     fetchData();
   }, [id, setProfileData]);
 
-  // profile details
+  // profile details section
   const profileContent = (
     <>
       {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
@@ -210,7 +213,7 @@ function ProfilePage() {
     </>
   );
 
-  //tabs holder
+  //tabs holder - adverts tab set to default
   const mainProfileTabs = (
     <>
       <Tabs

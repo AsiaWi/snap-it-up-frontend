@@ -14,6 +14,10 @@ function EditQuestionForm(props) {
   };
 
   const handleSubmit = async (event) => {
+    {/* update question content, update questions state
+     to display correct updated questions list
+     hide edit form 
+     display either success or error message*/}
     event.preventDefault();
     try {
       await axiosRes.put(`/questions/${id}/`, {

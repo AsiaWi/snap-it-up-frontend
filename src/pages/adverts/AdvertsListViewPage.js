@@ -23,6 +23,7 @@ function AdvertsListViewPage({ message, filter = "" }) {
 
   useEffect(() => {
     const fetchCategories = async () => {
+      {/* Fetch adverts list on category change  */}
       try {
         const { data } = await axiosReq.get(
           `/adverts/?${filter}search=${categories}`
@@ -37,6 +38,7 @@ function AdvertsListViewPage({ message, filter = "" }) {
 
   useEffect(() => {
     const fetchAdverts = async () => {
+      {/* Fetch adverts list on keyword change  */}
       try {
         const { data } = await axiosReq.get(
           `/adverts/?${filter}search=${query}`

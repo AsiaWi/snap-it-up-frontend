@@ -15,6 +15,9 @@ function CreateQuestionForm(props) {
   };
 
   const handleSubmit = async (event) => {
+    {/* post a question and update state to display against
+      correct advert
+      display either success or error message */}
     event.preventDefault();
     try {
       const { data } = await axiosRes.post("/questions/", {

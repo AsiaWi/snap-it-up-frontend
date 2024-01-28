@@ -30,6 +30,9 @@ function AdvertDetailPage() {
   const [offers, setOffers] = useState({ results: [] });
 
   const handleAcceptOffer = async (offerId) => {
+    {/*Change offer status to ACCEPTED
+      when clicked on 'accept' button
+      update state of the offer to reflect changes*/}
     try {
       await axiosRes.put(`/offers/${offerId}/`, { status: "ACCEPTED" });
       setOffers((prevOffers) => ({
@@ -44,9 +47,11 @@ function AdvertDetailPage() {
   };
 
   const handleRejectOffer = async (offerId) => {
+    {/*Change offer status to REJECTED
+      when clicked on reject button 
+      update state of the offer to reflect changes */}
     try {
       await axiosRes.put(`/offers/${offerId}/`, { status: "REJECTED" });
-
       setOffers((prevOffers) => ({
         ...prevOffers,
         results: prevOffers.results.map((offer) =>
@@ -59,9 +64,11 @@ function AdvertDetailPage() {
   };
 
   const handleDeActivateOffer = async (offerId) => {
+    {/*Change offer status to SOLD
+       when clicked on 'sold' button
+       update state of the offer to reflect changes */}
     try {
       await axiosRes.put(`/offers/${offerId}/`, { status: "SOLD" });
-
       setOffers((prevOffers) => ({
         ...prevOffers,
         results: prevOffers.results.map((offer) =>
@@ -75,6 +82,7 @@ function AdvertDetailPage() {
 
   useEffect(() => {
     const handleMount = async () => {
+      {/* await untill all objects mounted*/}
       try {
         const [{ data: advert }, { data: questions }, { data: offers }] =
           await Promise.all([
@@ -93,7 +101,7 @@ function AdvertDetailPage() {
     handleMount();
   }, [id]);
 
-  // question tab
+  // question tab content
   const questionsTab = (
     <>
       <Container>
@@ -166,7 +174,7 @@ function AdvertDetailPage() {
     </>
   );
 
-  //offers tab
+  //offers tab content
   const offersTab = (
     <>
       <p className={SaleRules.HowTo}>
@@ -246,7 +254,7 @@ function AdvertDetailPage() {
     </>
   );
 
-  //Tabs holder
+  //Tabs holder -questions tab set as default
   const mainAdvertTabs = (
     <>
       <Tabs
