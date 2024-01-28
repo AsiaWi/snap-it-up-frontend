@@ -45,6 +45,7 @@ For details on back-end please visit this link: [BACK-END REPO](https://github.c
   - [Automatic Testing](#automatic-testing)
     - [Unit Tests](#unit-tests)
 - [Bugs](#bugs)
+  - [Console errors](#console-errors)
 - [Deployment](#deployment)
   - [Version Control](#version-control)
   - [Deploying in Heroku](#deploying-in-heroku)
@@ -253,7 +254,7 @@ FEATURE DESIGN FOR LARGE AND SMALL SCREENS:
 ![REGISTER_LARGESCREENS](https://res.cloudinary.com/dmod5eglu/image/upload/v1706204429/REGISTER_LARGESCREEN_uwj28p.png)
 ![REGISTER_SMALLSCREENS](https://res.cloudinary.com/dmod5eglu/image/upload/v1706204428/REGISTER_SMALLSCREEN_uepmc7.png)
 
-Link to sign-in if user entered incorrect page have been provided for better UX.
+Link to sign-in, if user entered incorrect page has been provided for better UX.
 
 Implementing this user story allows users to sign-in:
 
@@ -263,7 +264,7 @@ FEATURE DESIGN FOR LARGE AND SMALL SCREENS:
 ![SIGNIN_LARGESCREENS](https://res.cloudinary.com/dmod5eglu/image/upload/v1706204422/SIGN-IN-LARGESCREENS_wcttjo.png)
 ![SIGNIN_SMALLSCREENS](https://res.cloudinary.com/dmod5eglu/image/upload/v1706204422/SIGN-IN-SMALLSCREENS_vqdysn.png)
 
-Link to register if user entered incorrect page have been provided for better UX.
+Link to register, if user entered incorrect page has been provided for better UX.
 
 Implementing this user story improves user experience whilst using the page, it keeps user logged in and allows for sign-out from nav menu rather than logging out on every refresh:
 
@@ -314,20 +315,20 @@ EACH FEATURE DESCRIPTION BUILDING UP THE LIST VIEW IN DETAIL AS FOLLOWS:
 - This feature allows users to see top most saved adverts, (3 for mobile)
 - The aim of this feature is both: to encourage users to be more active on the page and boost the pages and to improve the UI for desktop page
 
-PLEASE NOTE THIS FEATURE IN ADVERTS DETAIL VIEW HAS ONLY BEEN ADDED TO DESKTOP VIEW. I DECIDED NOT TO OVERCROWD THE PAGE WITH IT FOR MOBILE VIEW WHEN USERS INTENTIONALLY CLICKS TO VIEW MOMRE DETAILS ABOUT SPECIFIC ADVERT I WANTED TO PROVIDE EXACTLY THAT. I STILL THINK THIS IMPROVES UI IN DESKTOP VIEW SO HAVE LEFT IT THERE.
+PLEASE NOTE THIS FEATURE IN ADVERTS DETAIL VIEW HAS ONLY BEEN ADDED TO DESKTOP VIEW. I DECIDED NOT TO OVERCROWD THE PAGE WITH IT FOR MOBILE VIEW, WHEN USER INTENTIONALLY CLICKS TO VIEW MORE DETAILS ABOUT SPECIFIC ADVERT. I STILL THINK THE SIDE BAR IMPROVES UI IN DESKTOP VIEW SO I HAVE LEFT IT THERE.
 
 #### Search adverts
 
 `As a USER I can SEARCH ADVERTS BY ITEM LOCATION OR KEYWORD/TAG NAME so that I CAN FIND ITEMS THAT I'M INTERESTED IN`
 
-- Search bar view from large screens/ right side:
+- Search bar view from large screens(right side):
   ![SEARCH_LARGE_SCREEN](https://res.cloudinary.com/dmod5eglu/image/upload/v1706207516/SEARCH_SELECT_LARGE_SCREENS_piyjke.png)
 - Search bar view from medium to small screens:
 
 ![SEARCH_small_SCREEN](https://res.cloudinary.com/dmod5eglu/image/upload/v1706207516/SEARCH_SMALL_SCREEN_zbkbwv.png)
 
-- This feature allows users to search adverts by keywords, title, item description, tags and location has been included in this search bar to allow users to find items more easily.
-  This is so that for exmaple if seller includes key work within item description but not title- potential buyers can still find it with the help of search bar. Location included in search here refers to item location which has been implemented seperately to profile location so that the seller isn't restricted to only sell items from own location(they might want to sell something on behalf of their parents for example).
+- This feature allows users to search adverts by keywords, title, item description, tags and ITEM location. Reason to include all these fields is to allow users to find items more easily.
+  This is so that for example, if seller includes key word within item description but not title- potential buyers can still find it with the help of search bar. Location included in search here refers to item location which has been implemented seperately to profile location so that the seller isn't restricted to only sell items from own location(they might want to sell something on behalf of their parents for example).
 
 - The aim of this feature is to make user experience as smooth and easy as possible
 
@@ -335,7 +336,7 @@ PLEASE NOTE THIS FEATURE IN ADVERTS DETAIL VIEW HAS ONLY BEEN ADDED TO DESKTOP V
 
 `As a USER I can VIEW ITEMS BY CATEGORY so that I CAN FIND ITEMS I NEED`
 
-- Select categories drop-down view from large screens/ left side:
+- Select categories drop-down view from large screens (left side):
 
 ![SELECT_LARGE_SCREEN](https://res.cloudinary.com/dmod5eglu/image/upload/v1706207516/SEARCH_SELECT_LARGE_SCREENS_piyjke.png)
 
@@ -357,7 +358,7 @@ PLEASE NOTE THIS FEATURE IN ADVERTS DETAIL VIEW HAS ONLY BEEN ADDED TO DESKTOP V
   - 'Sports'
   - 'Other'
 
-* This feature allows user to select category they might be interested in to view items related to it. This has been done as a search field on backend which means it will also pick up string from other search fields (title, item description etc. -as above, to broaden the search and pick up all related ads)
+* This feature allows user to select category they might be interested in, to view items related to it. This has been done as a search field on backend which means it will also pick up strings from other search fields (title, item description etc. -as above, to broaden the search and pick up all related ads)
 * The aim of this feature is to again broaden the search for the potential buyer.
 
 #### Advert
@@ -372,7 +373,7 @@ PLEASE NOTE THIS FEATURE IN ADVERTS DETAIL VIEW HAS ONLY BEEN ADDED TO DESKTOP V
 
 ![ADVERT_VIEW_FROM_LISTVIEW_SMALL_SCREENS](https://res.cloudinary.com/dmod5eglu/image/upload/v1706209273/ADVERT_VIEW_FROM_LISTVIEW_SMALL_SCREENS_e3bayl.png)
 
-- This is in regards to being able to see some of the adverts details straight away with the aim of not having to click to detail view. User can see :
+- The advert view is the same from Home page as well as from Advert Detail View, the Advert Detail view page includes extra information but the advert looks the same. This means that users can see as much as possible about an item on sale to catch their interest so thet they can make decidon to click to detail view or keep scrolling through the list view. User can see :
 
   - title (optional)
   - sellers avatar and name
@@ -394,7 +395,7 @@ PLEASE NOTE THIS FEATURE IN ADVERTS DETAIL VIEW HAS ONLY BEEN ADDED TO DESKTOP V
     - icon to show user can click to detail view to make an offer
 
 - This feature allows all users those who are logged in and not- to view posts shared by other users.
-  -The aim of this feature having this content is so that firstly- user can see from the moment they enter the page what is the aim of the page,keep anyone who just entered the page interested and encourage to explore it more, and secondly-it saves the user on clicking to another page for actual content if I was to include the adverts list view on another page.
+- The aim of this feature (home page) having this content (advert) is so that firstly- user can see from the moment they enter the page what is the aim of the page, keep anyone who just entered the page interested and encourage to explore it more, and secondly- it saves the user from gaving to click to another page to perform an action that is an esence of this page - search through the ads, if I was to include the adverts list view on another page.
 
 ##### Save advert
 
@@ -406,7 +407,7 @@ bookmark before item is saved/ bookmark available from advert view as described 
 
 `As a LOGGED IN USER I can SAVE AN ADVERT BY CLICKING ON SAVE ICON so that I CAN VIEW IT AGAINST OTHER ITEMS I SAVED/ KEEP AN EYE ON THE ITEM`
 
-List of saved items available through 'saved' option from nav bar/ please note as this advert was saved the bookmark within the ad shows solid:
+List of saved items available through 'saved' link from nav bar. Please note as this advert was saved the bookmark within the ad shows solid, the entire list od adverts availabale from 'Saved' link will have it the same:
 
 ![SAVE_ADVERTS_LIST](https://res.cloudinary.com/dmod5eglu/image/upload/v1706218626/saved_list_kicrg9.png)
 
@@ -414,7 +415,7 @@ List of saved items available through 'saved' option from nav bar/ please note a
   - Unauthorised user - will be taken to 'sign-in' page and upon successful login will be taken back to the same page as they were before.
   - Authorised user - if didn't previously like the post - hollow bookmark icon will be displayed -if clicked - the icon will change to solid one and the 'saved' number within the add will increase by 1.
   - Authorised user - if previously saved the post- solid bookmark icon will be shown- if clicked- the icon will change to hollow one and the 'saved' number within the add will decrease by one.
-- advert owner will get an overlay text to say they can't save their own posts as can view their own within their own profile page.
+- advert owner will get an overlay text to say they can't save their own posts as they can view their own ads within their own profile page.
 
 ##### Page views
 
@@ -432,7 +433,7 @@ List of saved items available through 'saved' option from nav bar/ please note a
 
 ![ADD_ADVERT](https://res.cloudinary.com/dmod5eglu/image/upload/v1706210440/ADD_ADVERT_xq08lz.png)
 
-- This feature allows user to add their own advert/entry. Available through nav bar 'sell !t' option. The following fields have been added to form once entered the sell it:
+- This feature allows user to add their own advert/entry. Available through nav bar 'sell !t' link. The following fields have been added to the form:
   - Activity Title - optional , this has been made optional as there is already a lot of other content to describe item like tags, which could be easier for users to express then thinking of a title.
   - Currency- set to GBP and disabled as the page is a UK website
   - Add image- required
@@ -451,7 +452,7 @@ List of saved items available through 'saved' option from nav bar/ please note a
 
 `As a USER I can VIEW A POSTED ADVERT so that I CAN FIND OUT ALL DETAILS ABOUT AN ITEM AND SELLER`
 
-This feature opens up when clicked on the advert from list view, user will se a pointer when hovering over the image and advert key pointers. The features that build it up are as follows:
+This feature opens up when clicked on the advert from list view, user will see a pointer when hovering over the image and advert key pointers list (the one showing price, location etc). The features that build it up are as follows:
 
 #### Advert
 
@@ -468,8 +469,8 @@ Advert has the same view as: [here](#advert)
 - CRUD functionality. This feature is available only if user is logged in and post belongs to the logged in user,when clicked on the three dots menu:
   - user will see an icon to edit and icon to delete
   - if user clicks on edit- this will take them to already filled in advert form which looks the same as the add advert form above. User can change whatever they want and save an item to keep changes.
-  - if user submits changes, a message confirming those updates were saved will display if successful or a toast error will display to inform the user the changes were unsuccessful
-  - The aim of this is so that is user makes any errors/ wants to update the post- they can update it here.
+  - if user submits changes, a toast success message confirming those updates were saved will display - if successful, or a toast error will display to inform the user the changes were unsuccessful
+  - The aim of this is so that if user makes any errors / wants to update the post- they can update it here.
   - if user selects delete option which is the ' trash-bin' icon, the advert will get deleted -if successful a message confirming deletion will show, if unsuccessful an error toast message will display.
   - The aim of this is for user to be able to delete any unwanted content
 
@@ -536,11 +537,11 @@ when questions already exist:
 
 ![EDIT_OR_DELETE_ADVERT](https://res.cloudinary.com/dmod5eglu/image/upload/v1706210442/EDIT_OR_DELETE_ADVERT_suwcko.png)
 
-- CRUD functionality. This feature is available only if user is logged in only within their own questions,when clicked on the three dots menu:
+- CRUD functionality. This feature is available only if user is logged in and only within their own questions,when clicked on the three dots menu:
   - user will see an icon to edit and icon to delete
   - if user clicks on edit- this will bring up the question within edit form which looks the same as question form above, user can make any changes and press 'save' or 'cancel' if changed mind
   - if user submits changes a message confirming that updates were saved will display if successful, or toast error message if unsuccessful.
-  - The aim of this is so that is user can edit questions if they made any mistakes.
+  - The aim of this is so that user can edit questions if they made any mistakes.
   - if user selects delete option which is the ' trash-bin' icon, the advert will get deleted -if successful a message confirming deletion will show, if unsuccessful an error toast message will display.
   - The aim of this is for user to be able to delete any unwanted content
 
@@ -661,9 +662,9 @@ available to all logged in users right above offers list/ only numbers can be su
 
 `As a SELLER I want ALL OFFERS TO STAY VISIBLE so that OTHERS DON'T MAKE SAME OFFERS AGAIN IF I'M NOT HAPPY WITH PRICE`
 
-- This feature means that an option to delete and edit the offers by the user who initially submitted it, noone but advert owner has access to the buttons to change offer status, offers can't be deleted, this functionality has been disabled.
+- This feature means that no option to delete and edit the offers is available to user who initially submitted it, noone but advert owner has access to the buttons to change offer status, offers can't be deleted, this functionality has been disabled.
 
-- The aim of this is to ensure that all offers stay on and other users not repeat offers with the same or lower amounts
+- The aim of this is to ensure that all offers stay on and other users don't repeat offers with the same or lower amounts
 
 ` As a SELLER I can ACCEPT OR REJECT AN OFFER RECEIVED so that I CAN SELL AN ITEM AT PRICE I FIND ACCEPTABLE`
 
@@ -686,7 +687,7 @@ available to all logged in users right above offers list/ only numbers can be su
 
 #### MOST SAVED ADVERTS SIDEBAR
 
-This feature is included within the advert detail view but please see the description here: [MOST SAVED ADVERTS SIDEBAR](#most-saved-adverts-sidebar)
+This feature is included within the advert detail view (desktop only) but please see the description here: [MOST SAVED ADVERTS SIDEBAR](#most-saved-adverts-sidebar)
 
 ### Profile Page
 
@@ -730,9 +731,9 @@ Regardless which option user selects, it will take them to an edit form where th
 
 ![HIGHEST_RATED_PROFILES_SIDEBAR](https://res.cloudinary.com/dmod5eglu/image/upload/v1706231918/highest_rated_profiles_ebtkvk.png)
 
-- This feature has only been implemented for desktop view, it displays highest average_rated profiles which might incentify some sellers.
+- This feature has only been implemented for desktop view, it displays highest average_rate profiles which might incentify some sellers.
 
-- The aim of this was to reward the most reliable users but also to improve UI for desktop view, I havent added this to mobile view as I didn't want to overcrowd the content as I assume the user who clicked on the profile avatar to get to the profile page had an intent of finding out more information about that specific profile. As it's a selling site, users would only be interested in other users if they are interested in specific item so didn't see the need to ovecrowd the page.
+- The aim of this was to reward the most reliable users but also to improve UI for desktop view, I haven't added this to mobile view as I didn't want to overcrowd the content as I assume the user who clicked on the profile avatar to get to the profile page had an intent of finding out more information about that specific profile. As it's a selling site, users would only be interested in other users if they are interested in specific item so didn't see the need to ovecrowd the page.
 
 #### Profiles own adverts tab
 
@@ -740,7 +741,7 @@ Regardless which option user selects, it will take them to an edit form where th
 
 ![PROFILES_ADS](https://res.cloudinary.com/dmod5eglu/image/upload/v1706231919/profiles_adverts_zprgu4.png)
 
-- This feature sits below the profile content within one of the tabs
+- This feature sits below the profile content within one of the tabs and has been set as default tab.
 
 - The aim of this feature is both: for profile owner to have easy access to own content and for other users to search through their ads, I imagine this might help users sales- buyers might have one product that they want to purchase from the seller and check if maybe seller has anything else they are interested in to purchase at the same time.
 
@@ -805,7 +806,7 @@ CRUD functionality. This feature is available only if user is logged in only wit
 
 ### Toast messages
 
-As a User I can CLEARLY SEE CONFIRMATION OF MY SUBMISSIONS so that I AM SURE FORMS CONTENT HAS REACHED THE RIGHT PLACE
+``As a User I can CLEARLY SEE CONFIRMATION OF MY SUBMISSIONS so that I AM SURE FORMS CONTENT HAS REACHED THE RIGHT PLACE``
 
 All forms within the page have has the toast messages implemented
 
@@ -827,7 +828,7 @@ All forms with more than one field have warning messages added into required fie
 
 ![warning](https://res.cloudinary.com/dmod5eglu/image/upload/v1706239709/warnings_wvjvfy.png)
 
-all this has been done to improve user experience.
+all this has been done with the aim of improving users experience.
 
 #### Errors covered
 
@@ -841,9 +842,11 @@ In case of no results to users search, user will see:
 
 in both cases user will still have a nav bar to navigate from the page.
 
-The aim of this is to improve users experience and not encourance users to leave the website.
+The aim of this is to improve users experience and not encourage users to leave the website.
 
 ### Reusable components
+
+Reusable components have been made to recycle the code and avoid duplicating it when unnecessary.
 
 - Navbar
 
@@ -853,24 +856,29 @@ Reused throughout the entire page to provide consistent design allowing users to
 
 - Assets
 
-This component was used throughout the page to show page was loading or no results has been found, improving users experience.
+This component was used throughout the page to show page was loading or no results has been found.
+
+This component improves users experience as they can see the spinner when content is loading or no results found when for example users search has no matching results.
 
 - Avatar
 
 ![avatars](https://res.cloudinary.com/dmod5eglu/image/upload/v1706231918/highest_rated_profiles_ebtkvk.png)
-This component has been reused to display profile images within any content that has been added by the specific profile. This made it easy for other users to click on the profile avatar and check out who was the content from. I have also used it to display the sidebar for most rated adverts lists.
+
+This component has been reused to display profile images within any content(adverts, questions, replies, ratings, offers) that has been added by the specific profile. This made it easy for other users to click on the profile avatar and check out who was the content from. I have also used it to display the sidebar for most rated adverts lists and for sidebar with highest rated profiles.
 
 - Edit delete dropdown menu
 
 ![edit_delete_dropdown](https://res.cloudinary.com/dmod5eglu/image/upload/v1706210442/EDIT_OR_DELETE_ADVERT_suwcko.png)
 
-This component has been reused in every single form that allowed users for Update and Delete funcionality. The simple design allowed me to use it within the small forms like replies for example. It didn't overcrowd the page despite being used in so many places.
+This component has been reused in every single form that allowed users for Update and Delete funcionality. The simple design allowed me to use it even within the small forms (like replies for example). It didn't overcrowd the page despite being used in so many places.
 
 - Star Rating
 
 ![star_rating](https://res.cloudinary.com/dmod5eglu/image/upload/v1706237788/ratings_received_signed_out_mk1byz.png)
 
-This component has been used in add and delete form and If time allowed I would have added it to show average rating within the profile page as well as to rate products sold.
+This component has been used to add and edit rating form.
+
+If time allowed I would have added it to show average rating within the profile page as well as to rate products sold.
 
 ### Features Left To Implement
 
@@ -891,7 +899,7 @@ I have initially created an offer model with private messages however I realised
 - DESKTOP- when user logged out
   ![wireframe_home_logged_out](https://res.cloudinary.com/dmod5eglu/image/upload/v1706282286/WIREFRAME_DESKTOP_HOME_LOGGED_OUT_zn9otb.png)
 
-- MOBILE - LOGGED IN AND OUT/ OPTION WITHIN HAMBURGER MENU WILL BE THE SAME AS NAVBAR WITHIN DESKTOP VIEW
+- MOBILE - LOGGED IN AND OUT/ OPTIONS WITHIN HAMBURGER MENU WILL BE THE SAME AS NAVBAR WITHIN DESKTOP VIEW
 
 Please note advert mobile view is the same for all pages so I will not be doing wireframes for every possibility. The advert works in the same reponsive way on all pages
 
@@ -902,13 +910,17 @@ Please note advert mobile view is the same for all pages so I will not be doing 
 
 Saved adverts list view is only available to logged in users, the view is the same as home page with the exception of having only a list of adverts that have been saved by logged in user( this can be easily recognised by solid bookmark icon)
 
-![]wireframe_saved_list_view(https://res.cloudinary.com/dmod5eglu/image/upload/v1706282797/WIREFRAME_DESKTOP_SAVED_LOGGED_IN_a4wkrf.png)
+![wireframe_saved_list_view](https://res.cloudinary.com/dmod5eglu/image/upload/v1706282797/WIREFRAME_DESKTOP_SAVED_LOGGED_IN_a4wkrf.png)
+
+Mobile view the same as home page view/ bookmark icon would be solid:
+
+![wireframe_home_mobile](https://res.cloudinary.com/dmod5eglu/image/upload/v1706282593/WIREFRAME_MOBILE_HOME_xvfk2m.png)
 
 </details>
 
 <details><summary>ADVERT DETAIL VIEW</summary>
 
-This view is the same for desktop as home page with the exception of having questions and offers tags at the bottom. I have marked differences within nav bar and functionality to make it clear which feature is available when logged in / logged out
+This view is the same for desktop as home page with the exception of having questions and offers tabs at the bottom. I have marked differences within nav bar and functionality to make it clear which feature is available when logged in / logged out
 
 ![full_advert_detail_page_wireframe](https://res.cloudinary.com/dmod5eglu/image/upload/v1706283032/wireframe_advert_detail_view_both_auth_states_uiiauu.png)
 
@@ -922,18 +934,20 @@ Offers tab looks the same for desktop and mobile, auth state differences have be
 
 Mobile view includes:
 
-- advert( mobile view the same as Home page mobile wireframe)
+- advert( mobile view the same as within Home page mobile wireframe- image below, content as per this list + highest rated adverts, select category, search by.. would be gone)
 - questions (mobile view the same as desktop)
 - offers (mobile view the same as desktop)
 
-all auth differences apply the same as for the desktop features here.
+All auth differences apply the same as for the desktop features here.
+
+![wireframe_home_mobile](https://res.cloudinary.com/dmod5eglu/image/upload/v1706282593/WIREFRAME_MOBILE_HOME_xvfk2m.png)
 
 </details>
 
 <details><summary>PROFILE PAGE</summary>
 
 Profile page wireframe shows all auth state differences in functionality.
-Mobile wireframe would have looked the same with the exception of not having the highest rated profile list sidebar, and of course hamburger menu.
+Mobile wireframe would have looked the same with the exception of not having the highest rated profile list sidebar, and of course hamburger menu for nav bar as per mobile wireframe within home page.
 
 ![wireframe_profile_page](https://res.cloudinary.com/dmod5eglu/image/upload/v1706284045/wireframe_profilepage_fnhlif.png)
 
@@ -968,7 +982,7 @@ The design of the page has been kept clean and simple. Page isn't overcrowded an
 - JavaScript- main language used to make page interactive
 - Heroku - to deploy the app
 - [toastify](https://www.npmjs.com/package/react-toastify?activeTab=versions) used to create toast messages
-- [Balsamiq](https://balsamiq.com/wireframes/)- used to create wireframes
+- [Wireframe.cc](https://wireframe.cc/)- used to create wireframes
 - [Favicon](https://favicon.io/favicon-generator/) - used to create favicon for the page
 - [Font Awesome](https://fontawesome.com/) - used to add icons for the page
 - [Wave Evaluation Tool](https://wave.webaim.org/)- used for checking accessibility
@@ -1159,7 +1173,16 @@ Warning as mentioned [here](#javascript)
 
 Safari issue as explained [here](#accessibility)
 
-### Console warnings
+### Console errors
+
+- When unauthorised, there is some console errors which have also been present in walkthrough and I have not had time to look into fixing it:
+
+![console_errors](https://res.cloudinary.com/dmod5eglu/image/upload/v1706468532/Console_warnings_mbesnt.png)
+
+- I am also getting warnings when authorised:
+
+![console_warnings](https://res.cloudinary.com/dmod5eglu/image/upload/v1706469168/console_vccblm.png)
+
 
 ## Deployment
 
