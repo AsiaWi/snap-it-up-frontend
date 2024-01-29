@@ -21,9 +21,9 @@ function AdvertsListViewPage({ message, filter = "" }) {
   const [categories, setCategories] = useState("");
   const userLoggedIn = useLoggedInUser();
 
+  //fetch adverts based on categories
   useEffect(() => {
     const fetchCategories = async () => {
-      {/* Fetch adverts list on category change  */}
       try {
         const { data } = await axiosReq.get(
           `/adverts/?${filter}search=${categories}`
@@ -36,9 +36,9 @@ function AdvertsListViewPage({ message, filter = "" }) {
     fetchCategories();
   }, [filter, categories, pathname, userLoggedIn]);
 
+  //fetch adverts based on search query
   useEffect(() => {
     const fetchAdverts = async () => {
-      {/* Fetch adverts list on keyword change  */}
       try {
         const { data } = await axiosReq.get(
           `/adverts/?${filter}search=${query}`
@@ -49,7 +49,6 @@ function AdvertsListViewPage({ message, filter = "" }) {
         // console.log(err);
       }
     };
-
     setHasLoaded(false);
     const timer = setTimeout(() => {
       fetchAdverts();

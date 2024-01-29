@@ -22,16 +22,20 @@ const Offer = (props) => {
   } = props;
 
   const userLoggedin = useLoggedInUser();
+  //check if logged in user is the seller/ owner of the advert
   const is_seller = userLoggedin?.username === seller;
 
+  // handle acceping the offer
   const handleAcceptOffer = () => {
     onAcceptOffer(id);
   };
 
+  // handle rejecting the offer
   const handleRejectOffer = () => {
     onRejectOffer(id);
   };
 
+  //handle SOLD status of the offer
   const handleDeActivateOffer = () => {
     onDeactivateOffer(id);
   };

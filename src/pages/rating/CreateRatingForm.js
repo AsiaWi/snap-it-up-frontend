@@ -10,17 +10,25 @@ import Alert from "react-bootstrap/Alert";
 import { toast } from "react-toastify";
 
 function CreateRatingForm(props) {
+  // state to handle errors
   const [errors, setErrors] = useState({});
   const { rated_user, setRatings } = props;
+  //state for feedback (optional message)
   const [feedback, setFeedback] = useState("");
+  // state for rating (displayed as star rating)
   const [rating, setRating] = useState("");
   const [hover, setHover] = useState(null);
   const { handleSubmit } = useSetProfileData();
 
+  // event handler for changing feedback message
   const handleFeedbackChange = (event) => {
     setFeedback(event.target.value);
   };
 
+  /*Event handler to submit user's rating (rating includes: feedback + (star) rating)
+   POST request to create rating 
+   Update rating state to display new rating within the list
+   update profile data changes on handleSubmit call */
   const handleSubmitRating = async (event) => {
     event.preventDefault();
     try {

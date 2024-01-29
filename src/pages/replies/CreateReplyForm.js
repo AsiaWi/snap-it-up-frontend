@@ -7,12 +7,23 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { toast } from "react-toastify";
 
 function CreateReplyForm(props) {
+  //destructure props
   const { question, setQuestion, setReplies, setShowCreateForm } = props;
+  // state to manage reply content
   const [reply_content, setContent] = useState("");
+
+  //event handler to update reply content
   const handleChange = (event) => {
     setContent(event.target.value);
   };
 
+  /*event handler to submit reply
+    POST request send to create new reply
+    update replies state to display the new reply within the list
+    update the related question's state to show replies count increased by 1
+    clear reply form content
+    hide reply form 
+    show either success or error toast message */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

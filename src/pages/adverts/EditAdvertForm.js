@@ -44,9 +44,16 @@ function EditAdvertForm() {
   } = advertData;
 
   const imageInput = useRef(null);
+  //history hook to navigate
   const history = useHistory();
+  //params hook to get adverts id from url
   const { id } = useParams();
 
+  /*GET adverts data based on id
+    check is user is adverts owner- if not redirect to home
+    using hist.
+    set advert data otherwise.
+    Call handleMount */
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -89,6 +96,10 @@ function EditAdvertForm() {
     handleMount();
   }, [history, id]);
 
+  /*handle form submission
+  use PUT request to update adverts details
+  redirect back to advert detail view with hist.
+  success or error toast message on submission*/
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -137,6 +148,7 @@ function EditAdvertForm() {
     }
   };
 
+  //input fields
   const inputFields = (
     <Container className="text-center">
       <Form.Group>

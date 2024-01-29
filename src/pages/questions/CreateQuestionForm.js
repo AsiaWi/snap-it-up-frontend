@@ -7,17 +7,24 @@ import stylesLabel from "../../App.module.css";
 import { toast } from "react-toastify";
 
 function CreateQuestionForm(props) {
+  // Destructure props and state for question_content
   const { advert, setAdvert, setQuestions } = props;
   const [question_content, setContent] = useState("");
 
+  //Event handler to change question content
   const handleChange = (event) => {
     setContent(event.target.value);
   };
 
+  /* Event handler to submit question form
+      prevent default form from submission
+      POST request to create a question
+      update questions state - display the question within the q's list
+      refresh advert state
+      clear form of question content
+      display success or error message
+       */
   const handleSubmit = async (event) => {
-    {/* post a question and update state to display against
-      correct advert
-      display either success or error message */}
     event.preventDefault();
     try {
       const { data } = await axiosRes.post("/questions/", {

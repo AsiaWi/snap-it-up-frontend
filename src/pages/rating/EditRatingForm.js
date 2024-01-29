@@ -8,18 +8,28 @@ import stylesLabel from "../../App.module.css";
 import { toast } from "react-toastify";
 
 function EditRatingForm(props) {
+  // destructure props
   const { rated_user, id, feedback, rating, setShowEditForm, setRatings } =
     props;
-
+  // state for handling updated feedback (message part of submitted rating form)
   const [feedbackUpdate, setFeedbackUpdate] = useState(feedback);
+  // state for handling updated rating (star rating part of submitted rating form)
   const [ratingUpdate, setRatingUpdate] = useState(rating);
   const [hover, setHover] = useState(null);
+  // hook for handling profile data changes
   const { handleEditRating } = useSetProfileData();
 
+  // event handler for changing feedback (message)
   const handleFeedbackChange = (event) => {
     setFeedbackUpdate(event.target.value);
   };
 
+  /* Event handler to submit the edited rating 
+     PUT request to update existing rating
+     update ratings state to show updated rating within the ratings list
+     update profile data on handleEditRating call
+     hide reply edit form 
+     show either success or error toast message*/
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

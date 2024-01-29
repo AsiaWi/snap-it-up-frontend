@@ -40,9 +40,6 @@ function ProfilePage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      {/* await until all objects mounted
-        update profile state, get all adverts and ratings
-      related to profile*/}
       try {
         const [
           { data: pageProfile },

@@ -10,6 +10,7 @@ import EditReplyForm from "../replies/EditReplyForm";
 import { toast } from "react-toastify";
 
 const Reply = (props) => {
+  //destructure props
   const {
     id,
     created_by_profile_user,
@@ -19,10 +20,15 @@ const Reply = (props) => {
     reply_content,
     setReplies,
   } = props;
+  // state to hide or show edit REPLY form
   const [showEditForm, setShowEditForm] = useState(false);
   const userLoggedIn = useLoggedInUser();
   const is_owner = userLoggedIn?.username === owner;
 
+  /* event handler to delete the reply
+     DELETE request sent to remove the reply with id
+     update replies state reflecting removed reply (using id)
+     display either success or error toast message */
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/replies/${id}/`);

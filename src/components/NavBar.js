@@ -13,11 +13,11 @@ import useCollapseNavBar from "../hooks/useCollapseNavBar";
 import { removeTokenTimestamp } from "../utils/utils";
 
 const NavBar = () => {
-  {/* userLoggedIn used to establish logged in state */}
   const userLoggedIn = useLoggedInUser();
   const setLoggedInUser = useSetLoggedInUser();
   const { collapsed, setCollapsed, ref } = useCollapseNavBar();
 
+  /*POST request to "dj-rest-auth/logout/" endpoint to log user out */
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
@@ -28,6 +28,7 @@ const NavBar = () => {
     }
   };
 
+  //logged-in icons
   const loggedInIcons = (
     <>
       <NavLink
@@ -58,6 +59,7 @@ const NavBar = () => {
     </>
   );
 
+  //logged-out icons
   const loggedOutIcons = (
     <>
       <NavLink
@@ -77,6 +79,7 @@ const NavBar = () => {
       </NavLink>
     </>
   );
+
   return (
     <Navbar
       expanded={collapsed}
@@ -106,8 +109,6 @@ const NavBar = () => {
             >
               <i className="fa-solid fa-house"></i>Home
             </NavLink>
-            {/* ternary statement allowing to render correct navbar links
-             if userLoggedIn true or false */}
             {userLoggedIn ? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>

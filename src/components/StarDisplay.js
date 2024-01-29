@@ -1,9 +1,10 @@
 import styles from "../styles/StarRating.module.css";
 
+/*starDisplay takes rating as a prop 
+  stars function creates a list of span elements which will display a star character,
+  if stars index is less or equals to rating it will have a vibrant styling
+  if the statement comes back as false it will have different styling  */
 const StarDisplay = ({ rating }) => {
-  {/*Component allowing to convert number (in this case rating) into star icons, 
-   uses length of 5, takes number 'rating' and styles it,
-   rest of the array indexes styled differently */}
   const stars = () => {
     const starsList = [];
 

@@ -29,10 +29,10 @@ function AdvertDetailPage() {
   const [questions, setQuestions] = useState({ results: [] });
   const [offers, setOffers] = useState({ results: [] });
 
+  /*handle accepting offer
+    PUT request to edit offer status to ACCEPT
+    state update for offers to reflect change within the specific offer */
   const handleAcceptOffer = async (offerId) => {
-    {/*Change offer status to ACCEPTED
-      when clicked on 'accept' button
-      update state of the offer to reflect changes*/}
     try {
       await axiosRes.put(`/offers/${offerId}/`, { status: "ACCEPTED" });
       setOffers((prevOffers) => ({
@@ -46,10 +46,10 @@ function AdvertDetailPage() {
     }
   };
 
+  /*handle rejecting offer
+    PUT request to edit offer status to REJECT
+    state update for offers to reflect change within the specific offer */
   const handleRejectOffer = async (offerId) => {
-    {/*Change offer status to REJECTED
-      when clicked on reject button 
-      update state of the offer to reflect changes */}
     try {
       await axiosRes.put(`/offers/${offerId}/`, { status: "REJECTED" });
       setOffers((prevOffers) => ({
@@ -63,10 +63,10 @@ function AdvertDetailPage() {
     }
   };
 
+  /*handle offer status change to SOLD
+    PUT request to edit offer status to SOLD
+    state update for offers to reflect change within the specific offer */
   const handleDeActivateOffer = async (offerId) => {
-    {/*Change offer status to SOLD
-       when clicked on 'sold' button
-       update state of the offer to reflect changes */}
     try {
       await axiosRes.put(`/offers/${offerId}/`, { status: "SOLD" });
       setOffers((prevOffers) => ({
@@ -80,9 +80,10 @@ function AdvertDetailPage() {
     }
   };
 
+  /* fetch advert dets, questions related to advert id and
+  offers related to advert id on component mount */
   useEffect(() => {
     const handleMount = async () => {
-      {/* await untill all objects mounted*/}
       try {
         const [{ data: advert }, { data: questions }, { data: offers }] =
           await Promise.all([

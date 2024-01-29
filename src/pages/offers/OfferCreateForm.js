@@ -8,17 +8,24 @@ import { toast } from "react-toastify";
 
 function OfferCreateForm(props) {
   const { advert, setAdvert, setOffers } = props;
+  // state to manage offer status
   const [status, setStatus] = useState("PENDING");
+  //state to manage amount offered
   const [amount, setAmount] = useState("");
 
+  //event handler to handle changing offered amount
   const handleChange = (event) => {
     setAmount(event.target.value);
   };
 
+  /*Event handler for submitting new offer
+    prevent default form submission'
+    POST request sent to create offer
+    update offers state to show new offer within
+    update advert state to reflect changes if any
+    clear state for amount and status to default
+    show either success or error toast message */
   const handleSubmit = async (event) => {
-    {/*post the offer, set status to pending as default 
-     update offers state
-     display either success or error message */}
     event.preventDefault();
     try {
       const { data } = await axiosRes.post("/offers/", {

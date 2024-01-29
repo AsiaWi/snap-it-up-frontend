@@ -12,9 +12,12 @@ export const ProfileDataProvider = ({ children }) => {
     pageProfile: { results: [] },
   });
 
+  /* Handle profile data on rating deletion
+     delete the rating with specified id
+     fetch profile data for rated_user after deletion
+     and update profile data with new details 
+     (this should change ratings number and average rating displayed within profile)*/
   const handleDeleteRating = async (id, rated_user) => {
-    {/** Allows to update profile data on 'rating' delete, to display correct
-     average rating and ratings number within profile, without using page refresh */}
     try {
       await axiosRes.delete(`/ratings/${id}/`);
       const { data } = await axiosReq.get(`/profiles/${rated_user}/`);
@@ -27,10 +30,10 @@ export const ProfileDataProvider = ({ children }) => {
     }
   };
 
+  /*Fetch updated profile data for rated_user when submitting rating
+    and update profileData state with updated details. This will 
+    update ratings number and average rating displayed within profile */
   const handleSubmit = async (rated_user) => {
-    {/*Allows to update profile data within the page on rating submit, 
-      without using page refresh, to correcty display average rating and 
-      ratings received number*/}
     try {
       const { data } = await axiosReq.get(`/profiles/${rated_user}/`);
       setProfileData((prevState) => ({
@@ -38,13 +41,14 @@ export const ProfileDataProvider = ({ children }) => {
         pageProfile: { results: [data] },
       }));
     } catch (err) {
-      // console.error("Error deleting rating:", err);
+      // console.error("Error:", err);
     }
   };
 
+  /*Fetch updated profile data for rated_user when editing rating
+    and update profileData state with updated details. This will 
+    update average rating displayed within profile*/
   const handleEditRating = async (rated_user) => {
-    {/*Allows to update profile data without using refresh when user edits rating,
-      to render correct average_rating*/}
     try {
       const { data } = await axiosReq.get(`/profiles/${rated_user}/`);
       setProfileData((prevState) => ({

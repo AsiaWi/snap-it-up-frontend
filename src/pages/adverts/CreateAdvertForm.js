@@ -18,6 +18,8 @@ import { toast } from "react-toastify";
 function CreateAdvertForm() {
   const [errors, setErrors] = useState({});
   useRedirect("loggedOut");
+
+  //initial form data state
   const [advertData, setAdvertData] = useState({
     advert_title: "",
     tags: "",
@@ -31,6 +33,7 @@ function CreateAdvertForm() {
     location: "",
     contact_dets: "",
   });
+
   const {
     advert_title,
     tags,
@@ -48,10 +51,11 @@ function CreateAdvertForm() {
   const imageInput = useRef(null);
   const history = useHistory();
 
+  //handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
-
+    //append formData to FormData
     formData.append("advert_title", advert_title);
     formData.append("tags", tags);
     formData.append("image", imageInput.current.files[0]);
@@ -65,6 +69,8 @@ function CreateAdvertForm() {
     formData.append("contact_dets", contact_dets);
 
     try {
+      /* POST request sent to create new ad 
+      either success or error toast message on submission */
       const { data } = await axiosReq.post("/adverts/", formData);
       history.push(`/adverts/${data.id}`);
       toast.success("Submission successful!");
@@ -77,6 +83,7 @@ function CreateAdvertForm() {
     }
   };
 
+  //handle input form changes
   const handleChange = (event) => {
     setAdvertData({
       ...advertData,
@@ -84,6 +91,7 @@ function CreateAdvertForm() {
     });
   };
 
+  // handle image upload
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -94,6 +102,7 @@ function CreateAdvertForm() {
     }
   };
 
+  //form input fields
   const inputFields = (
     <Container className="text-center">
       <Form.Group>

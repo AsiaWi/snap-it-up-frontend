@@ -6,13 +6,21 @@ import stylesLabel from "../../App.module.css";
 import { toast } from "react-toastify";
 
 function EditReplyForm(props) {
+  // destructure props
   const { id, reply_content, setShowEditForm, setReplies } = props;
+  //state to manage the edited reply content
   const [formContent, setFormContent] = useState(reply_content);
 
+  //event handler to update the edited reply content
   const handleChange = (event) => {
     setFormContent(event.target.value);
   };
 
+  /* event handler to submit edited reply,
+     PUT request sent to update existing reply using id
+     update replies state to reflect the edited reply 
+     hide edit reply form
+     show success or error toast message*/
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

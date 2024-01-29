@@ -22,11 +22,17 @@ const Rating = (props) => {
     setRatings,
     rated_user,
   } = props;
+
+  // state to manage if edit RATING form shows or not
   const [showEditForm, setShowEditForm] = useState(false);
   const userLoggedIn = useLoggedInUser();
   const is_owner = userLoggedIn?.username === owner;
+  // handle profile data changes
   const { handleDeleteRating } = useSetProfileData();
 
+  /* call handleDeleteRating 
+     update rating list state to reflect the rating deleted 
+     show either success or error toast message */
   const onDelete = async () => {
     try {
       await handleDeleteRating(id, rated_user);

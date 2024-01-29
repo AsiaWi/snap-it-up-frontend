@@ -11,10 +11,9 @@ const PopularAdverts = ({ mobile }) => {
   });
   const { popularAdverts } = advertData;
 
+  // fetch popular ad's in descending order based on saved_count field
   useEffect(() => {
     const handleMount = async () => {
-      {/* get a list of adverts based on save_count, descending order
-         update state to display list correctly*/}
       try {
         const { data } = await axiosReq.get("/adverts/?ordering=-save_count");
         setAdvertData((prevState) => ({

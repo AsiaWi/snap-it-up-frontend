@@ -6,18 +6,23 @@ import stylesLabel from "../../App.module.css";
 import { toast } from "react-toastify";
 
 function EditQuestionForm(props) {
+  /* Destructure props 
+   state for the edited question */
   const { id, question_content, setShowEditForm, setQuestions } = props;
   const [formContent, setFormContent] = useState(question_content);
 
+  // event handler to changing the content to edit question
   const handleChange = (event) => {
     setFormContent(event.target.value);
   };
 
+  /*Event handler to submit the edit form
+    prevent default form from submission
+    send PUT request to edit existing question's content
+    update questions list state to display the edit question updated
+    hide edit form
+    display either success or error toast message */
   const handleSubmit = async (event) => {
-    {/* update question content, update questions state
-     to display correct updated questions list
-     hide edit form 
-     display either success or error message*/}
     event.preventDefault();
     try {
       await axiosRes.put(`/questions/${id}/`, {

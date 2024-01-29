@@ -43,14 +43,16 @@ const Advert = (props) => {
   const is_owner = userLoggedin?.username === owner;
   const history = useHistory();
 
+  //direct to edit advert page
   const handleEdit = () => {
-    {/*Redirects user to edit advert page*/}
     history.push(`/adverts/${id}/edit`);
   };
 
+  /*handle adverts deletion
+    DELETE request to delete advert based on advert id
+    redirect back to last visited page
+    either success or error toast message on deletion*/
   const handleDelete = async () => {
-    {/*Removes advert from data and redirects user to 
-      the last page they were on*/}
     try {
       await axiosRes.delete(`/adverts/${id}/`);
       history.goBack();
@@ -61,9 +63,11 @@ const Advert = (props) => {
     }
   };
 
+  /**handle saving item to saved list
+   * POST request sent using adverts id to saved list
+   * adverts state updated to reflect save_count incremented by 1
+   */
   const handleSaveItem = async () => {
-    {/*Create 'save' object,
-      increment number of save_count for the advert*/}
     try {
       const { data } = await axiosRes.post("/saved/", { advert: id });
       setAdverts((prevAdverts) => ({
@@ -79,9 +83,11 @@ const Advert = (props) => {
     }
   };
 
+  /**handle removing saved object from the saved list
+   * DELETE request sent to remove saved object based on save id
+   * adverts state refreshed to decrement save count by 1
+   */
   const handleRemoveFromSavedList = async () => {
-    {/*Remove save object, 
-      decrement save_count by 1 from advert id*/}
     try {
       await axiosRes.delete(`/saved/${save_id}/`);
       setAdverts((prevAdverts) => ({

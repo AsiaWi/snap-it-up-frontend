@@ -1,5 +1,9 @@
 import styles from "../../styles/StarRating.module.css";
 
+/* starRating created to select rating given to user and then
+to display this rating once selected 
+array of radio inputs mapped to star elements
+style each star with vibrant colour if hovered over or selected*/
 function StarRating({ setRating, setHover, rating, hover, totalStars }) {
   return (
     <div>

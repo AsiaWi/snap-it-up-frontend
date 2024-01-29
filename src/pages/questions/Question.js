@@ -18,6 +18,7 @@ import btnStyles from "../../styles/Button.module.css";
 import { toast } from "react-toastify";
 
 const Question = (props) => {
+  //destructure props
   const {
     id,
     asked_by_profile_user,
@@ -28,18 +29,26 @@ const Question = (props) => {
     setAdvert,
     setQuestions,
   } = props;
+
+  // state to manage if edit QUESTION form displays or not
   const [showEditForm, setShowEditForm] = useState(false);
   const userLoggedIn = useLoggedInUser();
   const is_owner = userLoggedIn?.username === owner;
+  // state to manage if REPLY create form displays or not
   const [showCreateForm, setShowCreateForm] = useState(false);
+  // state to manage if REPLIES LIST shows or not
   const [showRepliesList, setShowRepliesList] = useState(false);
   const [question, setQuestion] = useState(props);
   const [replies, setReplies] = useState({ results: [] });
 
+  /* event handler to delete question
+     sends DELETE request to delete specific question
+     Updates advert's state
+     Updates questions state removing specific question from list
+     show either success or error toast message */
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/questions/${id}/`);
-
       setAdvert((prevAdvert) => ({
         results: [
           {
@@ -57,6 +66,7 @@ const Question = (props) => {
     }
   };
 
+  // Fetch replies when question component mounted
   useEffect(() => {
     const handleMount = async () => {
       try {
